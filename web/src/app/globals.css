@@ -83,7 +83,14 @@ button:disabled {
 h1,
 h2,
 h3 {
+  font-family: var(--display);
   font-weight: 400;
+}
+h1 em,
+h2 em,
+h3 em {
+  font-family: var(--display);
+  font-style: normal;
 }
 em {
   font-family: Georgia, "Times New Roman", serif;
@@ -368,11 +375,8 @@ button {
   left: 4%;
 }
 .hero-side h2 {
-  font-family: Georgia, serif;
-  font-style: italic;
-  font-weight: 700;
   font-size: 37px;
-  letter-spacing: -2px;
+  letter-spacing: 0;
   margin: 15px 0;
 }
 .hero-side h2 span {
@@ -610,10 +614,8 @@ button {
   opacity: 0.5;
 }
 .ingredient-side h3 {
-  font-family: Georgia, serif;
   font-size: 22px;
   line-height: 1.2;
-  font-style: italic;
   margin: 17px 0;
 }
 .ingredient-side p {
@@ -768,9 +770,7 @@ button {
   color: var(--muted);
 }
 .archive-card-caption h3 {
-  font-family: Georgia, serif;
   font-size: 25px;
-  font-style: italic;
   color: var(--red);
   margin-top: 7px;
 }
@@ -959,7 +959,6 @@ button {
   margin-bottom: 25px;
 }
 .location-details h3 {
-  font-family: Georgia, serif;
   font-size: 26px;
   line-height: 1.25;
 }
@@ -1340,8 +1339,6 @@ button {
   margin: 8px 0;
 }
 .menu-card-copy h2 {
-  font-family: Georgia, serif;
-  font-style: italic;
   color: var(--red);
   font-size: 24px;
 }
