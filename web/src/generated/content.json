@@ -1,0 +1,199 @@
+{
+  "restaurant": {
+    "name": "Pepones",
+    "city": "Cochabamba, Bolivia",
+    "address": "Av. Potosí y Juan Capriles",
+    "whatsapp": null,
+    "instagram": "https://www.instagram.com/peponesburger/",
+    "mapsUrl": null,
+    "hours": null
+  },
+  "weekly": {
+    "burgerId": "big-peps",
+    "demo": true,
+    "status": "available",
+    "startsAt": null,
+    "endsAt": null,
+    "accent": "#b92c24"
+  },
+  "ingredients": [
+    {
+      "id": "bun-bottom",
+      "name": "Pan de la casa",
+      "short": "El comienzo de todo.",
+      "description": "Una base suave y doradita que sostiene cada capa. El primer y el último bocado importan.",
+      "kind": "bun-bottom",
+      "color": "#ce8738"
+    },
+    {
+      "id": "sauce",
+      "name": "Salsa especial",
+      "short": "Ese toque Pepones.",
+      "description": "La capa cremosa que conecta todos los sabores. Una buena burger también se reconoce por su salsa.",
+      "kind": "sauce",
+      "color": "#e6b66f"
+    },
+    {
+      "id": "beef",
+      "name": "Doble carne",
+      "short": "Doble sabor. Sin vueltas.",
+      "description": "Dos capas de carne, bordes dorados y todo el protagonismo. El corazón de esta combinación.",
+      "kind": "patty",
+      "color": "#63321d"
+    },
+    {
+      "id": "cheese",
+      "name": "Doble queso",
+      "short": "Se derrite por ti.",
+      "description": "Queso fundido sobre la carne. Cremoso, intenso y presente en cada bocado.",
+      "kind": "cheese",
+      "color": "#f6ac18"
+    },
+    {
+      "id": "greens",
+      "name": "Lechuga y pepinillos",
+      "short": "El contraste perfecto.",
+      "description": "Frescura, un toque ácido y textura crujiente para equilibrar la intensidad de la carne y el queso.",
+      "kind": "greens",
+      "color": "#779642"
+    },
+    {
+      "id": "bun-top",
+      "name": "Pan con semillas",
+      "short": "La firma final.",
+      "description": "Una corona dorada de pan y semillas. Suave por dentro, lista para juntar toda la historia.",
+      "kind": "bun-top",
+      "color": "#da903f"
+    }
+  ],
+  "burgers": [
+    {
+      "id": "big-peps",
+      "name": "Big Peps",
+      "category": "Clásicas",
+      "tagline": "Doble de todo. Menos de ganas.",
+      "description": "Doble carne, doble queso, lechuga, pepinillos y salsa especial. Una combinación que habla por sí sola.",
+      "price": null,
+      "image": "hero",
+      "ingredients": [
+        "bun-bottom",
+        "sauce",
+        "beef",
+        "cheese",
+        "greens",
+        "bun-top"
+      ],
+      "recipe": [
+        {
+          "ingredientId": "bun-bottom",
+          "y": -0.82
+        },
+        {
+          "ingredientId": "sauce",
+          "y": -0.61
+        },
+        {
+          "ingredientId": "beef",
+          "y": -0.4
+        },
+        {
+          "ingredientId": "cheese",
+          "y": -0.22
+        },
+        {
+          "ingredientId": "beef",
+          "y": -0.02
+        },
+        {
+          "ingredientId": "cheese",
+          "y": 0.16
+        },
+        {
+          "ingredientId": "greens",
+          "y": 0.33
+        },
+        {
+          "ingredientId": "bun-top",
+          "y": 0.58
+        }
+      ]
+    },
+    {
+      "id": "five-peps",
+      "name": "Five Peps",
+      "category": "Clásicas",
+      "tagline": "Todos los antojos, juntos.",
+      "description": "Doble carne, doble queso americano, vegetales y salsas de la casa.",
+      "price": null,
+      "image": "campaign-1",
+      "ingredients": [],
+      "recipe": []
+    },
+    {
+      "id": "cheeseburger",
+      "name": "Cheese Burger",
+      "category": "Clásicas",
+      "tagline": "Lo simple se vuelve irresistible.",
+      "description": "Pan de papa, doble carne y doble queso cheddar.",
+      "price": null,
+      "image": "campaign-3",
+      "ingredients": [],
+      "recipe": []
+    },
+    {
+      "id": "baconator",
+      "name": "Baconator",
+      "category": "Clásicas",
+      "tagline": "El tocino tiene la palabra.",
+      "description": "Doble carne, doble queso americano, doble tocino y salsas.",
+      "price": null,
+      "image": "campaign-4",
+      "ingredients": [],
+      "recipe": []
+    },
+    {
+      "id": "fugazzeta",
+      "name": "Fugazzeta",
+      "category": "Semanales anteriores",
+      "tagline": "Una semana con acento italiano.",
+      "description": "Carne, cebolla y mozzarella. Una de esas semanales que dejan huella.",
+      "price": null,
+      "image": "campaign-6",
+      "ingredients": [],
+      "recipe": []
+    },
+    {
+      "id": "caribena",
+      "name": "Caribeña",
+      "category": "Semanales anteriores",
+      "tagline": "Un pequeño viaje en cada bocado.",
+      "description": "Una combinación tropical del archivo de Pepones.",
+      "price": null,
+      "image": "campaign-7",
+      "ingredients": [],
+      "recipe": []
+    },
+    {
+      "id": "pepmuffin",
+      "name": "PepMuffin",
+      "category": "Semanales anteriores",
+      "tagline": "El desayuno se hizo burger.",
+      "description": "English muffin, doble carne, queso americano, tocino y huevo frito.",
+      "price": null,
+      "image": "archive-1",
+      "ingredients": [],
+      "recipe": []
+    },
+    {
+      "id": "vaquera",
+      "name": "Vaquera",
+      "category": "Semanales anteriores",
+      "tagline": "Espíritu libre. Hambre grande.",
+      "description": "Una edición del archivo de semanales. Consulta las novedades de esta semana en Instagram.",
+      "price": null,
+      "image": "archive-5",
+      "ingredients": [],
+      "recipe": []
+    }
+  ]
+}
