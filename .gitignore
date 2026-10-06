@@ -8,3 +8,5 @@ out/
 web/data/*.sqlite*
 web/reports/
 *.tar.gz
+material/semanal/dona-burger/modelos/
+*.blend1

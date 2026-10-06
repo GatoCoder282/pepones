@@ -1,0 +1,22 @@
+DONA BURGER — PILOTO 3D
+
+Receta confirmada por el texto de photos/dona burger.png:
+Dona glaseada, doble carne, doble queso americano y tocino.
+
+Las fotos de ingredientes muestran una dona cortada horizontalmente,
+carne smash tostada, queso americano fundido y tiras de tocino.
+
+Orden de abajo hacia arriba:
+1. Base de dona
+2. Carne
+3. Queso americano
+4. Carne
+5. Queso americano
+6. Tocino
+7. Tapa de dona
+
+Medidas físicas: no suministradas; proporciones interpretadas.
+Precio, fechas y disponibilidad actual: no confirmados.
+Estado del modelo: primera versión procedural para revisión artística.
+Generación: tools/blender/generate_dona.py
+Vista web: /estudio/dona/
