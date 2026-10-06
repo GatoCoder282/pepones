@@ -1,7 +1,7 @@
 import data from "@/generated/content.json";
 
 export type IngredientKind =
-  "bun-bottom" | "bun-top" | "sauce" | "patty" | "cheese" | "greens";
+  "bun-bottom" | "bun-top" | "sauce" | "patty" | "cheese" | "greens" | "bacon";
 export interface Ingredient {
   id: string;
   name: string;

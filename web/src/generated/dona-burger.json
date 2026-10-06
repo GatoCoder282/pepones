@@ -1,0 +1,114 @@
+{
+  "name": "Dona Burger",
+  "version": 1,
+  "blender": "5.2.2 LTS",
+  "referenceFiles": [
+    "photos/dona burger.png",
+    "photos/dona ingrediente.png",
+    "photos/dona ingredientes dona.png",
+    "photos/dona ingredientes carne.png",
+    "photos/dona ingredientes carne con tocino.png"
+  ],
+  "interpretation": "Procedural reconstruction from supplied references; unseen surfaces and physical scale interpreted.",
+  "assets": [
+    {
+      "id": "dona-bottom",
+      "triangles": 19846,
+      "bytes": 2657660,
+      "modelUrl": "/models/dona-burger/dona-bottom.glb"
+    },
+    {
+      "id": "smash-beef",
+      "triangles": 61946,
+      "bytes": 3962068,
+      "modelUrl": "/models/dona-burger/smash-beef.glb"
+    },
+    {
+      "id": "american-cheese",
+      "triangles": 9568,
+      "bytes": 1756816,
+      "modelUrl": "/models/dona-burger/american-cheese.glb"
+    },
+    {
+      "id": "bacon",
+      "triangles": 22436,
+      "bytes": 2862912,
+      "modelUrl": "/models/dona-burger/bacon.glb"
+    },
+    {
+      "id": "dona-top",
+      "triangles": 16896,
+      "bytes": 2698732,
+      "modelUrl": "/models/dona-burger/dona-top.glb"
+    }
+  ],
+  "sourceTextureSize": 2048,
+  "webTextureSize": 1024,
+  "recipe": [
+    {
+      "ingredientId": "dona-bottom",
+      "y": -0.54,
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "ingredientId": "smash-beef",
+      "y": -0.4,
+      "rotation": [
+        0,
+        -0.12,
+        0
+      ]
+    },
+    {
+      "ingredientId": "american-cheese",
+      "y": -0.29,
+      "rotation": [
+        0,
+        0.22,
+        0
+      ]
+    },
+    {
+      "ingredientId": "smash-beef",
+      "y": -0.14,
+      "rotation": [
+        0,
+        0.65,
+        0
+      ]
+    },
+    {
+      "ingredientId": "american-cheese",
+      "y": -0.03,
+      "rotation": [
+        0,
+        -0.25,
+        0
+      ]
+    },
+    {
+      "ingredientId": "bacon",
+      "y": 0.08,
+      "rotation": [
+        0,
+        -0.04,
+        0
+      ]
+    },
+    {
+      "ingredientId": "dona-top",
+      "y": 0.205,
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    }
+  ],
+  "totalUniqueBytes": 13938188,
+  "assembledTriangles": 202206
+}

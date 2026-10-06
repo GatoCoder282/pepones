@@ -7,6 +7,7 @@
     "dev": "node scripts/content.mjs && next dev --hostname 127.0.0.1",
     "build": "node scripts/content.mjs && next build",
     "content:sync": "node scripts/content.mjs --sync",
+    "models:import:dona": "node scripts/import-dona.mjs",
     "typecheck": "tsc --noEmit",
     "check:domain": "node scripts/check-domain.mjs",
     "check:browser": "node scripts/check-browser.mjs",

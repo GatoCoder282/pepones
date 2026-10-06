@@ -1,7 +1,13 @@
 "use client";
 
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
-import { ContactShadows, OrbitControls, useGLTF } from "@react-three/drei";
+import {
+  ContactShadows,
+  Environment,
+  Lightformer,
+  OrbitControls,
+  useGLTF,
+} from "@react-three/drei";
 import {
   Component,
   Suspense,
@@ -22,6 +28,9 @@ interface SceneProps {
   selected?: string | null;
   onSelect?: (id: string) => void;
   interactive?: boolean;
+  spread?: number;
+  studio?: boolean;
+  onReady?: () => void;
   onFailure: () => void;
 }
 class SceneBoundary extends Component<
@@ -232,6 +241,8 @@ function IngredientMesh({ ingredient }: { ingredient: Ingredient }) {
       return <Cheese />;
     case "greens":
       return <Greens />;
+    case "bacon":
+      return <Bacon />;
     default:
       return (
         <mesh scale={[1.01, 0.045, 1.01]}>
@@ -240,6 +251,39 @@ function IngredientMesh({ ingredient }: { ingredient: Ingredient }) {
         </mesh>
       );
   }
+}
+
+function Bacon() {
+  const geometry = useMemo(() => {
+    const g = new THREE.PlaneGeometry(2.1, 0.25, 32, 4);
+    const p = g.attributes.position;
+    for (let i = 0; i < p.count; i++) {
+      const x = p.getX(i),
+        z = p.getY(i);
+      p.setXYZ(i, x, Math.sin(x * 9 + z * 3) * 0.055, z);
+    }
+    g.computeVertexNormals();
+    return g;
+  }, []);
+  useEffect(() => () => geometry.dispose(), [geometry]);
+  return (
+    <group>
+      {[-0.45, -0.15, 0.15, 0.45].map((z, i) => (
+        <mesh
+          key={i}
+          geometry={geometry}
+          position={[0, i * 0.016, z]}
+          rotation={[0, i % 2 ? 0.12 : -0.1, 0]}
+        >
+          <meshStandardMaterial
+            color={i % 2 ? "#9c4727" : "#bd7641"}
+            side={THREE.DoubleSide}
+            roughness={0.45}
+          />
+        </mesh>
+      ))}
+    </group>
+  );
 }
 
 function Layer({
@@ -252,15 +296,20 @@ function Layer({
   const [hovered, setHovered] = useState(false);
   useFrame((_, delta) => {
     if (!group.current) return;
-    const spread = props.interactive
-      ? props.selected
-        ? 0.62
-        : 0.08
-      : (props.progress?.current.value ?? 0);
+    const spread =
+      props.spread ??
+      (props.interactive
+        ? props.selected
+          ? 0.62
+          : 0.08
+        : (props.progress?.current.value ?? 0));
     const chosen = props.selected === ingredient.id;
     group.current.position.y = THREE.MathUtils.damp(
       group.current.position.y,
-      layer.y + (index - (props.recipe.length - 1) / 2) * 0.42 * spread,
+      layer.y +
+        (index - (props.recipe.length - 1) / 2) *
+          (props.studio ? 0.34 : 0.42) *
+          spread,
       8,
       delta,
     );
@@ -312,6 +361,9 @@ function SceneContents(props: SceneProps) {
   const root = useRef<THREE.Group>(null);
   const { gl, invalidate, camera } = useThree();
   useEffect(() => {
+    props.onReady?.();
+  }, [props.onReady]);
+  useEffect(() => {
     const fail = (event: Event) => {
       event.preventDefault();
       props.onFailure();
@@ -344,14 +396,36 @@ function SceneContents(props: SceneProps) {
   }, [props.selected, invalidate]);
   return (
     <>
-      <ambientLight intensity={1.15} />
-      <hemisphereLight args={["#fff1d1", "#765233", 1.3]} />
-      <directionalLight position={[3, 6, 5]} intensity={3.2} color="#fff0db" />
+      <ambientLight intensity={props.studio ? 0.35 : 1.15} />
+      <hemisphereLight
+        args={["#fff1d1", "#765233", props.studio ? 0.6 : 1.3]}
+      />
+      <directionalLight
+        position={[3, 6, 5]}
+        intensity={props.studio ? 2 : 3.2}
+        color="#fff0db"
+      />
       <directionalLight
         position={[-4, 2, -2]}
-        intensity={1.6}
+        intensity={props.studio ? 1 : 1.6}
         color="#ffdfac"
       />
+      {props.studio && (
+        <Environment resolution={256} frames={1}>
+          <Lightformer
+            intensity={2.5}
+            position={[-3, 4, 3]}
+            rotation={[0, -Math.PI / 4, 0]}
+            scale={[4, 4, 1]}
+          />
+          <Lightformer
+            intensity={1.5}
+            position={[3, 2, -3]}
+            rotation={[0, Math.PI * 0.75, 0]}
+            scale={[3, 3, 1]}
+          />
+        </Environment>
+      )}
       <group ref={root} rotation={[0.08, -0.22, 0]}>
         {props.recipe.map((layer, index) => (
           <Layer
@@ -365,23 +439,27 @@ function SceneContents(props: SceneProps) {
           />
         ))}
       </group>
-      <ContactShadows
-        position={[0, -2.8, 0]}
-        opacity={0.24}
-        scale={7}
-        blur={2.5}
-        far={5}
-        resolution={128}
-        frames={1}
-      />
+      {!props.studio && (
+        <ContactShadows
+          position={[0, -2.8, 0]}
+          opacity={0.24}
+          scale={7}
+          blur={2.5}
+          far={5}
+          resolution={128}
+          frames={1}
+        />
+      )}
       {props.interactive && (
         <OrbitControls
-          enableZoom={false}
+          enableZoom={!!props.studio}
           enablePan={false}
-          minPolarAngle={Math.PI / 3}
-          maxPolarAngle={Math.PI / 1.9}
-          minAzimuthAngle={-0.65}
-          maxAzimuthAngle={0.65}
+          minDistance={3.8}
+          maxDistance={11}
+          minPolarAngle={props.studio ? 0.15 : Math.PI / 3}
+          maxPolarAngle={props.studio ? Math.PI * 0.75 : Math.PI / 1.9}
+          minAzimuthAngle={props.studio ? -Infinity : -0.65}
+          maxAzimuthAngle={props.studio ? Infinity : 0.65}
         />
       )}
     </>
@@ -408,7 +486,7 @@ export default function BurgerScene(props: SceneProps) {
       <SceneBoundary onFailure={props.onFailure}>
         <Canvas
           fallback={<span>Explora los ingredientes con los botones.</span>}
-          camera={{ position: [0, 0.5, 8], fov: 36 }}
+          camera={{ position: [0, 0.5, props.studio ? 6.6 : 8], fov: 36 }}
           dpr={[1, 1.5]}
           frameloop={active ? "always" : "never"}
           gl={{ antialias: true, alpha: true, powerPreference: "low-power" }}
