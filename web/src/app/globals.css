@@ -91,6 +91,8 @@ h2 em,
 h3 em {
   font-family: var(--display);
   font-style: normal;
+  color: transparent;
+  -webkit-text-stroke: 1px var(--heading-outline, var(--red));
 }
 em {
   font-family: Georgia, "Times New Roman", serif;
@@ -547,6 +549,7 @@ button {
   align-self: center;
 }
 .ingredient-heading h2 {
+  --heading-outline: var(--green);
   font-family: var(--display);
   font-size: clamp(52px, 5.6vw, 86px);
   line-height: 0.97;
@@ -807,6 +810,7 @@ button {
   opacity: 0.65;
 }
 .story-copy h2 {
+  --heading-outline: var(--cream);
   font-family: var(--display);
   font-size: 103px;
   line-height: 0.91;
