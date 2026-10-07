@@ -149,11 +149,11 @@ def donut(top):
     grid, field = [], []
     for i in range(na + 1):
         a = TAU * i / na
-        drip = .045
+        drip = .022
         for k in range(19):
             center = TAU * k / 19 + .07 * math.sin(k * 2.2)
             delta = math.atan2(math.sin(a - center), math.cos(a - center))
-            drip += (.25 + .52 * (.5 + .5 * math.sin(k * 3.9))) * math.exp(-(delta / .034) ** 2)
+            drip += (.19 + .34 * (.5 + .5 * math.sin(k * 3.9))) * math.exp(-(delta / .032) ** 2)
         for j in range(np + 1):
             phi = math.pi * j / np
             p = donut_point(a, phi, top, .002)
@@ -241,7 +241,9 @@ def patty():
         base = len(verts)
         for v in tv:
             d = 1 + .42 * n(v.x + k, v.y, v.z, 4)
-            verts.append(tuple(center + Vector((v.x * stretch.x, v.y * stretch.y, v.z * stretch.z)) * d))
+            part = center + Vector((v.x * stretch.x, v.y * stretch.y, v.z * stretch.z)) * d
+            part.z *= .72
+            verts.append(tuple(part))
         faces.extend(tuple(base + i for i in f) for f in tf)
         slots.extend([1 if k % 6 == 0 else 0] * len(tf))
     ob = mesh('Smash beef seared crust', verts, faces, [BEEF, CHAR], slots)
@@ -257,7 +259,7 @@ def cheese():
     steps = 44
     for j in range(steps + 1):
         for i in range(steps + 1):
-            x, y = (i / steps - .5) * 1.75, (j / steps - .5) * 1.73
+            x, y = (i / steps - .5) * 1.52, (j / steps - .5) * 1.50
             x += .013 * math.sin(y * 9) * (abs(x) / .875) ** 5
             y += .01 * math.sin(x * 13)
             r = math.hypot(x, y)
@@ -287,8 +289,8 @@ def bacon():
                 x = (u - .5) * length
                 w = width * (1 + .17 * math.sin(u * 25 + strip) + .07 * math.sin(u * 71))
                 y = (v - .5) * w + .046 * math.sin(u * 9 + strip)
-                z = .065 * math.sin(u * 17 + strip * 1.8) + .026 * math.sin(u * 39 + v * 4)
-                z += .044 * (2 * v - 1) ** 2 * math.sin(u * 12 + strip) + .023 * math.cos(u * 8 + v * 5)
+                z = .038 * math.sin(u * 11 + strip * 1.8) + .012 * math.sin(u * 23 + v * 4)
+                z += .022 * (2 * v - 1) ** 2 * math.sin(u * 9 + strip) + .012 * math.cos(u * 5 + v * 5)
                 verts.append((x, y, z))
         for j in range(ny):
             for i in range(nx):
@@ -302,8 +304,8 @@ def bacon():
                 uv.data[loop].uv = (vi % (nx + 1) / nx, vi // (nx + 1) / ny)
         apply_modifier(ob, 'SOLIDIFY', thickness=.027)
         apply_modifier(ob, 'BEVEL', width=.005, segments=2)
-        ob.location = (0, (strip - 1.7) * .32, .017 * strip)
-        ob.rotation_euler.z = [-.09, .12, -.18, .20][strip]
+        ob.location = (0, (strip - 1.7) * .25, .009 * strip)
+        ob.rotation_euler.z = [-.06, .08, -.11, .13][strip]
         result.append(ob)
     return result
 
@@ -449,7 +451,7 @@ def render_views(cam, assembly):
     scene.render.image_settings.file_format = 'PNG'
     scene.render.image_settings.color_mode = 'RGBA'
     scene.cycles.samples = args.samples
-    views = [('front', (0, -6, .55)), ('three-quarter', (3.1, -6, 2.05)), ('exploded', (3, -6, 3.1))]
+    views = [('front', (0, -6, .55)), ('three-quarter', (2, -8, 1.05)), ('exploded', (2, -8, 2.7))]
     if args.mode == 'preview':
         views = views[:2]
     for name, pos in views:
@@ -495,7 +497,7 @@ except Exception as exc:
 
 SOURCE = bpy.data.collections.new('Procedural originals - hidden during render')
 scene.collection.children.link(SOURCE)
-DOUGH = material('Golden fried dough', [(.16, '87350A'), (.36, 'AD4E0D'), (.61, 'C67516'), (.82, 'E59A31')], 5, 160, .005, (.22, .42), .35)
+DOUGH = material('Golden fried dough', [(.16, 'A85C22'), (.36, 'C47D38'), (.61, 'D99C57'), (.82, 'EABF81')], 5, 160, .003, (.28, .48), .27)
 DOUGH_TOP = DOUGH.copy()
 DOUGH_TOP.name = 'Glazed golden dough crown'
 nodes, links = DOUGH_TOP.node_tree.nodes, DOUGH_TOP.node_tree.links
@@ -507,11 +509,11 @@ scale.operation = 'MULTIPLY'
 scale.inputs[1].default_value = (1, 2.2, 1.5)
 links.new(coord.outputs['Object'], scale.inputs[0])
 tex = nodes.new('ShaderNodeTexNoise')
-tex.inputs['Scale'].default_value = 12
+tex.inputs['Scale'].default_value = 4.8
 tex.inputs['Detail'].default_value = 3
 links.new(scale.outputs[0], tex.inputs['Vector'])
 mask = nodes.new('ShaderNodeValToRGB')
-mask.color_ramp.elements[0].position = .54
+mask.color_ramp.elements[0].position = .43
 mask.color_ramp.elements[0].color = (.035, .035, .035, 1)
 mask.color_ramp.elements[1].position = .68
 mask.color_ramp.elements[1].color = (.65, .65, .65, 1)
@@ -519,14 +521,14 @@ links.new(tex.outputs['Fac'], mask.inputs[0])
 mix = nodes.new('ShaderNodeMixRGB')
 links.new(mask.outputs[0], mix.inputs[0])
 links.new(original_color, mix.inputs[1])
-mix.inputs[2].default_value = rgba('FFF0D3')
+mix.inputs[2].default_value = rgba('F2D9A7')
 links.new(mix.outputs[0], bs.inputs['Base Color'])
 CRUMB = material('Cut bread crumb', [(.2, 'D8B16B'), (.43, 'ECCE8D'), (.68, 'F6E2B1'), (.83, 'E5C581')], 34, 140, .019, (.72, .9), 0)
-GLAZE = material('Thin crystallized sugar glaze', [(.22, 'E2C994'), (.45, 'F2E4C8'), (.73, 'FFF5DE')], 25, 190, .004, (.2, .39), .3)
-BEEF = material('Smash crust and rendered fat', [(.17, '21120C'), (.35, '432319'), (.5, '63331D'), (.66, 'A46634'), (.83, '492414')], 27, 145, .012, (.28, .67), .18)
-CHAR = material('Charred sear edges', [(.1, '24140B'), (.47, '432513'), (.77, '6C3A1B')], 28, 130, .018, (.5, .82), .05)
-CHEESE = material('Golden American cheese', [(.18, 'E6A009'), (.48, 'F7BA0B'), (.8, 'FFCC27')], 6, 100, .002, (.24, .36), .12)
-BACON = material('Rendered bacon meat and fat', [(.15, '42180C'), (.36, '762A15'), (.49, 'A84420'), (.55, 'D59755'), (.64, 'E8C28A'), (.76, '91421D')], 18, 130, .007, (.22, .43), .28)
+GLAZE = material('Thin crystallized sugar glaze', [(.22, 'E2C994'), (.45, 'F2E4C8'), (.73, 'FFF5DE')], 25, 140, .002, (.28, .45), .25)
+BEEF = material('Smash crust and rendered fat', [(.17, '332119'), (.35, '593321'), (.5, '744329'), (.66, '9B6038'), (.83, '593422')], 27, 145, .009, (.35, .72), .08)
+CHAR = material('Charred sear edges', [(.1, '302016'), (.47, '59371F'), (.77, '81512D')], 28, 130, .013, (.5, .82), .03)
+CHEESE = material('Golden American cheese', [(.18, 'DF8B05'), (.48, 'F1A910'), (.8, 'FFC333')], 6, 100, .0015, (.3, .44), .06)
+BACON = material('Rendered bacon meat and fat', [(.15, '512315'), (.36, '873821'), (.49, 'AB512B'), (.55, 'D49154'), (.64, 'E3B87F'), (.76, 'A9522A')], 12, 130, .004, (.3, .52), .12)
 # Longitudinal fat bands retain their coordinates after multi-strip joining.
 nodes, links = BACON.node_tree.nodes, BACON.node_tree.links
 uv = nodes.new('ShaderNodeUVMap')
