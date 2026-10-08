@@ -237,3 +237,6 @@ def revolve(name, profile, segments, deform, materials):
             else:
                 faces.append((A[i], A[j], B[j], B[i]))
             slots.append(slot)
+    ob = mesh_object(name, verts, faces, materials, slots)
+    recalc_normals(ob)
+    return ob
