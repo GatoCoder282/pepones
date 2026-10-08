@@ -406,6 +406,24 @@ function SceneContents(
         <Lightformer intensity={1.6} position={[1, 3, -4]} rotation={[0, Math.PI, 0]} scale={[4, 2, 1]} color="#ffdcb0" />
         <Lightformer intensity={0.5} position={[0, -2, 3]} rotation={[0.6, 0, 0]} scale={[6, 2, 1]} color="#fff5e6" />
       </Environment>
+      <group>
+        {TEXAS_LAYERS.map((layer) => (
+          <Layer
+            key={`${layer.assetId}-${layer.index}`}
+            layer={layer}
+            spread={props.spread}
+            selected={props.selected}
+            hovered={hovered}
+            setHovered={props.setHovered}
+            onSelect={props.onSelect}
+            reducedMotion={props.reducedMotion}
+            compact={props.compact}
+            anchor={(g) => {
+              anchors.current[layer.index] = g;
+            }}
+          />
+        ))}
+      </group>
     </>
   );
 }
