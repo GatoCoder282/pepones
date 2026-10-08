@@ -413,3 +413,14 @@
   opacity: 0.45;
   cursor: default;
 }
+.hint {
+  position: absolute;
+  left: 20px;
+  top: 76px;
+  max-width: 36ch;
+  font-size: 12px;
+  line-height: 1.5;
+  color: var(--muted);
+  pointer-events: none;
+  z-index: 4;
+}
