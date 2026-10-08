@@ -434,6 +434,17 @@ function SceneContents(
         <shadowMaterial transparent opacity={0.16} />
       </mesh>
       <ContactShadows position={[0, 0.001, 0]} opacity={0.42} scale={9} blur={2.6} far={1.4} resolution={512} color="#3b2414" />
+      <OrbitControls
+        ref={controls}
+        makeDefault
+        enablePan={false}
+        enableDamping
+        dampingFactor={0.08}
+        minDistance={3.2}
+        maxDistance={18}
+        minPolarAngle={0.2}
+        maxPolarAngle={1.62}
+      />
     </>
   );
 }
