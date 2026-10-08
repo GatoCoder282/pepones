@@ -555,3 +555,10 @@ def mat_fries():
     col = g.mix(g.mul(speck, .85), base, seasoning)
     normal = g.bump(g.add(g.mul(speck, .4), g.mul(g.noise(co, 70, 3, .5), .6)), .14, .003)
     return g.finish('papas-cajun', col, .5, normal)
+
+
+# ---------------------------------------------------------------- geometry: buns
+
+BUN_BASE_HEIGHT = .42
+BUN_TOP_HEIGHT = .92
+BUN_TOP_HOLLOW = .1
