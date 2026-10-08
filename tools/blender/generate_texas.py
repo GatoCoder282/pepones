@@ -1383,3 +1383,10 @@ def render_views(cam, assembly, height):
         bpy.ops.render.render(write_still=True)
     for ob, base_z in assembly:
         ob.location.z = base_z
+
+
+# ---------------------------------------------------------------- main
+
+for ob in list(bpy.data.objects):
+    bpy.data.objects.remove(ob, do_unlink=True)
+scene = bpy.context.scene
