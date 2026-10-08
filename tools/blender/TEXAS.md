@@ -35,3 +35,7 @@ Para iterar formas y materiales sin hornear ni exportar (unos dos minutos):
 
 Parámetros: `--texture-size 2048` (horneado), `--resolution 1600` y `--samples 96` (renders), `--views front,three-quarter,exploded,top` y `--output <carpeta>`. `--only carne,queso-americano` hornea y exporta solo esas piezas y conserva sus entradas anteriores en el manifiesto. Sirve para iterar; antes de importar, ejecuta una compilación completa para que los renders y la escena ensamblada coincidan. Las formas usan semillas fijas: dos ejecuciones dan el mismo resultado.
 
+## Qué hace el script
+
+- Construye 11 objetos con nombre propio: `pan-base`, `salsa-original-base`, `pepinillos`, `carne`, `queso-americano`, `tocino`, `salsa-barbacoa`, `cebolla-crispy`, `salsa-original-tapa`, `pan-tapa` y `papas-cajun` (acompañamiento, fuera de las capas).
+
