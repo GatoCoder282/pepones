@@ -151,6 +151,12 @@ function Layer({
     const targetY = layer.y + layer.index * GAP * spread;
     const scale = chosen ? 1.035 : pointed ? 1.02 : 1;
     const dim = selected && !chosen ? 0.45 : 1;
+    const changing =
+      Math.abs(g.position.y - targetY) > 1e-4 ||
+      Math.abs(g.position.x - toViewer.x * pull) > 1e-4 ||
+      Math.abs(g.position.z - toViewer.z * pull) > 1e-4 ||
+      Math.abs(g.scale.x - scale) > 1e-4 ||
+      Math.abs(materials[0].userData.dim - dim) > 1e-3;
     g.position.y = approach(g.position.y, targetY, rate, delta);
     g.position.x = approach(g.position.x, toViewer.x * pull, rate, delta);
     g.position.z = approach(g.position.z, toViewer.z * pull, rate, delta);
@@ -165,6 +171,7 @@ function Layer({
       const reach = compact ? 1.3 : 1.6;
       tag.current.position.set(right.x * reach, middle, right.z * reach);
     }
+    if (changing) state.invalidate();
   });
   return (
     <group
