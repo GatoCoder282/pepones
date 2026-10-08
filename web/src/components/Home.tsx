@@ -236,6 +236,9 @@ export function Home({ content }: { content: Content }) {
               papa, doble carne, doble queso americano, tocino, cebolla crispy,
               pepinillos, salsa barbacoa y salsa original.
             </p>
+            <Link className="button" href="/estudio/texas/">
+              Abrir el estudio 3D <ArrowUpRight size={19} />
+            </Link>
           </div>
         </section>
         <section
