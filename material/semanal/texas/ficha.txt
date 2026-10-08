@@ -31,3 +31,11 @@ No confirmadas: tiras de tocino, rodajas de pepinillo, cantidad de cebolla,
 cantidad de salsa. En el modelo son ilustrativas.
 Medidas físicas: no suministradas. El modelo usa un pan de radio aproximado 1 y
 proporciones medidas sobre la foto frontal.
+
+COLOR DE CAMPAÑA: no suministrado.
+FOTO PROTAGONISTA: photos/texas_burguer_pepones.jpeg (900 × 900, vista frontal).
+MODELOS DISPONIBLES:
+- Generador: tools/blender/generate_texas.py (ver tools/blender/TEXAS.md).
+- Salida local regenerable: material/semanal/texas/modelos/ (ignorada por Git).
+- Web: web/public/models/texas/ y web/public/images/texas/.
+- Vista web: /estudio/texas/
