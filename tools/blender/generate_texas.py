@@ -47,4 +47,5 @@ UP = Vector((0, 0, 1))
 # cheese, sauces and pickles, which glTF viewers cannot scatter.
 ASSETS = {
     'pan-base': dict(ingredient='pan-de-papa', web=1024, coat=.06, coat_rough=.35, ao=.16),
+    'salsa-original-base': dict(ingredient='salsa-original', web=512, coat=.6, coat_rough=.12, emission=.05),
 }
