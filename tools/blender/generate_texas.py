@@ -1109,3 +1109,7 @@ def sauce_top(onion_ob):
         m = (Matrix.Translation((x, y, top(x, y) - size * .9)) @ Matrix.Rotation(a, 4, 'Z')
              @ Matrix.Diagonal((size * 1.4, size * 1.6, size, 1)))
         append_shape(verts, faces, bead, m)
+    ob = mesh_object('salsa-original-tapa', verts, faces, [MAT['sauce_top']])
+    recalc_normals(ob)
+    point_attr(ob, 'thick', lambda co, n: smoothstep(.0, .05, under(math.hypot(co.x, co.y)) - co.z))
+    return ob, z_rim
