@@ -1279,3 +1279,10 @@ def web_material(asset_id, images):
         links.new(uv.outputs['UV'], t.inputs['Vector'])
         tex[name] = t
     links.new(tex['color'].outputs['Color'], bs.inputs['Base Color'])
+    sep = nodes.new('ShaderNodeSeparateColor')
+    links.new(tex['orm'].outputs['Color'], sep.inputs[0])
+    links.new(sep.outputs['Green'], bs.inputs['Roughness'])
+    links.new(sep.outputs['Blue'], bs.inputs['Metallic'])
+    output = nodes.new('ShaderNodeGroup')
+    output.node_tree = ensure_gltf_group()
+    links.new(sep.outputs['Red'], output.inputs['Occlusion'])
