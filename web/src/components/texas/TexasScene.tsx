@@ -289,5 +289,11 @@ function CameraRig({
     goal.current = framing(spread, showSide, aspect);
     invalidate();
   }, [spread, showSide, aspect, invalidate]);
+  useEffect(() => {
+    if (resetKey === 0) return;
+    goal.current = { ...framing(0, false, aspect), theta: DEFAULT_THETA, phi: DEFAULT_PHI };
+    invalidate();
+    // Only a reset restores the default angle; aspect changes keep the user's view.
+  }, [resetKey]);
   return null;
 }
