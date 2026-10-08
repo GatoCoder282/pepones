@@ -49,4 +49,5 @@ Parámetros: `--texture-size 2048` (horneado), `--resolution 1600` y `--samples 
 En `material/semanal/texas/modelos/` (ignorado por Git; se regenera con el comando anterior):
 
 - `texas.blend`: escena ensamblada con imágenes empaquetadas, luces y cámara. Los materiales procedurales originales quedan en la colección oculta «Procedural originals».
+- `glb/`: un GLB por pieza y `texas-assembled.glb` con las 12 capas en su sitio.
 
