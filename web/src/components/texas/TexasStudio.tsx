@@ -134,6 +134,22 @@ export default function TexasStudio() {
   const send = (kind: ViewCommand["kind"], amount: number) =>
     setCommand((previous) => ({ kind, amount, id: (previous?.id ?? 0) + 1 }));
 
+  const onViewportKey = (event: KeyboardEvent<HTMLDivElement>) => {
+    const actions: Record<string, () => void> = {
+      ArrowLeft: () => send("rotate", -0.45),
+      ArrowRight: () => send("rotate", 0.45),
+      "+": () => send("zoom", 0.82),
+      "=": () => send("zoom", 0.82),
+      "-": () => send("zoom", 1.22),
+      Home: reset,
+      Escape: () => setSelected(null),
+    };
+    const action = actions[event.key];
+    if (action) {
+      event.preventDefault();
+      action();
+    }
+  };
   return (
     <main id="contenido" className={styles.studio}>
       <header className={styles.header}>
