@@ -283,3 +283,15 @@ class HeightField:
                 d = math.hypot((i - fi) * cell, (j - fj) * cell)
                 if d < radius:
                     self.h[i, j] = max(self.h[i, j], z - .35 * radius * (d / radius) ** 2)
+
+
+# ---------------------------------------------------------------- procedural materials
+
+class Graph:
+    def __init__(self, name):
+        self.mat = bpy.data.materials.new(name)
+        self.mat.use_nodes = True
+        self.nodes = self.mat.node_tree.nodes
+        self.links = self.mat.node_tree.links
+        self.bsdf = self.nodes['Principled BSDF']
+        self._co = None
