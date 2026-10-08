@@ -966,3 +966,6 @@ def bacon():
             attr.data.foreach_set('value', values)
         apply_modifier(ob, 'SOLIDIFY', thickness=.022, offset=0.0, use_even_offset=True)
         parts.append(ob)
+    ob = join(parts, 'tocino')
+    recalc_normals(ob)
+    return ob
