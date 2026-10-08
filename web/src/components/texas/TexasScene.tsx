@@ -458,3 +458,16 @@ function SceneContents(
     </>
   );
 }
+
+export default function TexasScene(props: SceneProps) {
+  const host = useRef<HTMLDivElement>(null);
+  const [visible, setVisible] = useState(true);
+  const [hovered, setHovered] = useState<TexasIngredientId | null>(null);
+  const anchors = useRef<(THREE.Object3D | null)[]>([]);
+  const labels = useRef<(HTMLElement | null)[]>([]);
+  const separated = props.spread > 0.55;
+  return (
+    <div ref={host} className={styles.canvasHost}>
+    </div>
+  );
+}
