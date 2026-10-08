@@ -39,3 +39,4 @@ args = parser.parse_args(sys.argv[sys.argv.index('--') + 1:] if '--' in sys.argv
 OUT = args.output.resolve()
 for sub in ['', 'textures', 'textures/web', 'renders', 'glb']:
     (OUT / sub).mkdir(parents=True, exist_ok=True)
+ONLY = {s for s in args.only.split(',') if s}
