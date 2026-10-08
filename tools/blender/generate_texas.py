@@ -903,3 +903,10 @@ def cheese(patty):
                     acc += q.z
                     w += 1
         relaxed[i, j] = Vector((p.x, p.y, max(acc / w, p.z - .002) + .002 * nz(p.x * 6, p.y * 6, 0, 1, 62)))
+    verts = [relaxed[i, j] for i in range(n + 1) for j in range(n + 1)]
+    faces = []
+    for i in range(n):
+        for j in range(n):
+            a = i * (n + 1) + j
+            faces.append((a, a + n + 1, a + n + 2, a + 1))
+    ob = mesh_object('queso-americano', verts, faces, [MAT['cheese']])
