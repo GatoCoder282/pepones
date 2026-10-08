@@ -844,3 +844,22 @@ def decimated(high, name, target):
 def patty_top_mean(patty):
     zs = [v.co.z for v in patty.data.vertices if v.normal.z > .7 and math.hypot(v.co.x, v.co.y) < .8]
     return sum(zs) / len(zs)
+
+
+def cheese(patty):
+    rng = rng_for('queso-americano')
+    cast = raycaster([patty])
+    edge_cache = []
+    for i in range(360):
+        a = TAU * i / 360
+        r, last = .5, None
+        while r < 1.5:
+            hit = cast(r * math.cos(a), r * math.sin(a))
+            if hit is None:
+                break
+            last = (r, hit[0].z)
+            r += .01
+        edge_cache.append(last)
+
+    def patty_rim(a):
+        return edge_cache[int(round(a / TAU * 360)) % 360]
