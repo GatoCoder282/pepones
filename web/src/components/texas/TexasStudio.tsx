@@ -187,6 +187,12 @@ export default function TexasStudio() {
             </p>
             <p className={styles.sideNote}>Acompañamiento: papas Cajun.</p>
           </div>
+
+          <div className={styles.listBlock}>
+            <h2 id="ingredientes-title" className={styles.listTitle}>
+              Ingredientes <span>{TEXAS_INGREDIENTS.length}</span>
+            </h2>
+          </div>
         </section>
       </div>
     </main>
