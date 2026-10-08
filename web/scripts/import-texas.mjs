@@ -9,3 +9,5 @@ const root = path.resolve(web, "..");
 const source = path.join(root, "material/semanal/texas/modelos");
 const models = path.join(web, "public/models/texas");
 const images = path.join(web, "public/images/texas");
+await mkdir(models, { recursive: true });
+await mkdir(images, { recursive: true });
