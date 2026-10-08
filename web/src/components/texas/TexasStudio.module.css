@@ -281,3 +281,14 @@
     transform: rotate(360deg);
   }
 }
+.fallback {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  padding: 90px 28px 200px;
+  text-align: center;
+}
