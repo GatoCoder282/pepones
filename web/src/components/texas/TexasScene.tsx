@@ -19,3 +19,5 @@ import {
   type ReactNode,
   type RefObject,
 } from "react";
+import * as THREE from "three";
+import type { OrbitControls as OrbitControlsImpl } from "three-stdlib";
