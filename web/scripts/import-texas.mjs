@@ -61,3 +61,9 @@ const photo = await sharp(path.join(root, manifest.referenceFiles[0]))
   .webp({ quality: 84 })
   .toFile(path.join(images, "foto-referencia.webp"));
 
+manifest.totalUniqueBytes = manifest.assets.reduce((n, a) => n + a.bytes, 0);
+manifest.burgerBytes = manifest.assets
+  .filter((a) => a.id !== manifest.side.assetId)
+  .reduce((n, a) => n + a.bytes, 0);
+manifest.renders = renders;
+manifest.photo = { src: "/images/texas/foto-referencia.webp", width: photo.width, height: photo.height };
