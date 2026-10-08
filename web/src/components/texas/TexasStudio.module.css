@@ -409,3 +409,7 @@
   border-color: var(--green);
   color: var(--green);
 }
+.toolbar button:disabled {
+  opacity: 0.45;
+  cursor: default;
+}
