@@ -1537,3 +1537,9 @@ side.location = (SIDE['position'][0], -SIDE['position'][2], SIDE['position'][1])
 side.rotation_euler = (0, 0, SIDE['rotation'][1])
 side.hide_render = True
 height = max(v.co.z for v in objects['pan-tapa'].data.vertices) + recipe[-1][1]
+
+if args.mode == 'build':
+    select([ob for ob, _ in assembly])
+    bpy.ops.export_scene.gltf(filepath=str(OUT / 'glb' / 'texas-assembled.glb'), export_format='GLB', use_selection=True,
+                              export_yup=True, export_animations=False, export_cameras=False, export_lights=False,
+                              export_extras=True, export_image_format='WEBP', export_image_quality=84)
