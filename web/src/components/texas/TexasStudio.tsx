@@ -178,6 +178,15 @@ export default function TexasStudio() {
 
       <div className={styles.workspace}>
         <section className={styles.panel} aria-labelledby="texas-title">
+          <div className={styles.intro}>
+            <p className={styles.eyebrow}>PEPONES · ESTUDIO 3D</p>
+            <h1 id="texas-title">TEXAS</h1>
+            <p className={styles.summary}>
+              Pan de papa, doble carne, doble queso americano, tocino, cebolla
+              crispy, pepinillos, salsa barbacoa y salsa original.
+            </p>
+            <p className={styles.sideNote}>Acompañamiento: papas Cajun.</p>
+          </div>
         </section>
       </div>
     </main>
