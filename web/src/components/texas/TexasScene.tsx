@@ -285,5 +285,9 @@ function CameraRig({
     perspective.updateProjectionMatrix();
     invalidate();
   }, [camera, size.width, size.height, compact, invalidate]);
+  useEffect(() => {
+    goal.current = framing(spread, showSide, aspect);
+    invalidate();
+  }, [spread, showSide, aspect, invalidate]);
   return null;
 }
