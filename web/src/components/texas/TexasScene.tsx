@@ -37,3 +37,17 @@ export interface ViewCommand {
   amount: number;
   id: number;
 }
+
+interface SceneProps {
+  spread: number;
+  selected: TexasIngredientId | null;
+  showSide: boolean;
+  resetKey: number;
+  command: ViewCommand | null;
+  reducedMotion: boolean;
+  compact: boolean;
+  onSelect: (id: TexasIngredientId) => void;
+  onReady: () => void;
+  onFailure: () => void;
+  onProgress: (percent: number) => void;
+}
