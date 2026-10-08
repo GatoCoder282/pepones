@@ -639,3 +639,11 @@
 .renders a:hover span {
   color: var(--red);
 }
+
+/* ---------------------------------------------------------------- phones and tablets */
+
+@media (max-width: 899px) {
+  .studio {
+    --header-height: 56px;
+  }
+}
