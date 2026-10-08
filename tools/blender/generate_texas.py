@@ -526,3 +526,18 @@ def mat_bbq():
     col = g.mix(g.mul(g.attr('thin'), .6), col, 'A23A18')
     normal = g.bump(g.noise(co, 30, 2, .5), .02, .005)
     return g.finish('salsa-barbacoa', col, .09, normal)
+
+
+def mat_onion():
+    g = Graph('Crispy fried onion batter')
+    co = g.co()
+    n1 = g.noise(co, 26, 5, .6)
+    batter = g.voronoi(co, 80)
+    idx = g.add(g.sub(g.mul(n1, 1.55), .16), g.add(g.mul(g.attr('tip'), -.2), g.mul(g.attr('core'), -.22)))
+    col = g.ramp(idx, [(0, '8C5A24'), (.18, 'B07434'), (.38, 'CD9A55'), (.58, 'DFB574'), (.78, 'EAC991'), (1, 'F3DFB4')])
+    crisp = g.voronoi(co, 60)
+    col = g.mix(g.remap(crisp.outputs['Distance'], .03, .08, .55, 0), col, '7A4718')
+    rough = g.remap(n1, .3, .7, .58, .8)
+    height = g.add(g.mul(batter.outputs['Distance'], .6), g.mul(g.noise(co, 150, 2, .5), .4))
+    normal = g.bump(height, .3, .004)
+    return g.finish('cebolla-crispy', col, rough, normal)
