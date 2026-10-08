@@ -729,4 +729,12 @@
     clip: rect(0 0 0 0);
     white-space: nowrap;
   }
+  .hint {
+    grid-area: hint;
+    position: static;
+    transform: none;
+    white-space: normal;
+    padding: 0 16px 10px;
+    background: var(--cream);
+  }
 }
