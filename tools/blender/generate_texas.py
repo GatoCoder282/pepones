@@ -263,3 +263,6 @@ class HeightField:
         self.half, self.n = half, n
         xs = np.linspace(-half, half, n)
         self.h = np.array([[fn(x, y) for y in xs] for x in xs])
+
+    def _ij(self, x, y):
+        return ((x + self.half) / (2 * self.half) * (self.n - 1), (y + self.half) / (2 * self.half) * (self.n - 1))
