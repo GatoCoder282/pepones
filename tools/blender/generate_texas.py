@@ -394,3 +394,17 @@ class Graph:
         if normal is not None:
             self.put(n.inputs['Normal'], normal)
         return n.outputs['Normal']
+
+    def finish(self, asset_id, color, roughness, normal=None):
+        spec = ASSETS.get(asset_id, {})
+        b = self.bsdf
+        self.put(b.inputs['Base Color'], color)
+        self.put(b.inputs['Roughness'], roughness)
+        if normal is not None:
+            self.put(b.inputs['Normal'], normal)
+        b.inputs['Coat Weight'].default_value = spec.get('coat', 0.0)
+        b.inputs['Coat Roughness'].default_value = spec.get('coat_rough', .2)
+        if spec.get('emission'):
+            self.put(b.inputs['Emission Color'], color)
+            b.inputs['Emission Strength'].default_value = spec['emission']
+        return self.mat
