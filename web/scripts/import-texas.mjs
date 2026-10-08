@@ -75,3 +75,8 @@ await writeFile(
   path.join(web, "src/generated/texas.json"),
   JSON.stringify(manifest, null, 2) + "\n",
 );
+const mib = (n) => (n / 1048576).toFixed(2);
+console.log(
+  `Texas: ${manifest.assets.length} GLB validados. Hamburguesa ${mib(manifest.burgerBytes)} MiB, ` +
+    `con acompañamiento ${mib(manifest.totalUniqueBytes)} MiB; ${manifest.assembledTriangles} triángulos en las 12 capas.`,
+);
