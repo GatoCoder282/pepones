@@ -340,6 +340,9 @@ export default function TexasStudio() {
               <button type="button" aria-label="Girar a la izquierda" title="Girar a la izquierda" disabled={!live} onClick={() => send("rotate", -0.45)}>
                 <RotateCcw size={17} aria-hidden="true" />
               </button>
+              <button type="button" aria-label="Girar a la derecha" title="Girar a la derecha" disabled={!live} onClick={() => send("rotate", 0.45)}>
+                <RotateCw size={17} aria-hidden="true" />
+              </button>
             </div>
           </div>
         </section>
