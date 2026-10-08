@@ -317,6 +317,18 @@ export default function TexasStudio() {
                 <Layers size={15} aria-hidden="true" /> Por capas
               </button>
             </div>
+            <label className={styles.slider}>
+              <span>Separación</span>
+              <input
+                type="range"
+                min={0}
+                max={100}
+                step={1}
+                value={percent}
+                aria-valuetext={`${percent} % de separación`}
+                onChange={(e) => setSpread(Number(e.target.value) / 100)}
+              />
+            </label>
           </div>
         </section>
       </div>
