@@ -821,3 +821,9 @@ def patty_high():
     me.update()
     recalc_normals(ob)
     me.shade_smooth()
+
+    def rim(co, n):
+        a = math.atan2(co.y, co.x)
+        return max(smoothstep(.86, 1.02, math.hypot(co.x, co.y) / patty_edge(a)), .7 * (1 - abs(n.z)))
+    point_attr(ob, 'rim', rim)
+    return ob
