@@ -717,4 +717,8 @@
     align-items: center;
     gap: 6px;
   }
+  .resetButton {
+    padding: 0;
+    gap: 0;
+  }
 }
