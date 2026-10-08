@@ -378,6 +378,9 @@ export default function TexasStudio() {
                   <button type="button" aria-label="Ingrediente siguiente" title="Ingrediente siguiente" onClick={() => step(1)}>
                     <ChevronRight size={18} aria-hidden="true" />
                   </button>
+                  <button type="button" className={styles.whole} onClick={assemble}>
+                    Ver la hamburguesa completa
+                  </button>
                 </div>
               </>
             ) : (
