@@ -1432,3 +1432,6 @@ MAT = {
     'onion': mat_onion(),
     'fries': mat_fries(),
 }
+
+print('MODEL geometry', flush=True)
+objects = {}
