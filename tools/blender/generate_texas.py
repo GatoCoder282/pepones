@@ -704,3 +704,13 @@ def sauce_base():
         lambda x, y, t, a: floor(math.hypot(x, y)) + thick(a, t) + .002 * nz(x * 12, y * 12, 0, 1, 33),
         lambda x, y, t, a: floor(math.hypot(x, y)) - .001,
         96, 10)
+    bead = template('uv', 2)
+    for i in range(30):
+        a = TAU * i / 30 + rng.uniform(-.09, .09)
+        rr = edge(a) - .015
+        if rr < .93 or rng.random() < .25:
+            continue
+        size = rng.uniform(.014, .03)
+        m = (Matrix.Translation((rr * math.cos(a), rr * math.sin(a), floor(rr) + size * .4))
+             @ Matrix.Rotation(a, 4, 'Z') @ Matrix.Diagonal((size * 1.2, size * rng.uniform(1.0, 1.6), size * 1.05, 1)))
+        append_shape(verts, faces, bead, m)
