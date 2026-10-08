@@ -1371,3 +1371,15 @@ def render_views(cam, assembly, height):
         'exploded': ((6.6, -9.6, height * .5 + 3.9), (0, 0, height * .5), 1.0, .34),
         'top': ((0, -1.2, 9.5), (0, 0, mid), 1.0, 0.0),
     }
+    for name in [v for v in args.views.split(',') if v]:
+        pos, target, aspect, spread = views[name]
+        scene.render.resolution_y = int(args.resolution * (1.25 if name == 'exploded' else aspect))
+        for i, (ob, base_z) in enumerate(assembly):
+            ob.location.z = base_z + (i - (len(assembly) - 1) / 2) * spread
+        cam.location = pos
+        cam.data.lens = 70 if name == 'exploded' else 85
+        point_at(cam, target)
+        scene.render.filepath = str(OUT / 'renders' / (prefix + name + '.png'))
+        bpy.ops.render.render(write_still=True)
+    for ob, base_z in assembly:
+        ob.location.z = base_z
