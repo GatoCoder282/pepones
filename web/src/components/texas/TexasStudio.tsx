@@ -336,6 +336,11 @@ export default function TexasStudio() {
               <RefreshCcw size={16} aria-hidden="true" />
               <span className={styles.resetLabel}>Restablecer vista</span>
             </button>
+            <div className={styles.iconRow}>
+              <button type="button" aria-label="Girar a la izquierda" title="Girar a la izquierda" disabled={!live} onClick={() => send("rotate", -0.45)}>
+                <RotateCcw size={17} aria-hidden="true" />
+              </button>
+            </div>
           </div>
         </section>
       </div>
