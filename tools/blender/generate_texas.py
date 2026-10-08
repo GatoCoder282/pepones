@@ -1566,3 +1566,4 @@ if args.mode == 'build':
 
 cam = studio()
 bpy.ops.wm.save_as_mainfile(filepath=str(OUT / ('texas.blend' if args.mode == 'build' else 'preview-source.blend')), compress=True)
+render_views(cam, assembly, height)
