@@ -221,3 +221,22 @@ function LabelProjector({
   });
   return null;
 }
+
+function Side({ visible, reducedMotion }: { visible: boolean; reducedMotion: boolean }) {
+  const { object } = useAsset(TEXAS_SIDE.url);
+  const group = useRef<THREE.Group>(null);
+  useFrame((state, delta) => {
+    const g = group.current;
+    if (!g) return;
+    const target = visible ? 1 : 0.001;
+    const next = approach(g.scale.x, target, reducedMotion ? 60 : 6, delta);
+    g.scale.setScalar(next);
+    g.visible = next > 0.01;
+    if (Math.abs(next - target) > 1e-3) state.invalidate();
+  });
+  return (
+    <group ref={group} position={TEXAS_SIDE.position} rotation={TEXAS_SIDE.rotation} scale={0.001}>
+      <primitive object={object} />
+    </group>
+  );
+}
