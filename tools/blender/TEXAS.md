@@ -60,3 +60,7 @@ En `material/semanal/texas/modelos/` (ignorado por Git; se regenera con el coman
 
 De abajo hacia arriba: pan de papa (base), salsa original, pepinillos, carne, queso americano, carne, queso americano, tocino, salsa barbacoa, cebolla crispy, salsa original y pan de papa (tapa). La foto muestra todas las capas salvo la identidad de las salsas: la salsa color melocotón (base y tapa) se asignó a la salsa original y el brillo rojizo sobre el tocino a la barbacoa.
 
+## Presupuesto web
+
+Resultado de la última importación: 12 capas con 99 812 triángulos y 2,55 MiB para la hamburguesa; 2,66 MiB con las papas (Dona Burger: 13,3 MiB). Texturas de 1024 px en pan y carne, 768 px en tocino y cebolla, y 512 px en las demás piezas. El importador imprime estas cifras en cada ejecución.
+
