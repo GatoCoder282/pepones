@@ -403,6 +403,9 @@ export default function TexasStudio() {
           </a>
         </section>
       </div>
+
+      <section id="referencia" className={styles.notes} aria-labelledby="referencia-title">
+      </section>
     </main>
   );
 }
