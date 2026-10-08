@@ -64,6 +64,30 @@ export default function TexasStudio() {
   const stage = useRef<HTMLElement>(null);
   const layered = spread >= 0.5;
   const current = selected ? ingredientById(selected) : null;
+
+  useEffect(() => {
+    setStatus(webglAvailable() ? "loading" : "unsupported");
+    const motion = matchMedia("(prefers-reduced-motion: reduce)");
+    const narrow = matchMedia("(max-width: 899px)");
+    const sync = () => {
+      setReducedMotion(motion.matches);
+      setCompact(narrow.matches);
+    };
+    sync();
+    motion.addEventListener("change", sync);
+    narrow.addEventListener("change", sync);
+    // Deep links: ?ingrediente=pepinillos&vista=capas
+    const params = new URLSearchParams(location.search);
+    const id = params.get("ingrediente") as TexasIngredientId | null;
+    if (id && IDS.includes(id)) {
+      setSelected(id);
+      setSpread(1);
+    } else if (params.get("vista") === "capas") setSpread(1);
+    return () => {
+      motion.removeEventListener("change", sync);
+      narrow.removeEventListener("change", sync);
+    };
+  }, []);
   return (
     <main id="contenido" className={styles.studio}>
       <header className={styles.header}>
