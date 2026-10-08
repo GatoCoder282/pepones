@@ -758,3 +758,8 @@ def pickles():
         select([ob])
         bpy.ops.object.transform_apply(location=True, rotation=True, scale=True)
     return join(parts, 'pepinillos')
+
+
+# ---------------------------------------------------------------- geometry: patty and cheese
+
+PATTY_R = 1.115
