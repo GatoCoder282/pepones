@@ -508,3 +508,11 @@
 .referenceThumb:hover span {
   color: var(--red);
 }
+
+/* Labels follow their layer through LabelProjector; the list stays the accessible control. */
+.labels {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
