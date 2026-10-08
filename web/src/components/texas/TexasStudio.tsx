@@ -286,6 +286,11 @@ export default function TexasStudio() {
                     ? "Este navegador no puede mostrar la vista 3D. Puedes revisar la foto, el render por capas y cada ingrediente."
                     : "La vista 3D se interrumpió. Puedes revisar la foto y los ingredientes, o intentarlo de nuevo."}
                 </p>
+                {status === "failed" && (
+                  <button type="button" className={styles.secondary} onClick={reset}>
+                    Reintentar la vista 3D
+                  </button>
+                )}
               </div>
             ) : null}
           </div>
