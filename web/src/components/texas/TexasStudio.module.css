@@ -263,3 +263,9 @@
   border-top-color: var(--green);
   animation: spin 0.9s linear infinite;
 }
+.progress {
+  width: 180px;
+  height: 3px;
+  background: #31584926;
+  overflow: hidden;
+}
