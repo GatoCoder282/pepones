@@ -1512,3 +1512,8 @@ if args.mode == 'build':
         path = export_web_asset(ob, asset_id)
         stats.append({'id': asset_id, 'ingredientId': ASSETS[asset_id]['ingredient'], 'triangles': triangles(ob),
                       'bytes': path.stat().st_size, 'textureSize': ASSETS[asset_id]['web']})
+elif patty_hi.name in WORK.objects:
+    # Preview renders the high-resolution patty with its procedural crust.
+    objects['carne'].hide_render = True
+    objects['carne'], patty_hi = patty_hi, objects['carne']
+    objects['carne'].hide_render = False
