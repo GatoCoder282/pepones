@@ -240,3 +240,16 @@ function Side({ visible, reducedMotion }: { visible: boolean; reducedMotion: boo
     </group>
   );
 }
+
+function framing(spread: number, showSide: boolean, aspect: number) {
+  const top = HEIGHT + LAST * GAP * spread;
+  const height = top + 0.25;
+  const width = BURGER_WIDTH + (showSide ? 2.4 : 0);
+  const v = THREE.MathUtils.degToRad(FOV) / 2;
+  const h = Math.atan(Math.tan(v) * aspect);
+  const distance = Math.max(height / 2 / Math.tan(v), width / 2 / Math.tan(h)) * 1.3 + 1.3;
+  return {
+    target: new THREE.Vector3(showSide ? SIDE_SHIFT : 0, top / 2 - 0.05, showSide ? -0.35 : 0),
+    radius: Math.min(Math.max(distance, 5.2), 17),
+  };
+}
