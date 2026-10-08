@@ -88,6 +88,15 @@ export default function TexasStudio() {
       narrow.removeEventListener("change", sync);
     };
   }, []);
+
+  useEffect(() => {
+    if (status === "checking") return;
+    const params = new URLSearchParams();
+    if (selected) params.set("ingrediente", selected);
+    else if (layered) params.set("vista", "capas");
+    const query = params.toString();
+    history.replaceState(null, "", query ? `?${query}` : location.pathname);
+  }, [selected, layered, status]);
   return (
     <main id="contenido" className={styles.studio}>
       <header className={styles.header}>
