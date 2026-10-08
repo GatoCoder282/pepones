@@ -754,3 +754,7 @@ def pickles():
                            @ Matrix.Rotation(-tilt, 4, Vector((-math.sin(a), math.cos(a), 0)))
                            @ Matrix.Rotation(rng.uniform(0, TAU), 4, 'Z'))
         parts.append(ob)
+    for ob in parts:
+        select([ob])
+        bpy.ops.object.transform_apply(location=True, rotation=True, scale=True)
+    return join(parts, 'pepinillos')
