@@ -154,3 +154,16 @@ def point_attr(ob, name, fn):
 def triangles(ob):
     ob.data.calc_loop_triangles()
     return len(ob.data.loop_triangles)
+
+
+def template(kind='ico', level=2):
+    bm = bmesh.new()
+    if kind == 'ico':
+        bmesh.ops.create_icosphere(bm, subdivisions=level, radius=1.0)
+    else:
+        bmesh.ops.create_uvsphere(bm, u_segments=level * 6, v_segments=level * 3, radius=1.0)
+    bm.verts.index_update()
+    verts = [v.co.copy() for v in bm.verts]
+    faces = [tuple(v.index for v in f.verts) for f in bm.faces]
+    bm.free()
+    return verts, faces
