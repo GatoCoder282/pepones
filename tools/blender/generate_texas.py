@@ -143,3 +143,9 @@ def join(parts, name):
     ob.name = name
     ob.data.name = name
     return ob
+
+
+def point_attr(ob, name, fn):
+    me = ob.data
+    attr = me.attributes.get(name) or me.attributes.new(name, 'FLOAT', 'POINT')
+    attr.data.foreach_set('value', [float(fn(v.co, v.normal)) for v in me.vertices])
