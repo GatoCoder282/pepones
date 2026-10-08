@@ -43,3 +43,5 @@ MODELOS DISPONIBLES:
 OBSERVACIONES:
 - Solo hay una foto frontal: la parte trasera, el interior del pan y las caras
   ocultas de cada capa son interpretación visual.
+- La foto muestra una salsa color melocotón en dos alturas. Se asignó a la salsa
+  original porque es la única salsa cremosa de la lista; su ubicación es inferida.
