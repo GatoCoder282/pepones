@@ -1296,3 +1296,19 @@ def web_material(asset_id, images):
         links.new(tex['color'].outputs['Color'], bs.inputs['Emission Color'])
         bs.inputs['Emission Strength'].default_value = spec['emission']
     return mat
+
+
+def export_web_asset(ob, asset_id):
+    size = ASSETS[asset_id]['web']
+    source_mat = ob.data.materials[0]
+    web_mat = source_mat.copy()
+    web_mat.name = asset_id
+    for node in web_mat.node_tree.nodes:
+        if node.bl_idname == 'ShaderNodeTexImage' and node.image:
+            im = node.image.copy()
+            im.name = node.image.name + '_web'
+            im.scale(size, size)
+            im.filepath_raw = str(OUT / 'textures/web' / (node.image.name + '.png'))
+            im.file_format = 'PNG'
+            im.save()
+            node.image = im
