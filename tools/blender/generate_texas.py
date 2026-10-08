@@ -766,3 +766,9 @@ PATTY_R = 1.115
 # Stack rotation of the lower and upper patty; their cheese slices share it so the drape fits.
 PATTY_ROTATIONS = (.35, 2.6)
 FRONT = -math.pi / 2
+
+
+def patty_edge(a):
+    return PATTY_R * (1 + .036 * nz(math.cos(a) * 1.1, math.sin(a) * 1.1, .4, 1, 51)
+                      + .024 * nz(math.cos(a) * 2.8, math.sin(a) * 2.8, 1.3, 1, 52)
+                      + .015 * nz(math.cos(a) * 6.5, math.sin(a) * 6.5, 2.2, 1, 53))
