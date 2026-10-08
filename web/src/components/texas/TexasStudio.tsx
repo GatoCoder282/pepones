@@ -358,6 +358,21 @@ export default function TexasStudio() {
           </p>
 
           <div id="texas-detalle" className={styles.detail} aria-live="polite">
+            {current ? (
+              <>
+              </>
+            ) : (
+              <>
+                <p className={styles.detailMeta}>
+                  {TEXAS_MODEL.layers} capas · {TEXAS_INGREDIENTS.length} ingredientes
+                </p>
+                <h2>Elige un ingrediente</h2>
+                <p>
+                  Toca un ingrediente de la lista o una capa del modelo para
+                  verla separada y resaltada.
+                </p>
+              </>
+            )}
           </div>
         </section>
       </div>
