@@ -66,3 +66,6 @@ const DEFAULT_PHI = 1.38;
 const FOV = 30;
 const BURGER_WIDTH = 2.7;
 const SIDE_SHIFT = 1.15;
+
+// The side dish downloads only when someone asks to see it.
+for (const url of new Set(TEXAS_LAYERS.map((l) => l.url))) useGLTF.preload(url, false, true);
