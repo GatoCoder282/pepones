@@ -74,4 +74,11 @@ export const TEXAS_INGREDIENTS: TexasIngredient[] = [
     description: "Cebolla crispy sobre el tocino, debajo de la tapa.",
     estimate: "La cantidad del modelo es ilustrativa.",
   },
+  {
+    id: "pepinillos",
+    name: "Pepinillos",
+    color: "#868033",
+    description: "Pepinillos entre la base y la primera carne.",
+    estimate: "La cantidad de rodajas del modelo es ilustrativa.",
+  },
 ];
