@@ -486,6 +486,29 @@ export default function TexasScene(props: SceneProps) {
   const separated = props.spread > 0.55;
   return (
     <div ref={host} className={styles.canvasHost}>
+      <SceneBoundary onFailure={props.onFailure}>
+        <Canvas
+          shadows="soft"
+          frameloop={visible ? "demand" : "never"}
+          dpr={[1, 1.75]}
+          camera={{ position: initial, fov: FOV, near: 0.1, far: 80 }}
+          gl={{ antialias: true, alpha: true, powerPreference: "high-performance" }}
+          onCreated={({ gl }) => {
+            gl.toneMapping = THREE.NeutralToneMapping;
+            gl.toneMappingExposure = 1.05;
+          }}
+        >
+          <Suspense fallback={null}>
+            <SceneContents
+              {...props}
+              hovered={hovered}
+              setHovered={setHovered}
+              anchors={anchors}
+              labels={labels}
+            />
+          </Suspense>
+        </Canvas>
+      </SceneBoundary>
     </div>
   );
 }
