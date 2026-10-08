@@ -31,3 +31,5 @@ import {
   layerText,
   type TexasIngredientId,
 } from "@/lib/texas";
+import type { ViewCommand } from "./TexasScene";
+import styles from "./TexasStudio.module.css";
