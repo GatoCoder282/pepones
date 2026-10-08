@@ -1194,3 +1194,9 @@ def bake(asset_id, low, high=None):
         low.data.materials.clear()
         low.data.materials.append(target)
     targets = list(low.data.materials)
+    others = [ob for ob in WORK.objects if ob not in (low, high)]
+    for ob in others:
+        ob.hide_render = True
+    settings = scene.render.bake
+    settings.use_pass_direct = settings.use_pass_indirect = False
+    settings.use_pass_color = True
