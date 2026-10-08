@@ -97,3 +97,13 @@ export const TEXAS_INGREDIENTS: TexasIngredient[] = [
     parts: { "salsa-original-base": "base", "salsa-original-tapa": "tapa" },
   },
 ];
+
+export const TEXAS_SIDE = {
+  id: "papas-cajun",
+  name: "Papas Cajun",
+  description: "Se muestra aparte, fuera de las capas de la hamburguesa.",
+  estimate: "La forma y la cantidad del modelo son ilustrativas.",
+  url: manifest.assets.find((a) => a.id === manifest.side.assetId)!.modelUrl,
+  position: manifest.side.position as [number, number, number],
+  rotation: manifest.side.rotation as [number, number, number],
+};
