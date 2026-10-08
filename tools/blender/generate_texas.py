@@ -741,3 +741,16 @@ def pickles():
     layout = [(a + rng.uniform(-.12, .12), .84 + rng.uniform(-.03, .03)) for a in (.35, 1.3, 2.25, 3.2, 4.2, 5.25)]
     layout.append((rng.uniform(0, TAU), .12))
     parts = []
+    for k, (a, rr) in enumerate(layout):
+        R = rng.uniform(.29, .33)
+        thick = rng.uniform(.04, .048)
+        verts, faces = pickle_slice(rng, R, thick, rng.uniform(.085, .1), .01, rng.uniform(0, math.pi))
+        ob = mesh_object('pickle %d' % k, verts, faces, [MAT['pickle']])
+        recalc_normals(ob)
+        point_attr(ob, 'pickle_r', lambda co, n, R=R: min(1.0, math.hypot(co.x, co.y) / R))
+        point_attr(ob, 'pickle_side', lambda co, n: smoothstep(.55, .9, 1 - abs(n.z)))
+        tilt = .1 * smoothstep(.3, .7, rr)
+        ob.matrix_world = (Matrix.Translation((rr * math.cos(a), rr * math.sin(a), thick / 2 + .006 + .003 * (k % 3)))
+                           @ Matrix.Rotation(-tilt, 4, Vector((-math.sin(a), math.cos(a), 0)))
+                           @ Matrix.Rotation(rng.uniform(0, TAU), 4, 'Z'))
+        parts.append(ob)
