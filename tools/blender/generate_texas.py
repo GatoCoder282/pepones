@@ -683,3 +683,18 @@ def drip(verts, faces, start, length, radius, rng):
     base = len(verts)
     verts.extend(v)
     faces.extend(tuple(base + i for i in face) for face in f)
+
+
+def sauce_base():
+    rng = rng_for('salsa-original-base')
+    lobes = [(rng.uniform(0, TAU), rng.uniform(.02, .06), rng.uniform(.08, .15)) for _ in range(9)]
+
+    def edge(a):
+        e = .93 + .03 * nz(math.cos(a) * 1.6, math.sin(a) * 1.6, .2, 1, 31)
+        return e + sum(amp * gauss_angle(a, c, w) for c, amp, w in lobes)
+
+    def floor(r):
+        return -1.2 * max(0.0, r - .975) ** 1.4
+
+    def thick(a, t):
+        return (.024 + .007 * nz(math.cos(a) * 3, math.sin(a) * 3, 1.3, 1, 32)) * max(0.0, 1 - t ** 6) ** .4 + .004
