@@ -1029,3 +1029,40 @@ def onions(below):
         i, j = field._ij(x, y)
         i, j = int(min(max(round(i), 0), field.n - 1)), int(min(max(round(j), 0), field.n - 1))
         return base[i, j] + .03 + .22 * max(0.0, 1 - (r / 1.05) ** 2) ** .6
+    for count, n, ring, rho_range, sweep_range, width_range, thick_range, spread, depth in groups:
+        for k in range(count):
+            r = spread * math.sqrt(rng.random()) ** 1.5
+            a = rng.uniform(0, TAU)
+            cx, cy = r * math.cos(a), r * math.sin(a)
+            rho, sweep, start = rng.uniform(*rho_range), rng.uniform(*sweep_range), rng.uniform(0, TAU)
+            tilt_axis = Vector((rng.uniform(-1, 1), rng.uniform(-1, 1), 0)).normalized()
+            tilt = Matrix.Rotation(rng.uniform(-.45, .45), 3, tilt_axis)
+            local = []
+            for i in range(n):
+                al = start + sweep * i / (n - 1)
+                rr = rho * (1 + .08 * math.sin(i * .9 + k))
+                local.append(tilt @ Vector((rr * math.cos(al), rr * math.sin(al), .01 * math.sin(i * 1.3 + k))))
+            mid = sum(local, Vector()) / n
+            pts = [Vector((cx, cy, 0)) + (p - mid) for p in local]
+            half_w, half_t = rng.uniform(*width_range), rng.uniform(*thick_range)
+            # Fried strips catch on each other, leaving air in the pile.
+            lift = max(field.sample(p.x, p.y) - p.z for p in pts) + half_t * .5 + rng.uniform(-.004, .012)
+            # Strips settle into the mound instead of stacking into a tower.
+            lift = min(lift, max(min(envelope(p.x, p.y) - p.z for p in pts) + .06,
+                                 max(field.sample(p.x, p.y) - p.z for p in pts) - .03))
+            pts = [p + Vector((0, 0, lift)) for p in pts]
+            pts = [p - Vector((0, 0, .55 * max(0.0, math.hypot(p.x, p.y) - .97) ** 1.3)) for p in pts]
+            for p in pts:
+                field.stamp(p.x, p.y, p.z + half_t, half_w * 1.1)
+            radii = [(half_w * (.6 + .4 * math.sin(math.pi * (i + .5) / n) ** .5), half_t) for i in range(n)]
+            twist = [rng.uniform(-.3, .3) + .2 * math.sin(i * .7 + k) for i in range(n)]
+            v, f = tube(pts, radii, ring=ring, twist=twist,
+                        # Ragged batter: the flat strip's two edges vary most.
+                        lump=lambda p, kk, k=k: (.34 if kk % 3 == 0 else .14) * nz(p.x + kk * .37, p.y, p.z + k, 30, 82)
+                        + .1 * nz(p.x, p.y + kk, p.z, 90, 83))
+            offset = len(verts)
+            verts.extend(v)
+            faces.extend(tuple(offset + i for i in face) for face in f)
+            for i in range(len(v)):
+                tips.append(1 - math.sin(math.pi * min(i // ring, n - 1) / (n - 1)))
+                inner.append(depth)
