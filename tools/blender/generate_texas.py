@@ -1548,3 +1548,18 @@ if args.mode == 'build':
     if ONLY and manifest_path.exists():
         previous = {a['id']: a for a in json.loads(manifest_path.read_text(encoding='utf-8'))['assets']}
     previous.update({s['id']: s for s in stats})
+    assets = [previous[a] for a in ASSETS if a in previous]
+    tri = {a['id']: a['triangles'] for a in assets}
+    manifest = {
+        'name': 'Texas', 'version': 1, 'blender': bpy.app.version_string,
+        'referenceFiles': [REFERENCE],
+        'interpretation': 'Procedural reconstruction from one front photo; hidden faces, quantities of strips, slices and strands, and physical scale are interpreted.',
+        'units': 'Bun radius about 1. Y is up in glTF; each asset rests on its own origin.',
+        'assets': assets, 'sourceTextureSize': args.texture_size,
+        'recipe': [{'assetId': a, 'ingredientId': ASSETS[a]['ingredient'], 'y': round(y, 4), 'rotation': [0, rot, 0]} for a, y, rot in recipe],
+        'side': SIDE,
+        'height': round(height, 4),
+        'totalUniqueBytes': sum(a['bytes'] for a in assets),
+        'assembledTriangles': sum(tri.get(a, 0) for a, _, _ in recipe),
+    }
+    manifest_path.write_text(json.dumps(manifest, indent=2) + '\n', encoding='utf-8')
