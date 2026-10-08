@@ -277,5 +277,13 @@ function CameraRig({
   const offset = useMemo(() => new THREE.Vector3(), []);
   const aspect = size.width / Math.max(size.height, 1);
 
+  useEffect(() => {
+    // Panels cover part of the canvas: shift the projection, not the orbit target.
+    const perspective = camera as THREE.PerspectiveCamera;
+    const [x, y] = compact ? [0, 0.06] : [-0.06, 0.035];
+    perspective.setViewOffset(size.width, size.height, size.width * x, size.height * y, size.width, size.height);
+    perspective.updateProjectionMatrix();
+    invalidate();
+  }, [camera, size.width, size.height, compact, invalidate]);
   return null;
 }
