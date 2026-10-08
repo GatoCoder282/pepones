@@ -1,0 +1,8 @@
+.studio {
+  --stage-glow: #fffaf0;
+  --stage-edge: #ecd9b5;
+  --panel-width: minmax(330px, 410px);
+  --header-height: 64px;
+  min-height: 100svh;
+  background: var(--cream);
+}
