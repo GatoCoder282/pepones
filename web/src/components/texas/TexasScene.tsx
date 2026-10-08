@@ -141,6 +141,21 @@ function Layer({
   const pointed = hovered === layer.ingredientId;
   const toViewer = useMemo(() => new THREE.Vector3(), []);
   const right = useMemo(() => new THREE.Vector3(), []);
+  useFrame((state, delta) => {
+    const g = group.current;
+    if (!g) return;
+    const rate = reducedMotion ? 60 : 7;
+    const camera = state.camera;
+    toViewer.set(camera.position.x, 0, camera.position.z).normalize();
+    const pull = chosen ? 0.34 : 0;
+    const targetY = layer.y + layer.index * GAP * spread;
+    const scale = chosen ? 1.035 : pointed ? 1.02 : 1;
+    const dim = selected && !chosen ? 0.45 : 1;
+    g.position.y = approach(g.position.y, targetY, rate, delta);
+    g.position.x = approach(g.position.x, toViewer.x * pull, rate, delta);
+    g.position.z = approach(g.position.z, toViewer.z * pull, rate, delta);
+    g.scale.setScalar(approach(g.scale.x, scale, rate, delta));
+  });
   return (
     <group
       ref={group}
