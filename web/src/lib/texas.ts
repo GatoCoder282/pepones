@@ -137,3 +137,12 @@ export function layerText(id: TexasIngredientId) {
     ? `Capas ${layers.slice(0, -1).join(", ")} y ${layers.at(-1)}`
     : `Capa ${layers[0]}`;
 }
+
+export const TEXAS_MODEL = {
+  height: manifest.height,
+  layers: TEXAS_LAYERS.length,
+  photo: manifest.photo,
+  renders: manifest.renders,
+  burgerBytes: manifest.burgerBytes,
+  triangles: manifest.assembledTriangles,
+};
