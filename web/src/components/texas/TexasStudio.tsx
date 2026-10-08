@@ -39,3 +39,12 @@ const Scene = dynamic(() => import("./TexasScene"), { ssr: false });
 type Status = "checking" | "loading" | "ready" | "failed" | "unsupported";
 const pad = (n: number) => String(n).padStart(2, "0");
 const IDS = TEXAS_INGREDIENTS.map((i) => i.id);
+
+function webglAvailable() {
+  try {
+    const canvas = document.createElement("canvas");
+    return !!(canvas.getContext("webgl2") ?? canvas.getContext("webgl"));
+  } catch {
+    return false;
+  }
+}
