@@ -314,3 +314,7 @@ class Graph:
         if self._co is None:
             self._co = self.node('ShaderNodeTexCoord').outputs['Object']
         return self._co
+
+    def attr(self, name):
+        n = self.node('ShaderNodeAttribute', attribute_type='GEOMETRY', attribute_name=name)
+        return n.outputs['Fac']
