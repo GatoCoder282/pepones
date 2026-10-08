@@ -445,6 +445,15 @@ function SceneContents(
         minPolarAngle={0.2}
         maxPolarAngle={1.62}
       />
+      <CameraRig
+        controls={controls}
+        spread={props.spread}
+        showSide={props.showSide}
+        resetKey={props.resetKey}
+        command={props.command}
+        reducedMotion={props.reducedMotion}
+        compact={props.compact}
+      />
     </>
   );
 }
