@@ -1083,3 +1083,19 @@ def sauce_top(onion_ob):
         return hit[0].z if hit is not None else -.1
     samples = sorted(pile(r * math.cos(a), r * math.sin(a)) for r in (.0, .12, .24, .36) for a in np.linspace(0, TAU, 16))
     z_rim = samples[int(len(samples) * .7)] + .006 - BUN_TOP_HOLLOW
+
+    def under(r):
+        # Underside of the hollow crown: the sauce is spread on it.
+        return z_rim + BUN_TOP_HOLLOW * (1 - min(1.0, r / .95) ** 1.7)
+    lobes = [(rng.uniform(0, TAU), rng.uniform(.03, .07), rng.uniform(.1, .18)) for _ in range(6)] + [(FRONT, .1, .4)]
+
+    def edge(a):
+        return .88 + .03 * nz(math.cos(a) * 1.7, math.sin(a) * 1.7, 2.1, 1, 91) + sum(amp * gauss_angle(a, c, w) for c, amp, w in lobes)
+
+    def top(x, y):
+        return under(math.hypot(x, y)) - .002 + .0015 * nz(x * 7, y * 7, 1, 1, 93)
+
+    def bottom(x, y, t, a):
+        sag = .045 * max(0.0, 1 - t * t) ** .8 + .016 + .06 * gauss_angle(a, FRONT, .4) * smoothstep(.5, 1, t)
+        z = top(x, y)
+        return min(z - .008, max(pile(x, y) - .004, z - sag) + .002 * nz(x * 9, y * 9, 0, 1, 92))
