@@ -309,6 +309,13 @@ export default function TexasStudio() {
               <button type="button" aria-pressed={spread === 0} onClick={assemble}>
                 <Square size={15} aria-hidden="true" /> Armada
               </button>
+              <button
+                type="button"
+                aria-pressed={spread === 1}
+                onClick={() => setSpread(1)}
+              >
+                <Layers size={15} aria-hidden="true" /> Por capas
+              </button>
             </div>
           </div>
         </section>
