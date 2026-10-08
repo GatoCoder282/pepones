@@ -1113,3 +1113,45 @@ def sauce_top(onion_ob):
     recalc_normals(ob)
     point_attr(ob, 'thick', lambda co, n: smoothstep(.0, .05, under(math.hypot(co.x, co.y)) - co.z))
     return ob, z_rim
+
+
+# ---------------------------------------------------------------- geometry: fries (side)
+
+def fries():
+    rng = rng_for('papas-cajun')
+    field = HeightField(lambda x, y: 0.0, half=1.8, n=110)
+    verts, faces, ends = [], [], []
+    for k in range(12):
+        L, T = rng.uniform(.85, 1.2), rng.uniform(.14, .17)
+        nl, corner = 12, 3
+        section = []
+        for q in range(4):
+            cx, cy = (1 if q in (0, 3) else -1), (1 if q < 2 else -1)
+            for c in range(corner):
+                th = (q * math.pi / 2) + (math.pi / 2) * c / (corner - 1)
+                section.append((cx * (T / 2 - .03) + .03 * math.cos(th), cy * (T / 2 - .03) + .03 * math.sin(th)))
+        bend = rng.uniform(-.08, .08)
+        heading = rng.uniform(-.9, .9) + (math.pi / 2 if k % 4 == 0 else 0)
+        cx, cy = rng.uniform(-.95, .95), rng.uniform(-.65, .65)
+        local = []
+        for i in range(nl + 1):
+            s = i / nl
+            taper = 1 - .08 * abs(2 * s - 1) ** 2
+            for (px, py) in section:
+                local.append(Vector(((s - .5) * L, px * taper, py * taper + bend * math.sin(math.pi * s))))
+        rot = Matrix.Rotation(heading, 3, 'Z') @ Matrix.Rotation(rng.uniform(-.25, .25), 3, 'X') @ Matrix.Rotation(rng.uniform(-.12, .12), 3, 'Y')
+        placed = [rot @ p + Vector((cx, cy, 0)) for p in local]
+        lift = max(field.sample(p.x, p.y) - p.z for p in placed) + .002
+        placed = [p + Vector((0, 0, lift)) for p in placed]
+        for p in placed:
+            field.stamp(p.x, p.y, p.z, .06)
+        base = len(verts)
+        ns = len(section)
+        verts.extend(placed)
+        ends.extend([smoothstep(.12, .0, min(i / nl, 1 - i / nl)) for i in range(nl + 1) for _ in section])
+        for i in range(nl):
+            for c in range(ns):
+                c2 = (c + 1) % ns
+                faces.append((base + i * ns + c, base + i * ns + c2, base + (i + 1) * ns + c2, base + (i + 1) * ns + c))
+        faces.append(tuple(base + c for c in range(ns)))
+        faces.append(tuple(base + nl * ns + c for c in reversed(range(ns))))
