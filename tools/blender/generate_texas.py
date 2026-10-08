@@ -116,3 +116,12 @@ def mesh_object(name, verts, faces, materials=(), slots=None, collection=None):
     ob = bpy.data.objects.new(name, me)
     (collection or WORK).objects.link(ob)
     return ob
+
+
+def recalc_normals(ob):
+    bm = bmesh.new()
+    bm.from_mesh(ob.data)
+    bmesh.ops.recalc_face_normals(bm, faces=bm.faces)
+    bm.to_mesh(ob.data)
+    bm.free()
+    ob.data.update()
