@@ -254,3 +254,12 @@ def raycaster(objects):
                 best = hit
         return best
     return cast
+
+
+class HeightField:
+    """Top surface of a pile, used to drop strands so they rest on what lies below."""
+
+    def __init__(self, fn, half=1.45, n=120):
+        self.half, self.n = half, n
+        xs = np.linspace(-half, half, n)
+        self.h = np.array([[fn(x, y) for y in xs] for x in xs])
