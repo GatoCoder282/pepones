@@ -73,3 +73,4 @@ Para cambios reproducibles, edita en `generate_texas.py`:
 - Acabado web y tamaño de textura por pieza: diccionario `ASSETS`.
 - Orden y alturas: lista `recipe`. La separación entre capas y la iluminación de la web están en `web/src/components/texas/TexasScene.tsx`.
 
+Para retoques a mano, guarda una copia de `texas.blend` antes de editar: volver a ejecutar el generador reemplaza sus archivos. El render de Cycles y Three.js usan iluminaciones distintas; revisa siempre el resultado en `/estudio/texas/`.
