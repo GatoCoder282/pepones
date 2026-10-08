@@ -44,3 +44,14 @@ for (const asset of manifest.assets) {
   asset.modelUrl = `/models/texas/${asset.id}.glb`;
   asset.bytes = (await stat(file)).size;
 }
+
+const renders = {};
+for (const view of ["front", "three-quarter", "exploded"]) {
+  const target = path.join(images, `${view}.webp`);
+  const info = await sharp(path.join(source, "renders", `${view}.png`))
+    .trim({ threshold: 1 })
+    .resize({ width: 1200, height: 1200, fit: "inside", withoutEnlargement: true })
+    .webp({ quality: 86, alphaQuality: 90 })
+    .toFile(target);
+  renders[view] = { src: `/images/texas/${view}.webp`, width: info.width, height: info.height };
+}
