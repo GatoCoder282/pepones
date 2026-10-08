@@ -892,3 +892,14 @@ def cheese(patty):
                 x, y = r * math.cos(a), r * math.sin(a)
             grid[i, j] = Vector((x, y, z))
             droop[i, j] = d
+    # Melted cheese relaxes over small lumps instead of following every crumb.
+    relaxed = {}
+    for (i, j), p in grid.items():
+        acc, w = 0.0, 0.0
+        for di in (-2, -1, 0, 1, 2):
+            for dj in (-2, -1, 0, 1, 2):
+                q = grid.get((i + di, j + dj))
+                if q is not None:
+                    acc += q.z
+                    w += 1
+        relaxed[i, j] = Vector((p.x, p.y, max(acc / w, p.z - .002) + .002 * nz(p.x * 6, p.y * 6, 0, 1, 62)))
