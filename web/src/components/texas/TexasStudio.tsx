@@ -231,6 +231,15 @@ export default function TexasStudio() {
                 {TEXAS_SIDE.description} {TEXAS_SIDE.estimate}
               </p>
             </div>
+            <button
+              type="button"
+              className={styles.secondary}
+              aria-pressed={showSide}
+              disabled={!live}
+              onClick={() => setShowSide((v) => !v)}
+            >
+              {showSide ? "Ocultar de la escena" : "Mostrar en la escena"}
+            </button>
           </div>
         </section>
       </div>
