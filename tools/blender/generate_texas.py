@@ -1448,3 +1448,8 @@ objects['cebolla-crispy'] = onions([objects['tocino'], objects['salsa-barbacoa']
 objects['salsa-original-tapa'], TOP_RIM = sauce_top(objects['cebolla-crispy'])
 objects['pan-tapa'] = bun_top(TOP_RIM)
 objects['papas-cajun'] = fries()
+
+
+def anchor(ob, mode='min'):
+    zs = [v.co.z for v in ob.data.vertices if math.hypot(v.co.x, v.co.y) < .7]
+    return min(zs) if mode == 'min' else sum(zs) / len(zs)
