@@ -1536,3 +1536,4 @@ side = objects['papas-cajun']
 side.location = (SIDE['position'][0], -SIDE['position'][2], SIDE['position'][1])
 side.rotation_euler = (0, 0, SIDE['rotation'][1])
 side.hide_render = True
+height = max(v.co.z for v in objects['pan-tapa'].data.vertices) + recipe[-1][1]
