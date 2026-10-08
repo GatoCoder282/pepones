@@ -22,3 +22,12 @@ import {
   RotateCw,
   Square,
 } from "lucide-react";
+import {
+  TEXAS_INGREDIENTS,
+  TEXAS_MODEL,
+  TEXAS_SIDE,
+  ingredientById,
+  ingredientNumber,
+  layerText,
+  type TexasIngredientId,
+} from "@/lib/texas";
