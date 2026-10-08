@@ -133,3 +133,13 @@ def apply_modifier(ob, kind, **values):
     for key, value in values.items():
         setattr(mod, key, value)
     bpy.ops.object.modifier_apply(modifier=mod.name)
+
+
+def join(parts, name):
+    select(parts)
+    if len(parts) > 1:
+        bpy.ops.object.join()
+    ob = bpy.context.view_layer.objects.active
+    ob.name = name
+    ob.data.name = name
+    return ob
