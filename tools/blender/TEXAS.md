@@ -71,4 +71,5 @@ Para cambios reproducibles, edita en `generate_texas.py`:
 - Formas: `bun_bottom`, `bun_top`, `sauce_base`, `pickles`, `patty_high`, `cheese`, `bacon`, `bbq`, `onions`, `sauce_top`, `fries`.
 - Materiales: funciones `mat_*` (colores en hexadecimal y ruido procedural).
 - Acabado web y tamaño de textura por pieza: diccionario `ASSETS`.
+- Orden y alturas: lista `recipe`. La separación entre capas y la iluminación de la web están en `web/src/components/texas/TexasScene.tsx`.
 
