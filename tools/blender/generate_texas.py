@@ -1099,3 +1099,4 @@ def sauce_top(onion_ob):
         sag = .045 * max(0.0, 1 - t * t) ** .8 + .016 + .06 * gauss_angle(a, FRONT, .4) * smoothstep(.5, 1, t)
         z = top(x, y)
         return min(z - .008, max(pile(x, y) - .004, z - sag) + .002 * nz(x * 9, y * 9, 0, 1, 92))
+    verts, faces = disc_sheet(edge, lambda x, y, t, a: top(x, y), bottom, 96, 10)
