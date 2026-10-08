@@ -1006,3 +1006,15 @@ def bbq(bacon_ob):
     recalc_normals(ob)
     point_attr(ob, 'thin', lambda co, n: smoothstep(.3, .9, 1 - abs(n.z)))
     return ob
+
+
+def onions(below):
+    """Crispy onions as the photo shows them: broad, flat battered strips cut from onion rings."""
+    rng = rng_for('cebolla-crispy')
+    cast = raycaster(below)
+
+    def base_height(x, y):
+        hit = cast(x, y)
+        return hit[0].z if hit is not None else -.15
+    field = HeightField(base_height)
+    verts, faces, tips, inner = [], [], [], []
