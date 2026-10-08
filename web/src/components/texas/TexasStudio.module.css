@@ -757,4 +757,8 @@
   .fallback img {
     max-height: 72%;
   }
+  .listBlock {
+    order: 2;
+    padding: 28px 16px 0;
+  }
 }
