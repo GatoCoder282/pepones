@@ -125,3 +125,11 @@ def recalc_normals(ob):
     bm.to_mesh(ob.data)
     bm.free()
     ob.data.update()
+
+
+def apply_modifier(ob, kind, **values):
+    select([ob])
+    mod = ob.modifiers.new(kind.title(), kind)
+    for key, value in values.items():
+        setattr(mod, key, value)
+    bpy.ops.object.modifier_apply(modifier=mod.name)
