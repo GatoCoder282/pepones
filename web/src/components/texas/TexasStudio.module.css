@@ -439,3 +439,9 @@
 .detailMeta {
   color: var(--red);
 }
+.detail h2 {
+  margin-top: 6px;
+  font-size: 34px;
+  line-height: 1;
+  color: var(--green);
+}
