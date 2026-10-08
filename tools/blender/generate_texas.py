@@ -608,3 +608,17 @@ def bun_top(z_rim):
         phi = (math.pi / 2) * i / 40
         r = 0.0 if i == 40 else 1.022 * math.cos(phi) ** (2 / p)
         prof.append((r, .045 + (H - .045) * math.sin(phi) ** (2 / p), 0))
+
+    def deform(x, y, z, a):
+        zn = z / H
+        r = math.hypot(x, y)
+        if r > 1e-6:
+            k = 1 + .011 * nz(math.cos(a) * 1.3, math.sin(a) * 1.3, zn, 1, 13) + .005 * nz(x * 2.6, y * 2.6, z * 2.6, 1, 14)
+            x, y = x * k * 1.006, y * k * .994
+        dz = (.024 * nz(x * 1.3, y * 1.3, 0, 1, 15) + .008 * nz(x * 3.5, y * 3.5, 0, 1, 16)) * smoothstep(.15, .7, zn)
+        dz += .018 * smoothstep(.5, 1.0, zn) * (x * .25 - y * .12)
+        if r > .9 and z < .08:
+            dz += .016 * nz(x * 2.2, y * 2.2, 0, 1, 18)
+        return Vector((x, y, z + dz))
+
+    ob = revolve('pan-tapa', prof, 96, deform, [MAT['bun_top'], MAT['crumb']])
