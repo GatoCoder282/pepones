@@ -783,4 +783,8 @@
   .intro h1 {
     font-size: 64px;
   }
+  .detailActions .whole {
+    font-size: 13px;
+    padding: 0 10px;
+  }
 }
