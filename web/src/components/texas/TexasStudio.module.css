@@ -220,3 +220,13 @@
   background: transparent;
   color: var(--green);
 }
+
+/* ---------------------------------------------------------------- viewport */
+
+.viewport {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  background:
+    radial-gradient(115% 80% at 50% 42%, var(--stage-glow) 0%, #f7ebd3 52%, var(--stage-edge) 100%);
+}
