@@ -130,3 +130,10 @@ export const TEXAS_LAYERS: TexasLayer[] = manifest.recipe.map((layer, index) => 
 /** 1-based layer positions, counted from the bottom bun. */
 export const layersOf = (id: TexasIngredientId) =>
   TEXAS_LAYERS.filter((l) => l.ingredientId === id).map((l) => l.index + 1);
+
+export function layerText(id: TexasIngredientId) {
+  const layers = layersOf(id);
+  return layers.length > 1
+    ? `Capas ${layers.slice(0, -1).join(", ")} y ${layers.at(-1)}`
+    : `Capa ${layers[0]}`;
+}
