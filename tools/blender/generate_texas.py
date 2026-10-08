@@ -1543,3 +1543,8 @@ if args.mode == 'build':
     bpy.ops.export_scene.gltf(filepath=str(OUT / 'glb' / 'texas-assembled.glb'), export_format='GLB', use_selection=True,
                               export_yup=True, export_animations=False, export_cameras=False, export_lights=False,
                               export_extras=True, export_image_format='WEBP', export_image_quality=84)
+    previous = {}
+    manifest_path = OUT / 'manifest.json'
+    if ONLY and manifest_path.exists():
+        previous = {a['id']: a for a in json.loads(manifest_path.read_text(encoding='utf-8'))['assets']}
+    previous.update({s['id']: s for s in stats})
