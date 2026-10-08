@@ -827,3 +827,15 @@ def patty_high():
         return max(smoothstep(.86, 1.02, math.hypot(co.x, co.y) / patty_edge(a)), .7 * (1 - abs(n.z)))
     point_attr(ob, 'rim', rim)
     return ob
+
+
+def decimated(high, name, target):
+    low = high.copy()
+    low.data = high.data.copy()
+    WORK.objects.link(low)
+    low.name = low.data.name = name
+    ratio = min(1.0, target / max(1, triangles(high)))
+    apply_modifier(low, 'DECIMATE', decimate_type='COLLAPSE', ratio=ratio, use_collapse_triangulate=True)
+    low.data.validate()
+    low.data.update()
+    return low
