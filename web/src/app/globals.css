@@ -2471,3 +2471,9 @@ button {
   max-width: 46ch;
   margin-bottom: 32px;
 }
+.studio-teaser-visual {
+  position: relative;
+  display: block;
+  padding: 6% 9%;
+  background: radial-gradient(ellipse at center, #fffaf0 0%, #f2e3c6 78%);
+}
