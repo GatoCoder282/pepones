@@ -811,3 +811,13 @@ def patty_high():
     recalc_normals(ob)
     apply_modifier(ob, 'REMESH', mode='VOXEL', voxel_size=.0095, use_smooth_shade=True)
     apply_modifier(ob, 'SMOOTH', factor=.45, iterations=2)
+    me = ob.data
+    for v in me.vertices:
+        p, n = v.co, v.normal
+        dist, _ = noise.voronoi(p * 8.0)
+        crack = smoothstep(0, .16, dist[1] - dist[0])
+        h = .013 * crack + .006 * fbm(p.x, p.y, p.z, 18, 3, 56) + .0025 * nz(p.x, p.y, p.z, 70, 57)
+        v.co = p + n * h * (.3 if n.z < -.5 else 1.0)
+    me.update()
+    recalc_normals(ob)
+    me.shade_smooth()
