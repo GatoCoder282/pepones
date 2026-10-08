@@ -1,0 +1,7 @@
+NOMBRE: Texas
+DESCRIPCIÓN: no disponible. La web no muestra descripción comercial; solo resume
+los ingredientes confirmados.
+PRECIO EN BS: no suministrado.
+INICIO (fecha y hora Bolivia): no suministrado.
+FIN (fecha y hora Bolivia): no suministrado.
+DISPONIBILIDAD (disponible / agotada): no suministrada.
