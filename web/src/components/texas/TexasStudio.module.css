@@ -325,3 +325,25 @@
   display: flex;
   gap: 4px;
 }
+.segmented button {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 44px;
+  padding: 0 16px;
+  font-size: 14px;
+  font-weight: 600;
+  background: transparent;
+  color: var(--green);
+  border-radius: 2px;
+  transition:
+    background 0.2s,
+    color 0.2s;
+}
+.segmented button:hover {
+  background: #3158491a;
+}
+.segmented button[aria-pressed="true"] {
+  background: var(--green);
+  color: var(--cream);
+}
