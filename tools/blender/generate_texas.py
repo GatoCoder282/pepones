@@ -1224,3 +1224,10 @@ def bake(asset_id, low, high=None):
         ob.hide_render = False
     if high is not None:
         high.hide_render = True
+    color = np.empty(size * size * 4, dtype=np.float32)
+    images['color'].pixels.foreach_get(color)
+    ao = np.empty_like(color)
+    images['ao'].pixels.foreach_get(ao)
+    rough = np.empty_like(color)
+    images['roughness'].pixels.foreach_get(rough)
+    color, ao, rough = color.reshape(-1, 4), ao.reshape(-1, 4)[:, 0], rough.reshape(-1, 4)[:, 0]
