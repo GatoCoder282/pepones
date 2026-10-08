@@ -41,4 +41,5 @@ Parámetros: `--texture-size 2048` (horneado), `--resolution 1600` y `--samples 
 - Las dos carnes y los dos quesos son capas independientes que reutilizan un GLB. Cada queso comparte el giro de su carne porque se drapea sobre ella.
 - La carne se modela en alta resolución (remallado por vóxeles) y se hornea sobre una malla reducida. El resto se hornea sobre sí mismo.
 - Hornea color, rugosidad, normales y oclusión ambiental con Cycles: usa GPU (Metal, OptiX, CUDA, HIP u oneAPI) si existe y, si no, la CPU.
+- Exporta un GLB por pieza con texturas WebP, oclusión, rugosidad y metal en una sola imagen (ORM), compresión `EXT_meshopt_compression` y `KHR_materials_clearcoat`. Three.js los decodifica sin descargas externas.
 
