@@ -535,3 +535,9 @@
   border-radius: 2px;
   will-change: transform;
 }
+.tag span {
+  font-family: var(--display);
+  font-size: 15px;
+  line-height: 1;
+  color: var(--red);
+}
