@@ -429,6 +429,10 @@ function SceneContents(
           </Suspense>
         )}
       </group>
+      <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, -0.002, 0]} receiveShadow>
+        <circleGeometry args={[7, 48]} />
+        <shadowMaterial transparent opacity={0.16} />
+      </mesh>
     </>
   );
 }
