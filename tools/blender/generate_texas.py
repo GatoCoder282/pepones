@@ -68,3 +68,12 @@ def nz(x, y, z, scale=1.0, seed=0.0):
     """Signed Perlin noise, roughly in [-1, 1]."""
     p = Vector((x * scale + seed * 31.7, y * scale + seed * 17.3, z * scale - seed * 11.1))
     return 1.2 * noise.noise(p, noise_basis='PERLIN_ORIGINAL')
+
+
+def fbm(x, y, z, scale=1.0, octaves=4, seed=0.0):
+    total, amp, norm = 0.0, 1.0, 0.0
+    for i in range(octaves):
+        total += amp * nz(x, y, z, scale * 2.03 ** i, seed + i * 7.1)
+        norm += amp
+        amp *= .5
+    return total / norm
