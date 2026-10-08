@@ -657,4 +657,8 @@
   .panel {
     display: contents;
   }
+  .intro {
+    order: 0;
+    padding: 24px 16px 18px;
+  }
 }
