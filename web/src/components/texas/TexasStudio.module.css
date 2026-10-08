@@ -793,4 +793,9 @@
   .spinner {
     animation-duration: 2.4s;
   }
+  .list button,
+  .segmented button,
+  .progress span {
+    transition: none;
+  }
 }
