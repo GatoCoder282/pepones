@@ -636,3 +636,6 @@
   padding: 12px;
   background: var(--cream-deep);
 }
+.renders a:hover span {
+  color: var(--red);
+}
