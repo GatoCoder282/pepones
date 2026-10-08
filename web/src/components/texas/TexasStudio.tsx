@@ -415,6 +415,17 @@ export default function TexasStudio() {
           />
           <figcaption>Foto de referencia usada para el modelo.</figcaption>
         </figure>
+        <div>
+          <p className={styles.eyebrow}>SOBRE ESTE MODELO</p>
+          <h2 id="referencia-title">
+            INTERPRETADO A PARTIR <em>DE UNA FOTO.</em>
+          </h2>
+          <p>
+            El modelo 3D se construyó con la foto frontal de Texas y la lista de
+            ingredientes confirmada. Las medidas y las caras que no se ven en la
+            foto son una interpretación visual.
+          </p>
+        </div>
       </section>
     </main>
   );
