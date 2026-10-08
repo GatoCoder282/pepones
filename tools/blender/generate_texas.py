@@ -1286,3 +1286,7 @@ def web_material(asset_id, images):
     output = nodes.new('ShaderNodeGroup')
     output.node_tree = ensure_gltf_group()
     links.new(sep.outputs['Red'], output.inputs['Occlusion'])
+    normal = nodes.new('ShaderNodeNormalMap')
+    normal.uv_map = 'WebAtlas'
+    links.new(tex['normal'].outputs['Color'], normal.inputs['Color'])
+    links.new(normal.outputs['Normal'], bs.inputs['Normal'])
