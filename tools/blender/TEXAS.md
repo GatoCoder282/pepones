@@ -54,3 +54,5 @@ En `material/semanal/texas/modelos/` (ignorado por Git; se regenera con el coman
 - `renders/front.png`, `three-quarter.png`, `exploded.png` y, en modo vista previa, `preview-*.png`.
 - `manifest.json`: receta con altura y giro de cada capa, triángulos, peso y referencias.
 
+`models:import:texas` comprueba cada GLB (cabecera, una malla, texturas WebP incrustadas, color, ORM, normales y oclusión, meshopt), lo copia a `web/public/models/texas/`, convierte los renders y la foto de referencia a WebP en `web/public/images/texas/` y escribe `web/src/generated/texas.json`.
+
