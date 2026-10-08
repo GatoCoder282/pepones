@@ -85,3 +85,8 @@ class SceneBoundary extends Component<
     return this.state.failed ? null : this.props.children;
   }
 }
+
+/** Frame-rate independent exponential approach towards a target. */
+function approach(current: number, target: number, rate: number, delta: number) {
+  return current + (target - current) * (1 - Math.exp(-rate * delta));
+}
