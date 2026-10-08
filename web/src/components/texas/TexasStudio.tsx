@@ -192,6 +192,26 @@ export default function TexasStudio() {
             <h2 id="ingredientes-title" className={styles.listTitle}>
               Ingredientes <span>{TEXAS_INGREDIENTS.length}</span>
             </h2>
+            <ol
+              className={styles.list}
+              aria-labelledby="ingredientes-title"
+              onKeyDown={onListKey}
+            >
+              {TEXAS_INGREDIENTS.map((ingredient, i) => (
+                <li key={ingredient.id}>
+                  <button
+                    ref={(el) => {
+                      items.current[i] = el;
+                    }}
+                    type="button"
+                    aria-pressed={selected === ingredient.id}
+                    aria-controls="texas-detalle"
+                    onClick={() => chooseFromList(ingredient.id)}
+                  >
+                  </button>
+                </li>
+              ))}
+            </ol>
           </div>
         </section>
       </div>
