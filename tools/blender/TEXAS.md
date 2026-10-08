@@ -4,3 +4,12 @@ Modelo procedural interpretado a partir de la foto frontal `photos/texas_burguer
 
 Este flujo es independiente del de Dona Burger: tiene su propio script, carpeta de salida, modelos web, imágenes y manifiesto.
 
+## Regenerar
+
+Desde `web/`, con Blender 5.2 instalado:
+
+```sh
+npm run models:build:texas    # Blender: geometría, horneado, GLB, renders y .blend
+npm run models:import:texas   # valida los GLB y los copia a la web
+```
+
