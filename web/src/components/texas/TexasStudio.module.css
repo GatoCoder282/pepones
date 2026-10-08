@@ -110,3 +110,25 @@
   margin: 0;
   padding: 0;
 }
+.list button {
+  width: 100%;
+  min-height: 58px;
+  display: grid;
+  grid-template-columns: 30px minmax(0, 1fr) auto 12px;
+  align-items: center;
+  gap: 12px;
+  padding: 9px 10px 9px 6px;
+  background: transparent;
+  border-bottom: 1px solid var(--line);
+  text-align: left;
+  transition:
+    background 0.2s,
+    color 0.2s;
+}
+.list button:hover {
+  background: #3158490d;
+}
+.list button[aria-pressed="true"] {
+  background: var(--green);
+  color: var(--cream);
+}
