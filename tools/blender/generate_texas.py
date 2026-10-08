@@ -1155,3 +1155,8 @@ def fries():
                 faces.append((base + i * ns + c, base + i * ns + c2, base + (i + 1) * ns + c2, base + (i + 1) * ns + c))
         faces.append(tuple(base + c for c in range(ns)))
         faces.append(tuple(base + nl * ns + c for c in reversed(range(ns))))
+    ob = mesh_object('papas-cajun', verts, faces, [MAT['fries']])
+    recalc_normals(ob)
+    attr = ob.data.attributes.new('fry_end', 'FLOAT', 'POINT')
+    attr.data.foreach_set('value', ends)
+    return ob
