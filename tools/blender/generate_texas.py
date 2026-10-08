@@ -167,3 +167,11 @@ def template(kind='ico', level=2):
     faces = [tuple(v.index for v in f.verts) for f in bm.faces]
     bm.free()
     return verts, faces
+
+
+def append_shape(verts, faces, shape, matrix, deform=None):
+    base = len(verts)
+    for v in shape[0]:
+        p = matrix @ v
+        verts.append(deform(p) if deform else p)
+    faces.extend(tuple(base + i for i in f) for f in shape[1])
