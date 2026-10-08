@@ -685,4 +685,16 @@
     height: min(54svh, 560px);
     min-height: 330px;
   }
+  .viewBar {
+    grid-area: bar;
+    position: static;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 6px;
+    padding: 10px 16px 4px;
+    background: var(--cream);
+    border: 0;
+    border-bottom: 1px solid var(--line);
+    backdrop-filter: none;
+  }
 }
