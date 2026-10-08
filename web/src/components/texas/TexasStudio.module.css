@@ -141,3 +141,11 @@
 .list button[aria-pressed="true"] .number {
   color: var(--cream);
 }
+.name {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.25;
+}
