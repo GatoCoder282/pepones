@@ -225,3 +225,15 @@ def revolve(name, profile, segments, deform, materials):
             ring.append(len(verts))
             verts.append(deform(r * math.cos(a), r * math.sin(a), z, a))
         rings.append(ring)
+    for k in range(len(rings) - 1):
+        A, B = rings[k], rings[k + 1]
+        slot = profile[k + 1][2] if len(B) > 1 else profile[k][2]
+        for i in range(segments):
+            j = (i + 1) % segments
+            if len(A) == 1:
+                faces.append((A[0], B[i], B[j]))
+            elif len(B) == 1:
+                faces.append((A[i], A[j], B[0]))
+            else:
+                faces.append((A[i], A[j], B[j], B[i]))
+            slots.append(slot)
