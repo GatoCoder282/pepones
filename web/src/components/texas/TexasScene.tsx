@@ -155,6 +155,10 @@ function Layer({
     g.position.x = approach(g.position.x, toViewer.x * pull, rate, delta);
     g.position.z = approach(g.position.z, toViewer.z * pull, rate, delta);
     g.scale.setScalar(approach(g.scale.x, scale, rate, delta));
+    for (const material of materials) {
+      material.userData.dim = approach(material.userData.dim, dim, rate, delta);
+      material.color.copy(material.userData.baseColor).multiplyScalar(material.userData.dim);
+    }
   });
   return (
     <group
