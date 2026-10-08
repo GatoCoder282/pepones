@@ -330,3 +330,12 @@ class Graph:
         for socket, value in zip(n.inputs, (x, y, z)):
             self.put(socket, value)
         return n.outputs[0]
+
+    def noise(self, vec, scale, detail=4.0, rough=.5, distortion=0.0):
+        n = self.node('ShaderNodeTexNoise', noise_type='FBM')
+        self.put(n.inputs['Vector'], vec)
+        n.inputs['Scale'].default_value = scale
+        n.inputs['Detail'].default_value = detail
+        n.inputs['Roughness'].default_value = rough
+        n.inputs['Distortion'].default_value = distortion
+        return n.outputs['Fac']
