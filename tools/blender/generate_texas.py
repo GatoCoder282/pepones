@@ -1503,3 +1503,12 @@ for ob in objects.values():
     print('TRIS', ob.name, triangles(ob), flush=True)
 
 stats = []
+if args.mode == 'build':
+    for asset_id, ob in objects.items():
+        if ONLY and asset_id not in ONLY:
+            continue
+        print('ASSET', asset_id, flush=True)
+        bake(asset_id, ob, patty_hi if asset_id == 'carne' else None)
+        path = export_web_asset(ob, asset_id)
+        stats.append({'id': asset_id, 'ingredientId': ASSETS[asset_id]['ingredient'], 'triangles': triangles(ob),
+                      'bytes': path.stat().st_size, 'textureSize': ASSETS[asset_id]['web']})
