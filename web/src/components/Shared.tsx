@@ -154,6 +154,7 @@ export function Header({
   const links = [
     { label: "La semanal", href: "/#semanal" },
     { label: "El menú", href: "/menu/" },
+    { label: "Texas en 3D", href: "/estudio/texas/" },
     { label: "Somos Pepones", href: "/#pepones" },
     { label: "Encuéntranos", href: "/#encuentranos" },
   ];

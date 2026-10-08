@@ -39,6 +39,18 @@ npm run typecheck
 
 Abrir `http://127.0.0.1:3000/estudio/dona/` con el servidor local encendido. Incluye modelos GLB por ingrediente, rotación, zoom, separación de capas y renders de revisión. El flujo de Blender y los comandos para regenerar los recursos están en [tools/blender/README.md](tools/blender/README.md).
 
+## Estudio 3D de Texas
+
+Abrir `http://127.0.0.1:3000/estudio/texas/`, o usar «Texas en 3D» en la navegación y el bloque «Texas, capa por capa» de la portada. El estudio muestra la hamburguesa armada o por capas con un control gradual. Incluye:
+
+- lista numerada de ingredientes sincronizada con el modelo, con etiquetas en cada capa;
+- papas Cajun como acompañamiento opcional;
+- controles de cámara con teclado y botones;
+- enlaces directos como `?ingrediente=pepinillos`;
+- foto y renders como alternativa si WebGL no está disponible.
+
+El modelo y sus estimaciones se documentan en [tools/blender/TEXAS.md](tools/blender/TEXAS.md) y [material/semanal/texas/ficha.txt](material/semanal/texas/ficha.txt). Para regenerarlo, desde `web/`: `npm run models:build:texas` y `npm run models:import:texas`.
+
 ## Arquitectura
 
 Next.js App Router, React, TypeScript, CSS y fuentes locales. GSAP/ScrollTrigger controla el recorrido. Three.js, React Three Fiber y Drei componen la hamburguesa modular y admiten GLB por ingrediente. Rutas `/` y `/menu/`, búsqueda, filtros, detalle, navegación móvil y visor accesible mediante botones.

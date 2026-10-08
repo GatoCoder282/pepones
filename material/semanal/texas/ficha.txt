@@ -1,0 +1,49 @@
+NOMBRE: Texas
+DESCRIPCIÓN: no disponible. La web no muestra descripción comercial; solo resume
+los ingredientes confirmados.
+PRECIO EN BS: no suministrado.
+INICIO (fecha y hora Bolivia): no suministrado.
+FIN (fecha y hora Bolivia): no suministrado.
+DISPONIBILIDAD (disponible / agotada): no suministrada.
+
+INGREDIENTES CONFIRMADOS:
+Pan de papa, doble carne, doble queso americano, tocino, cebolla crispy,
+pepinillos, salsa barbacoa y salsa original.
+Acompañamiento: papas Cajun (separado, no es una capa).
+
+INGREDIENTES DE ABAJO HACIA ARRIBA (modelo 3D):
+1. Pan de papa · base ............ visible en la foto
+2. Salsa original ................ inferida: salsa color melocotón sobre la base
+3. Pepinillos .................... visibles en la foto
+4. Carne ......................... visible en la foto
+5. Queso americano ............... visible en la foto, sobre la carne inferior
+6. Carne ......................... visible en la foto
+7. Queso americano ............... visible en la foto, sobre la carne superior
+8. Tocino ........................ visible en la foto
+9. Salsa barbacoa ................ inferida: brillo rojizo oscuro sobre el tocino
+10. Cebolla crispy ............... visible en la foto
+11. Salsa original ............... inferida: salsa color melocotón bajo la tapa
+12. Pan de papa · tapa ........... visible en la foto
+
+CANTIDADES Y PREPARACIÓN:
+Confirmadas: 2 carnes, 2 quesos americanos, pan en base y tapa.
+No confirmadas: tiras de tocino, rodajas de pepinillo, cantidad de cebolla,
+cantidad de salsa. En el modelo son ilustrativas.
+Medidas físicas: no suministradas. El modelo usa un pan de radio aproximado 1 y
+proporciones medidas sobre la foto frontal.
+
+COLOR DE CAMPAÑA: no suministrado.
+FOTO PROTAGONISTA: photos/texas_burguer_pepones.jpeg (900 × 900, vista frontal).
+MODELOS DISPONIBLES:
+- Generador: tools/blender/generate_texas.py (ver tools/blender/TEXAS.md).
+- Salida local regenerable: material/semanal/texas/modelos/ (ignorada por Git).
+- Web: web/public/models/texas/ y web/public/images/texas/.
+- Vista web: /estudio/texas/
+
+OBSERVACIONES:
+- Solo hay una foto frontal: la parte trasera, el interior del pan y las caras
+  ocultas de cada capa son interpretación visual.
+- La foto muestra una salsa color melocotón en dos alturas. Se asignó a la salsa
+  original porque es la única salsa cremosa de la lista; su ubicación es inferida.
+- Las papas Cajun no aparecen en la foto: corte, forma, cantidad y color del
+  condimento del modelo son ilustrativos.

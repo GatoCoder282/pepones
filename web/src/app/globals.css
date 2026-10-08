@@ -2450,3 +2450,63 @@ button {
     display: none;
   }
 }
+
+/* Texas 3D studio teaser on the home page. */
+.studio-teaser {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr);
+  align-items: center;
+  gap: 5%;
+  border-top: 1px solid var(--line);
+}
+.studio-teaser h2 {
+  font-size: clamp(52px, 6vw, 96px);
+  line-height: 0.95;
+  color: var(--red);
+  margin-bottom: 26px;
+}
+.studio-teaser-copy > p:not(.eyebrow) {
+  font-size: 16px;
+  line-height: 1.7;
+  max-width: 46ch;
+  margin-bottom: 32px;
+}
+.studio-teaser-visual {
+  position: relative;
+  display: block;
+  padding: 6% 9%;
+  background: radial-gradient(ellipse at center, #fffaf0 0%, #f2e3c6 78%);
+}
+.studio-teaser-visual img {
+  width: 100%;
+  height: auto;
+  transition: transform 0.5s;
+}
+.studio-teaser-visual:hover img {
+  transform: rotate(-2deg) scale(1.02);
+}
+.studio-teaser-badge {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  background: var(--green);
+  color: var(--cream);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+}
+@media (max-width: 899px) {
+  .studio-teaser {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .studio-teaser-visual img {
+    transition: none;
+  }
+}

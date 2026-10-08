@@ -5,6 +5,7 @@ import { useEffect, useRef, useState } from "react";
 import {
   ArrowDown,
   ArrowUpRight,
+  Box,
   MoveUpRight,
   MapPin,
   Plus,
@@ -220,6 +221,44 @@ export function Home({ content }: { content: Content }) {
           </div>
         </div>
         <IngredientExperience burger={burger} ingredients={ingredients} />
+        <section
+          className="studio-teaser section-pad"
+          aria-labelledby="studio-teaser-title"
+        >
+          <div className="studio-teaser-copy" data-reveal>
+            <p className="eyebrow">ESTUDIO 3D · TEXAS</p>
+            <h2 id="studio-teaser-title">
+              Texas,
+              <br />
+              <em>capa por capa.</em>
+            </h2>
+            <p>
+              Gira el modelo, separa las capas y conoce cada ingrediente: pan de
+              papa, doble carne, doble queso americano, tocino, cebolla crispy,
+              pepinillos, salsa barbacoa y salsa original.
+            </p>
+            <Link className="button" href="/estudio/texas/">
+              Abrir el estudio 3D <ArrowUpRight size={19} />
+            </Link>
+          </div>
+          <Link
+            href="/estudio/texas/"
+            className="studio-teaser-visual"
+            tabIndex={-1}
+            aria-hidden="true"
+          >
+            <img
+              src="/images/texas/three-quarter.webp"
+              width={1004}
+              height={897}
+              alt=""
+              loading="lazy"
+            />
+            <span className="studio-teaser-badge">
+              <Box size={16} /> 3D
+            </span>
+          </Link>
+        </section>
         <section
           className="archive-section section-pad"
           aria-labelledby="archive-title"

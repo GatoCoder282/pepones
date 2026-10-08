@@ -8,6 +8,8 @@
     "build": "node scripts/content.mjs && next build",
     "content:sync": "node scripts/content.mjs --sync",
     "models:import:dona": "node scripts/import-dona.mjs",
+    "models:build:texas": "node scripts/build-texas-models.mjs",
+    "models:import:texas": "node scripts/import-texas.mjs",
     "typecheck": "tsc --noEmit",
     "check:domain": "node scripts/check-domain.mjs",
     "check:browser": "node scripts/check-browser.mjs",
