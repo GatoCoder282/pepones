@@ -239,3 +239,6 @@
   inset: 0;
   touch-action: none;
 }
+.canvasHost canvas {
+  touch-action: none;
+}
