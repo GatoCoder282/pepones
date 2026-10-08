@@ -714,3 +714,7 @@ def sauce_base():
         m = (Matrix.Translation((rr * math.cos(a), rr * math.sin(a), floor(rr) + size * .4))
              @ Matrix.Rotation(a, 4, 'Z') @ Matrix.Diagonal((size * 1.2, size * rng.uniform(1.0, 1.6), size * 1.05, 1)))
         append_shape(verts, faces, bead, m)
+    ob = mesh_object('salsa-original-base', verts, faces, [MAT['sauce_base']])
+    recalc_normals(ob)
+    point_attr(ob, 'thick', lambda co, n: smoothstep(-.01, .028, co.z - floor(math.hypot(co.x, co.y))))
+    return ob
