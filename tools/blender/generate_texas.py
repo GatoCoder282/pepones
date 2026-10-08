@@ -734,3 +734,10 @@ def pickle_slice(rng, R, t, lam, amp, phi):
         lambda x, y, tt, a: -t / 2 + corr(x, y),
         seg, rings)
     return verts, faces
+
+
+def pickles():
+    rng = rng_for('pepinillos')
+    layout = [(a + rng.uniform(-.12, .12), .84 + rng.uniform(-.03, .03)) for a in (.35, 1.3, 2.25, 3.2, 4.2, 5.25)]
+    layout.append((rng.uniform(0, TAU), .12))
+    parts = []
