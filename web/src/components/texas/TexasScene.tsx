@@ -21,3 +21,13 @@ import {
 } from "react";
 import * as THREE from "three";
 import type { OrbitControls as OrbitControlsImpl } from "three-stdlib";
+import {
+  TEXAS_LAYERS,
+  TEXAS_MODEL,
+  TEXAS_SIDE,
+  ingredientById,
+  ingredientNumber,
+  type TexasIngredientId,
+  type TexasLayer,
+} from "@/lib/texas";
+import styles from "./TexasStudio.module.css";
