@@ -1231,3 +1231,6 @@ def bake(asset_id, low, high=None):
     rough = np.empty_like(color)
     images['roughness'].pixels.foreach_get(rough)
     color, ao, rough = color.reshape(-1, 4), ao.reshape(-1, 4)[:, 0], rough.reshape(-1, 4)[:, 0]
+    # A gentle cavity term in the albedo; the full occlusion travels in the ORM texture.
+    color[:, :3] *= (1 - .18 * (1 - ao))[:, None]
+    images['color'].pixels.foreach_set(color.ravel())
