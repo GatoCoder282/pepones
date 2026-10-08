@@ -1322,3 +1322,9 @@ def export_web_asset(ob, asset_id):
                               export_meshopt_compression_enable=True, export_meshopt_extension='EXT_meshopt_compression')
     ob.data.materials[0] = source_mat
     return path
+
+
+# ---------------------------------------------------------------- studio and renders
+
+def point_at(ob, target):
+    ob.rotation_euler = (Vector(target) - ob.location).to_track_quat('-Z', 'Y').to_euler()
