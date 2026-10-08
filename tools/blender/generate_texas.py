@@ -361,3 +361,10 @@ class Graph:
 
     def sub(self, a, b):
         return self.math('SUBTRACT', a, b)
+
+    def remap(self, value, a, b, c, d, smooth=False):
+        n = self.node('ShaderNodeMapRange', interpolation_type='SMOOTHSTEP' if smooth else 'LINEAR', clamp=True)
+        self.put(n.inputs['Value'], value)
+        for key, v in zip(['From Min', 'From Max', 'To Min', 'To Max'], (a, b, c, d)):
+            n.inputs[key].default_value = v
+        return n.outputs['Result']
