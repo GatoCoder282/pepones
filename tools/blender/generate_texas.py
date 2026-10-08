@@ -175,3 +175,24 @@ def append_shape(verts, faces, shape, matrix, deform=None):
         p = matrix @ v
         verts.append(deform(p) if deform else p)
     faces.extend(tuple(base + i for i in f) for f in shape[1])
+
+
+def tube(points, radii, ring=6, up=UP, lump=None, twist=None):
+    """Closed tube with an elliptical section: radii are (half width, half thickness)."""
+    verts, faces = [], []
+    n = len(points)
+    for i, p in enumerate(points):
+        t = (points[min(i + 1, n - 1)] - points[max(i - 1, 0)]).normalized()
+        side = t.cross(up)
+        if side.length < 1e-5:
+            side = t.cross(Vector((1, 0, 0)))
+        side.normalize()
+        normal = side.cross(t).normalized()
+        if twist:
+            c, s = math.cos(twist[i]), math.sin(twist[i])
+            side, normal = side * c + normal * s, normal * c - side * s
+        a, b = radii[i]
+        for k in range(ring):
+            th = TAU * k / ring
+            s = 1 + (lump(p, k) if lump else 0)
+            verts.append(p + side * (math.cos(th) * a * s) + normal * (math.sin(th) * b * s))
