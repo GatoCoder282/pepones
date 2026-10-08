@@ -97,6 +97,9 @@ export default function TexasStudio() {
     const query = params.toString();
     history.replaceState(null, "", query ? `?${query}` : location.pathname);
   }, [selected, layered, status]);
+
+  const handleReady = useCallback(() => setStatus("ready"), []);
+  const handleFailure = useCallback(() => setStatus("failed"), []);
   return (
     <main id="contenido" className={styles.studio}>
       <header className={styles.header}>
