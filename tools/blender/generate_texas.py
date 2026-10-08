@@ -149,3 +149,8 @@ def point_attr(ob, name, fn):
     me = ob.data
     attr = me.attributes.get(name) or me.attributes.new(name, 'FLOAT', 'POINT')
     attr.data.foreach_set('value', [float(fn(v.co, v.normal)) for v in me.vertices])
+
+
+def triangles(ob):
+    ob.data.calc_loop_triangles()
+    return len(ob.data.loop_triangles)
