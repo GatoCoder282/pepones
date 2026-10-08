@@ -52,4 +52,12 @@ export const TEXAS_INGREDIENTS: TexasIngredient[] = [
     color: "#7a4a31",
     description: "Dos carnes, cada una representada como una capa independiente.",
   },
+  {
+    id: "queso-americano",
+    name: "Doble queso americano",
+    quantity: "×2",
+    color: "#f2b11a",
+    description:
+      "Dos láminas de queso americano. En la foto se ve una sobre cada carne.",
+  },
 ];
