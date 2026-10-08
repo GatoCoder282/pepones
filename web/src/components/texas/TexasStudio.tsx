@@ -100,6 +100,12 @@ export default function TexasStudio() {
 
   const handleReady = useCallback(() => setStatus("ready"), []);
   const handleFailure = useCallback(() => setStatus("failed"), []);
+
+  const choose = useCallback((id: TexasIngredientId) => {
+    setSelected((value) => (value === id ? null : id));
+    // A layer is easier to read with the stack apart; keep any separation already chosen.
+    setSpread((value) => (value < 0.35 ? 1 : value));
+  }, []);
   return (
     <main id="contenido" className={styles.studio}>
       <header className={styles.header}>
