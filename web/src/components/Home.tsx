@@ -221,6 +221,19 @@ export function Home({ content }: { content: Content }) {
         </div>
         <IngredientExperience burger={burger} ingredients={ingredients} />
         <section
+          className="studio-teaser section-pad"
+          aria-labelledby="studio-teaser-title"
+        >
+          <div className="studio-teaser-copy" data-reveal>
+            <p className="eyebrow">ESTUDIO 3D · TEXAS</p>
+            <h2 id="studio-teaser-title">
+              Texas,
+              <br />
+              <em>capa por capa.</em>
+            </h2>
+          </div>
+        </section>
+        <section
           className="archive-section section-pad"
           aria-labelledby="archive-title"
         >
