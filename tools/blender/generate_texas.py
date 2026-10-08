@@ -36,3 +36,6 @@ parser.add_argument('--samples', type=int, default=96)
 parser.add_argument('--views', default='front,three-quarter,exploded')
 parser.add_argument('--only', default='', help='Comma-separated asset ids to bake and export.')
 args = parser.parse_args(sys.argv[sys.argv.index('--') + 1:] if '--' in sys.argv else [])
+OUT = args.output.resolve()
+for sub in ['', 'textures', 'textures/web', 'renders', 'glb']:
+    (OUT / sub).mkdir(parents=True, exist_ok=True)
