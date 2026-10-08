@@ -51,3 +51,8 @@ interface SceneProps {
   onFailure: () => void;
   onProgress: (percent: number) => void;
 }
+
+interface Pointing {
+  hovered: TexasIngredientId | null;
+  setHovered: (id: TexasIngredientId | null) => void;
+}
