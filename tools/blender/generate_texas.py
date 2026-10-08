@@ -1200,3 +1200,23 @@ def bake(asset_id, low, high=None):
     settings = scene.render.bake
     settings.use_pass_direct = settings.use_pass_indirect = False
     settings.use_pass_color = True
+    images = {}
+    for name, kind, samples in [('color', 'DIFFUSE', 16), ('roughness', 'ROUGHNESS', 8), ('normal', 'NORMAL', 16), ('ao', 'AO', 128)]:
+        print('BAKE', asset_id, name, flush=True)
+        im = bpy.data.images.new('%s_%s' % (asset_id, name), size, size)
+        if name != 'color':
+            im.colorspace_settings.name = 'Non-Color'
+        for mat in targets:
+            node = mat.node_tree.nodes.get('Bake target') or mat.node_tree.nodes.new('ShaderNodeTexImage')
+            node.name = 'Bake target'
+            node.image = im
+            mat.node_tree.nodes.active = node
+        scene.cycles.samples = samples
+        scene.world.light_settings.distance = ASSETS[asset_id].get('ao', .1)
+        from_high = high is not None and name != 'ao'
+        if high is not None:
+            high.hide_render = not from_high
+        select([high, low] if from_high else [low], active=low)
+        bpy.ops.object.bake(type=kind, use_selected_to_active=from_high, cage_extrusion=.03, max_ray_distance=.08,
+                            margin=16, margin_type='EXTEND', use_clear=True, normal_space='TANGENT')
+        images[name] = im
