@@ -1336,3 +1336,15 @@ def studio():
     world.use_nodes = True
     world.node_tree.nodes['Background'].inputs[0].default_value = (.62, .6, .58, 1)
     world.node_tree.nodes['Background'].inputs[1].default_value = .22
+    for name, pos, energy, size, col in [
+        ('Key softbox', (-3.4, -5.2, 5.0), 520, 4.2, (1, .93, .84)),
+        ('Fill softbox', (4.6, -3.6, 1.8), 170, 4.0, (.9, .94, 1)),
+        ('Rim softbox', (1.6, 4.6, 4.2), 460, 2.6, (1, .86, .7)),
+        ('Front bounce', (0, -6, .4), 110, 5.0, (1, .95, .88)),
+    ]:
+        light = bpy.data.lights.new(name, 'AREA')
+        light.energy, light.shape, light.size, light.color = energy, 'DISK', size, col
+        ob = bpy.data.objects.new(name, light)
+        WORK.objects.link(ob)
+        ob.location = pos
+        point_at(ob, (0, 0, 1))
