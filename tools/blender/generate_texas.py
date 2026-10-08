@@ -1002,3 +1002,7 @@ def bbq(bacon_ob):
             y += .01
         if hit is not None:
             drip(verts, faces, hit[0] + Vector((0, .01, -.004)), rng.uniform(.09, .13), .022, rng)
+    ob = mesh_object('salsa-barbacoa', verts, faces, [MAT['bbq']])
+    recalc_normals(ob)
+    point_attr(ob, 'thin', lambda co, n: smoothstep(.3, .9, 1 - abs(n.z)))
+    return ob
