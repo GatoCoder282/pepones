@@ -1353,3 +1353,15 @@ def studio():
     cam.data.lens = 85
     bpy.context.scene.camera = cam
     return cam
+
+
+def render_views(cam, assembly, height):
+    scene = bpy.context.scene
+    scene.render.resolution_x = args.resolution
+    scene.render.resolution_percentage = 100
+    scene.render.film_transparent = True
+    scene.render.image_settings.file_format = 'PNG'
+    scene.render.image_settings.color_mode = 'RGBA'
+    scene.cycles.samples = args.samples
+    mid = height * .45
+    prefix = 'preview-' if args.mode == 'preview' else ''
