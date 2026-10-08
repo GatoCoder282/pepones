@@ -351,6 +351,11 @@ export default function TexasStudio() {
               </button>
             </div>
           </div>
+
+          <p id="texas-ayuda" className={styles.hint}>
+            Arrastra para girar y usa la rueda o dos dedos para acercarte. Con
+            el teclado: flechas para girar, + y − para el zoom.
+          </p>
         </section>
       </div>
     </main>
