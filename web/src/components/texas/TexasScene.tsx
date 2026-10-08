@@ -400,6 +400,12 @@ function SceneContents(
       />
       <directionalLight position={[4.5, 2.5, 2]} intensity={0.6} color="#fff1e0" />
       <directionalLight position={[1.5, 4.5, -5]} intensity={1.1} color="#ffd9a8" />
+      <Environment resolution={256} frames={1}>
+        <Lightformer intensity={2.2} position={[-3, 4, 4]} rotation={[0, -0.6, 0]} scale={[5, 4, 1]} color="#fff2de" />
+        <Lightformer intensity={0.9} position={[4, 1.5, 2]} rotation={[0, 1.1, 0]} scale={[4, 3, 1]} color="#fff4e8" />
+        <Lightformer intensity={1.6} position={[1, 3, -4]} rotation={[0, Math.PI, 0]} scale={[4, 2, 1]} color="#ffdcb0" />
+        <Lightformer intensity={0.5} position={[0, -2, 3]} rotation={[0.6, 0, 0]} scale={[6, 2, 1]} color="#fff5e6" />
+      </Environment>
     </>
   );
 }
