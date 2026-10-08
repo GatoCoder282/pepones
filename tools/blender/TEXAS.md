@@ -33,3 +33,5 @@ Para iterar formas y materiales sin hornear ni exportar (unos dos minutos):
 … generate_texas.py -- --mode preview --resolution 900 --samples 32 --views front,three-quarter,exploded
 ```
 
+Parámetros: `--texture-size 2048` (horneado), `--resolution 1600` y `--samples 96` (renders), `--views front,three-quarter,exploded,top` y `--output <carpeta>`. `--only carne,queso-americano` hornea y exporta solo esas piezas y conserva sus entradas anteriores en el manifiesto. Sirve para iterar; antes de importar, ejecuta una compilación completa para que los renders y la escena ensamblada coincidan. Las formas usan semillas fijas: dos ejecuciones dan el mismo resultado.
+
