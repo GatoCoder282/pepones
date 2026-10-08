@@ -1170,3 +1170,15 @@ def ensure_gltf_group():
         group = bpy.data.node_groups.new('glTF Material Output', 'ShaderNodeTree')
         group.interface.new_socket('Occlusion', in_out='INPUT', socket_type='NodeSocketFloat')
     return group
+
+
+def unwrap(ob):
+    select([ob])
+    atlas = ob.data.uv_layers.new(name='WebAtlas')
+    ob.data.uv_layers.active = atlas
+    atlas.active_render = True
+    bpy.ops.object.mode_set(mode='EDIT')
+    bpy.ops.mesh.select_all(action='SELECT')
+    bpy.ops.uv.smart_project(angle_limit=math.radians(64), island_margin=.006, area_weight=0.0,
+                             correct_aspect=True, scale_to_bounds=False, margin_method='FRACTION')
+    bpy.ops.object.mode_set(mode='OBJECT')
