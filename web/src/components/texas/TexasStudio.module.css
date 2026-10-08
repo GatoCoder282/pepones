@@ -209,3 +209,8 @@
     background 0.2s,
     color 0.2s;
 }
+.secondary:hover,
+.secondary[aria-pressed="true"] {
+  background: var(--green);
+  color: var(--cream);
+}
