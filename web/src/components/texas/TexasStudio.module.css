@@ -744,4 +744,7 @@
     margin: 14px 16px 0;
     box-shadow: none;
   }
+  .detail h2 {
+    font-size: 30px;
+  }
 }
