@@ -38,4 +38,5 @@ Parámetros: `--texture-size 2048` (horneado), `--resolution 1600` y `--samples 
 ## Qué hace el script
 
 - Construye 11 objetos con nombre propio: `pan-base`, `salsa-original-base`, `pepinillos`, `carne`, `queso-americano`, `tocino`, `salsa-barbacoa`, `cebolla-crispy`, `salsa-original-tapa`, `pan-tapa` y `papas-cajun` (acompañamiento, fuera de las capas).
+- Las dos carnes y los dos quesos son capas independientes que reutilizan un GLB. Cada queso comparte el giro de su carne porque se drapea sobre ella.
 
