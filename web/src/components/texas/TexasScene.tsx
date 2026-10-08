@@ -31,3 +31,9 @@ import {
   type TexasLayer,
 } from "@/lib/texas";
 import styles from "./TexasStudio.module.css";
+
+export interface ViewCommand {
+  kind: "rotate" | "zoom";
+  amount: number;
+  id: number;
+}
