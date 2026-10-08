@@ -22,3 +22,13 @@ export interface TexasIngredient {
   /** Labels for ingredients that appear in more than one layer. */
   parts?: Record<string, string>;
 }
+
+export interface TexasLayer {
+  index: number;
+  assetId: string;
+  ingredientId: TexasIngredientId;
+  y: number;
+  rotation: [number, number, number];
+  url: string;
+  label: string;
+}
