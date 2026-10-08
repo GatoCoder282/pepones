@@ -33,3 +33,4 @@ parser.add_argument('--output', type=Path, default=ROOT / 'material/semanal/texa
 parser.add_argument('--texture-size', type=int, default=2048)
 parser.add_argument('--resolution', type=int, default=1600)
 parser.add_argument('--samples', type=int, default=96)
+parser.add_argument('--views', default='front,three-quarter,exploded')
