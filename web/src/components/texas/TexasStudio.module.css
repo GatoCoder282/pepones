@@ -49,3 +49,11 @@
   max-width: 1720px;
   margin: 0 auto;
 }
+.panel {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  padding: 36px clamp(20px, 2.6vw, 40px) 48px;
+  border-right: 1px solid var(--line);
+  min-width: 0;
+}
