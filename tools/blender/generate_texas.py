@@ -1453,3 +1453,19 @@ objects['papas-cajun'] = fries()
 def anchor(ob, mode='min'):
     zs = [v.co.z for v in ob.data.vertices if math.hypot(v.co.x, v.co.y) < .7]
     return min(zs) if mode == 'min' else sum(zs) / len(zs)
+
+
+# Each exported asset is centred on X/Y with its origin on its own resting plane.
+anchors = {
+    'pan-base': 0.0,
+    'salsa-original-base': 0.0,
+    'pepinillos': 0.0,
+    'carne': 0.0,
+    'queso-americano': anchor(objects['queso-americano']) - .002,
+    'tocino': 0.0,
+    'salsa-barbacoa': anchor(objects['salsa-barbacoa']),
+    'cebolla-crispy': anchor(objects['cebolla-crispy']),
+    'salsa-original-tapa': anchor(objects['salsa-original-tapa']),
+    'pan-tapa': TOP_RIM,
+    'papas-cajun': 0.0,
+}
