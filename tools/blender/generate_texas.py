@@ -339,3 +339,10 @@ class Graph:
         n.inputs['Roughness'].default_value = rough
         n.inputs['Distortion'].default_value = distortion
         return n.outputs['Fac']
+
+    def voronoi(self, vec, scale, feature='F1', randomness=1.0):
+        n = self.node('ShaderNodeTexVoronoi', feature=feature)
+        self.put(n.inputs['Vector'], vec)
+        n.inputs['Scale'].default_value = scale
+        n.inputs['Randomness'].default_value = randomness
+        return n
