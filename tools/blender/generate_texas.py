@@ -29,3 +29,4 @@ ROOT = Path(__file__).resolve().parents[2]
 REFERENCE = 'photos/texas_burguer_pepones.jpeg'
 parser = argparse.ArgumentParser()
 parser.add_argument('--mode', choices=['preview', 'build'], default='build')
+parser.add_argument('--output', type=Path, default=ROOT / 'material/semanal/texas/modelos')
