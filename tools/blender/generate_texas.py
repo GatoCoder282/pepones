@@ -1532,3 +1532,7 @@ for i, (asset_id, y, rot) in enumerate(recipe):
     ob['ingredient_id'] = ASSETS[asset_id]['ingredient']
     ob['layer_index'] = i
     assembly.append((ob, y))
+side = objects['papas-cajun']
+side.location = (SIDE['position'][0], -SIDE['position'][2], SIDE['position'][1])
+side.rotation_euler = (0, 0, SIDE['rotation'][1])
+side.hide_render = True
