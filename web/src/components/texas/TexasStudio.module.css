@@ -436,3 +436,6 @@
   box-shadow: 0 18px 40px -28px #3b241466;
   z-index: 5;
 }
+.detailMeta {
+  color: var(--red);
+}
