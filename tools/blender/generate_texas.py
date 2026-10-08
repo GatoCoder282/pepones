@@ -1499,3 +1499,5 @@ recipe = [
     ('pan-tapa', bacon_y + TOP_RIM, 0.0),
 ]
 SIDE = {'assetId': 'papas-cajun', 'ingredientId': 'papas-cajun', 'position': [2.35, 0.0, -.85], 'rotation': [0, .5, 0]}
+for ob in objects.values():
+    print('TRIS', ob.name, triangles(ob), flush=True)
