@@ -44,3 +44,9 @@ Parámetros: `--texture-size 2048` (horneado), `--resolution 1600` y `--samples 
 - Exporta un GLB por pieza con texturas WebP, oclusión, rugosidad y metal en una sola imagen (ORM), compresión `EXT_meshopt_compression` y `KHR_materials_clearcoat`. Three.js los decodifica sin descargas externas.
 - Genera tres renders de revisión, una escena ensamblada de intercambio y el archivo editable `texas.blend`.
 
+## Archivos generados
+
+En `material/semanal/texas/modelos/` (ignorado por Git; se regenera con el comando anterior):
+
+- `texas.blend`: escena ensamblada con imágenes empaquetadas, luces y cámara. Los materiales procedurales originales quedan en la colección oculta «Procedural originals».
+
