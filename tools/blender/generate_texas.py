@@ -495,3 +495,24 @@ def mat_cheese():
     rough = g.remap(var, .3, .7, .22, .3)
     normal = g.bump(g.noise(co, 22, 2, .5), .03, .01)
     return g.finish('queso-americano', col, rough, normal)
+
+
+def mat_bacon():
+    g = Graph('Crisp bacon lean and fat')
+    co = g.co()
+    u, v = g.uv('BaconSurface')
+    strip = g.attr('strip')
+    wob = g.noise(g.combine(g.mul(u, 7.0), g.mul(strip, 9.0), 0.0), 1.0, 2, .5)
+    vv = g.math('FRACT', g.add(g.add(v, g.mul(g.sub(wob, .5), .22)), g.mul(strip, .37)))
+    bands = g.ramp(vv, [(0, '000000'), (.12, 'FFFFFF'), (.24, '000000'), (.48, '000000'), (.56, 'FFFFFF'),
+                        (.68, '000000'), (.82, '000000'), (.9, 'FFFFFF'), (1, '000000')])
+    marble = g.noise(g.combine(g.mul(u, 12.0), g.mul(v, 3.0), g.mul(strip, 5.0)), 1.0, 4, .6)
+    fat = g.add(g.mul(bands, g.remap(marble, .35, .6, .15, 1)), g.remap(marble, .66, .78, 0, .6))
+    lean = g.ramp(g.noise(co, 16, 4, .55), [(0, '86301F'), (.5, 'A84432'), (1, 'BD5843')])
+    fat_color = g.ramp(g.noise(co, 11, 3, .5), [(0, 'D19A72'), (1, 'EDC49E')])
+    col = g.mix(fat, lean, fat_color)
+    col = g.mix(g.mul(g.attr('crisp'), .7), col, '3E120A')
+    fiber = g.noise(g.combine(g.mul(u, 55.0), g.mul(v, 5.0), g.mul(strip, 3.0)), 1.0, 4, .6)
+    rough = g.remap(fiber, .3, .7, .36, .56)
+    normal = g.bump(fiber, .22, .003)
+    return g.finish('tocino', col, rough, normal)
