@@ -360,6 +360,10 @@ export default function TexasStudio() {
           <div id="texas-detalle" className={styles.detail} aria-live="polite">
             {current ? (
               <>
+                <p className={styles.detailMeta}>
+                  {pad(ingredientNumber(current.id))} · {layerText(current.id)} de {TEXAS_MODEL.layers}
+                </p>
+                <h2>{current.name}</h2>
               </>
             ) : (
               <>
