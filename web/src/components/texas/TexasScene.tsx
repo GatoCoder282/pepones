@@ -159,6 +159,12 @@ function Layer({
       material.userData.dim = approach(material.userData.dim, dim, rate, delta);
       material.color.copy(material.userData.baseColor).multiplyScalar(material.userData.dim);
     }
+    if (tag.current) {
+      // The label anchor stays on the viewer's right of the layer, whatever the orbit.
+      right.setFromMatrixColumn(camera.matrixWorld, 0).setY(0).normalize();
+      const reach = compact ? 1.3 : 1.6;
+      tag.current.position.set(right.x * reach, middle, right.z * reach);
+    }
   });
   return (
     <group
