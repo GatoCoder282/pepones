@@ -468,6 +468,16 @@ export default function TexasScene(props: SceneProps) {
   const { progress } = useProgress();
   const { onProgress } = props;
   useEffect(() => onProgress(progress), [progress, onProgress]);
+  useEffect(() => {
+    const observer = new IntersectionObserver(([entry]) => setVisible(entry.isIntersecting));
+    if (host.current) observer.observe(host.current);
+    const change = () => setVisible(!document.hidden);
+    document.addEventListener("visibilitychange", change);
+    return () => {
+      observer.disconnect();
+      document.removeEventListener("visibilitychange", change);
+    };
+  }, []);
   const separated = props.spread > 0.55;
   return (
     <div ref={host} className={styles.canvasHost}>
