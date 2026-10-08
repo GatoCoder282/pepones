@@ -150,6 +150,19 @@ export default function TexasStudio() {
       action();
     }
   };
+  const onListKey = (event: KeyboardEvent<HTMLOListElement>) => {
+    const index = items.current.findIndex((el) => el === document.activeElement);
+    if (index < 0) return;
+    const keys: Record<string, number> = {
+      ArrowDown: index + 1,
+      ArrowUp: index - 1,
+      Home: 0,
+      End: IDS.length - 1,
+    };
+    if (!(event.key in keys)) return;
+    event.preventDefault();
+    items.current[(keys[event.key] + IDS.length) % IDS.length]?.focus();
+  };
   return (
     <main id="contenido" className={styles.studio}>
       <header className={styles.header}>
