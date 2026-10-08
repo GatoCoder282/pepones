@@ -15,3 +15,4 @@ INGREDIENTES DE ABAJO HACIA ARRIBA (modelo 3D):
 1. Pan de papa · base ............ visible en la foto
 2. Salsa original ................ inferida: salsa color melocotón sobre la base
 3. Pepinillos .................... visibles en la foto
+4. Carne ......................... visible en la foto
