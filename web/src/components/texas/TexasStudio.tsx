@@ -118,6 +118,10 @@ export default function TexasStudio() {
     setSelected(next);
     setSpread((value) => (value < 0.35 ? 1 : value));
   };
+  const assemble = () => {
+    setSelected(null);
+    setSpread(0);
+  };
   return (
     <main id="contenido" className={styles.studio}>
       <header className={styles.header}>
