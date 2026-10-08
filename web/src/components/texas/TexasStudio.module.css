@@ -157,3 +157,11 @@
 .list button[aria-pressed="true"] small {
   color: #fff5dfcc;
 }
+.quantity {
+  font-size: 12px;
+  font-weight: 600;
+  padding: 4px 8px;
+  border: 1px solid currentColor;
+  border-radius: 2px;
+  white-space: nowrap;
+}
