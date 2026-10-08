@@ -425,6 +425,21 @@ export default function TexasStudio() {
             ingredientes confirmada. Las medidas y las caras que no se ven en la
             foto son una interpretación visual.
           </p>
+          <ul>
+            <li>El orden de las capas sigue la foto, de la base a la tapa.</li>
+            <li>
+              La salsa original y la salsa barbacoa tienen una ubicación estimada:
+              la foto no permite confirmarla.
+            </li>
+            <li>
+              La cantidad de tiras de tocino, rodajas de pepinillo y tiras de
+              cebolla del modelo es ilustrativa.
+            </li>
+            <li>
+              Las papas Cajun no aparecen en la foto; su forma en la escena es
+              ilustrativa.
+            </li>
+          </ul>
         </div>
       </section>
     </main>
