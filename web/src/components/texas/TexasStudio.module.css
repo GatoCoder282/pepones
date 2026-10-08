@@ -549,3 +549,10 @@
 .tagActive span {
   color: var(--cream);
 }
+
+/* Narrow stages (small laptops): stack the view controls. */
+@container (max-width: 760px) {
+  .hint {
+    display: none;
+  }
+}
