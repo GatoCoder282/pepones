@@ -636,3 +636,26 @@ def bun_top(z_rim):
     for v in ob.data.vertices:
         v.co.z += z_rim
     return ob
+
+
+# ---------------------------------------------------------------- geometry: sauces and pickles
+
+def disc_sheet(edge, top_z, bottom_z, seg=144, rings=16):
+    """Closed sheet over a polar grid: top and bottom surfaces joined at the rim."""
+    verts, faces = [], []
+    grids = []
+    for surface in (top_z, bottom_z):
+        center = len(verts)
+        verts.append(Vector((0, 0, surface(0.0, 0.0, 0.0, 0.0))))
+        rows = []
+        for j in range(1, rings + 1):
+            t = j / rings
+            row = []
+            for i in range(seg):
+                a = TAU * i / seg
+                r = t * edge(a)
+                x, y = r * math.cos(a), r * math.sin(a)
+                row.append(len(verts))
+                verts.append(Vector((x, y, surface(x, y, t, a))))
+            rows.append(row)
+        grids.append((center, rows))
