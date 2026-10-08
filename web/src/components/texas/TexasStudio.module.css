@@ -40,3 +40,12 @@
 .headerLabel {
   color: var(--muted);
 }
+
+/* ---------------------------------------------------------------- layout */
+
+.workspace {
+  display: grid;
+  grid-template-columns: var(--panel-width) minmax(0, 1fr);
+  max-width: 1720px;
+  margin: 0 auto;
+}
