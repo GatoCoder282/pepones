@@ -269,3 +269,10 @@
   background: #31584926;
   overflow: hidden;
 }
+.progress span {
+  display: block;
+  height: 100%;
+  background: var(--green);
+  transform-origin: left;
+  transition: transform 0.25s;
+}
