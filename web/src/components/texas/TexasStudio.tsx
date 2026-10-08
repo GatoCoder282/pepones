@@ -293,6 +293,12 @@ export default function TexasStudio() {
                 )}
               </div>
             ) : null}
+            {(status === "loading" || status === "checking") && (
+              <div className={styles.loading} role="status">
+                <span className={styles.spinner} aria-hidden="true" />
+                <span>Preparando el modelo 3D… {Math.round(progress)} %</span>
+              </div>
+            )}
           </div>
         </section>
       </div>
