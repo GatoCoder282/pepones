@@ -1498,3 +1498,4 @@ recipe = [
     ('salsa-original-tapa', bacon_y + anchors['salsa-original-tapa'], 0.0),
     ('pan-tapa', bacon_y + TOP_RIM, 0.0),
 ]
+SIDE = {'assetId': 'papas-cajun', 'ingredientId': 'papas-cajun', 'position': [2.35, 0.0, -.85], 'rotation': [0, .5, 0]}
