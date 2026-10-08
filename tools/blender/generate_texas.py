@@ -1365,3 +1365,9 @@ def render_views(cam, assembly, height):
     scene.cycles.samples = args.samples
     mid = height * .45
     prefix = 'preview-' if args.mode == 'preview' else ''
+    views = {
+        'front': ((0, -8.6, mid), (0, 0, mid), 1.0, 0.0),
+        'three-quarter': ((5.2, -7.4, mid + 2.1), (0, 0, mid - .05), 1.0, 0.0),
+        'exploded': ((6.6, -9.6, height * .5 + 3.9), (0, 0, height * .5), 1.0, .34),
+        'top': ((0, -1.2, 9.5), (0, 0, mid), 1.0, 0.0),
+    }
