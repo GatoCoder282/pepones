@@ -39,6 +39,10 @@ npm run typecheck
 
 Abrir `http://127.0.0.1:3000/estudio/dona/` con el servidor local encendido. Incluye modelos GLB por ingrediente, rotación, zoom, separación de capas y renders de revisión. El flujo de Blender y los comandos para regenerar los recursos están en [tools/blender/README.md](tools/blender/README.md).
 
+## Estudio 3D de Texas
+
+El modelo y sus estimaciones se documentan en [tools/blender/TEXAS.md](tools/blender/TEXAS.md) y [material/semanal/texas/ficha.txt](material/semanal/texas/ficha.txt). Para regenerarlo, desde `web/`: `npm run models:build:texas` y `npm run models:import:texas`.
+
 ## Arquitectura
 
 Next.js App Router, React, TypeScript, CSS y fuentes locales. GSAP/ScrollTrigger controla el recorrido. Three.js, React Three Fiber y Drei componen la hamburguesa modular y admiten GLB por ingrediente. Rutas `/` y `/menu/`, búsqueda, filtros, detalle, navegación móvil y visor accesible mediante botones.
