@@ -324,3 +324,9 @@ class Graph:
         sep = self.node('ShaderNodeSeparateXYZ')
         self.links.new(n.outputs['UV'], sep.inputs[0])
         return sep.outputs['X'], sep.outputs['Y']
+
+    def combine(self, x, y, z):
+        n = self.node('ShaderNodeCombineXYZ')
+        for socket, value in zip(n.inputs, (x, y, z)):
+            self.put(socket, value)
+        return n.outputs[0]
