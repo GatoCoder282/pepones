@@ -52,4 +52,5 @@ En `material/semanal/texas/modelos/` (ignorado por Git; se regenera con el coman
 - `glb/`: un GLB por pieza y `texas-assembled.glb` con las 12 capas en su sitio.
 - `textures/`: mapas de 2048 px; `textures/web/`: los tamaños de la web.
 - `renders/front.png`, `three-quarter.png`, `exploded.png` y, en modo vista previa, `preview-*.png`.
+- `manifest.json`: receta con altura y giro de cada capa, triángulos, peso y referencias.
 
