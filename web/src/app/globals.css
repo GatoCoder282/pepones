@@ -2477,3 +2477,8 @@ button {
   padding: 6% 9%;
   background: radial-gradient(ellipse at center, #fffaf0 0%, #f2e3c6 78%);
 }
+.studio-teaser-visual img {
+  width: 100%;
+  height: auto;
+  transition: transform 0.5s;
+}
