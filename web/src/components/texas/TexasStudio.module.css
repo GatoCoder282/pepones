@@ -347,3 +347,11 @@
   background: var(--green);
   color: var(--cream);
 }
+.slider {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--green);
+}
