@@ -122,6 +122,15 @@ export default function TexasStudio() {
     setSelected(null);
     setSpread(0);
   };
+  const reset = () => {
+    assemble();
+    setShowSide(false);
+    setResetKey((k) => k + 1);
+    if (status === "failed") {
+      setStatus(webglAvailable() ? "loading" : "unsupported");
+      setRevision((v) => v + 1);
+    }
+  };
   return (
     <main id="contenido" className={styles.studio}>
       <header className={styles.header}>
