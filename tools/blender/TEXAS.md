@@ -27,3 +27,9 @@ Ejecución directa desde la raíz del repositorio:
   --python-exit-code 1 --python tools/blender/generate_texas.py -- --mode build
 ```
 
+Para iterar formas y materiales sin hornear ni exportar (unos dos minutos):
+
+```sh
+… generate_texas.py -- --mode preview --resolution 900 --samples 32 --views front,three-quarter,exploded
+```
+
