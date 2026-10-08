@@ -385,3 +385,12 @@ class Graph:
         self.put(n.inputs[6], a)
         self.put(n.inputs[7], b)
         return n.outputs[2]
+
+    def bump(self, height, strength, distance, normal=None):
+        n = self.node('ShaderNodeBump')
+        n.inputs['Strength'].default_value = strength
+        n.inputs['Distance'].default_value = distance
+        self.put(n.inputs['Height'], height)
+        if normal is not None:
+            self.put(n.inputs['Normal'], normal)
+        return n.outputs['Normal']
