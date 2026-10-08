@@ -216,6 +216,7 @@ export default function TexasStudio() {
                     {ingredient.quantity && (
                       <span className={styles.quantity}>{ingredient.quantity}</span>
                     )}
+                    <i style={{ background: ingredient.color }} aria-hidden="true" />
                   </button>
                 </li>
               ))}
