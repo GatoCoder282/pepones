@@ -368,3 +368,13 @@ class Graph:
         for key, v in zip(['From Min', 'From Max', 'To Min', 'To Max'], (a, b, c, d)):
             n.inputs[key].default_value = v
         return n.outputs['Result']
+
+    def ramp(self, fac, stops):
+        n = self.node('ShaderNodeValToRGB')
+        els = n.color_ramp.elements
+        els[0].position, els[0].color = stops[0][0], rgba(stops[0][1])
+        els[1].position, els[1].color = stops[-1][0], rgba(stops[-1][1])
+        for pos, col in stops[1:-1]:
+            els.new(pos).color = rgba(col)
+        self.put(n.inputs['Fac'], fac)
+        return n.outputs['Color']
