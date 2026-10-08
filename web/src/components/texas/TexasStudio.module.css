@@ -404,3 +404,8 @@
   display: flex;
   gap: 6px;
 }
+.iconRow button:hover,
+.detailActions button:hover {
+  border-color: var(--green);
+  color: var(--green);
+}
