@@ -573,3 +573,16 @@ def bun_bottom():
     prof += [(.995, .24, 0), (1.02, .29, 0), (1.042, .335, 0), (1.058, .37, 0), (1.062, .395, 0),
              (1.05, .41, 0), (1.03, .417, 0), (1.005, H, 1)]
     prof += [(.99 * (i / 14) ** .85, H, 1) for i in range(13, -1, -1)]
+
+    def deform(x, y, z, a):
+        r = math.hypot(x, y)
+        if r > 1e-6:
+            k = 1 + .008 * nz(math.cos(a) * 1.4, math.sin(a) * 1.4, z * 2, 1, 2) + .004 * nz(x * 3, y * 3, z * 3, 1, 3)
+            crease = .013 * math.exp(-((z - .25) / .015) ** 2) * (.55 + .45 * nz(math.cos(a) * 2, math.sin(a) * 2, 0, 1, 9))
+            k -= crease / max(r, .2)
+            x, y = x * k, y * k
+        if z > H - .002:
+            z += .004 * nz(x * 4, y * 4, 0, 1, 4) * smoothstep(.98, .5, r)
+        return Vector((x, y, z))
+
+    ob = revolve('pan-base', prof, 96, deform, [MAT['bun_base'], MAT['crumb']])
