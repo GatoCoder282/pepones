@@ -13,3 +13,5 @@ npm run models:build:texas    # Blender: geometría, horneado, GLB, renders y .b
 npm run models:import:texas   # valida los GLB y los copia a la web
 ```
 
+`models:build:texas` busca Blender en la ruta habitual de macOS (`/Applications/Blender.app`) o Windows (`C:\Program Files\Blender Foundation\Blender 5.2\blender.exe`). Para otra ubicación, define `BLENDER` con la ruta del ejecutable. Los argumentos extra pasan al script: `npm run models:build:texas -- --samples 32`.
+
