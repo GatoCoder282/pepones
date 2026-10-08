@@ -50,4 +50,5 @@ ASSETS = {
     'salsa-original-base': dict(ingredient='salsa-original', web=512, coat=.6, coat_rough=.12, emission=.05),
     'pepinillos': dict(ingredient='pepinillos', web=512, coat=.5, coat_rough=.12, emission=.04),
     'carne': dict(ingredient='carne', web=1024, coat=.16, coat_rough=.32, ao=.06),
+    'queso-americano': dict(ingredient='queso-americano', web=512, coat=.4, coat_rough=.14, emission=.07),
 }
