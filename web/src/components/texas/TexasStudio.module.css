@@ -788,3 +788,9 @@
     padding: 0 10px;
   }
 }
+
+@media (prefers-reduced-motion: reduce) {
+  .spinner {
+    animation-duration: 2.4s;
+  }
+}
