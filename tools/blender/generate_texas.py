@@ -101,3 +101,18 @@ def select(objects, active=None):
     for ob in objects:
         ob.select_set(True)
     bpy.context.view_layer.objects.active = active or objects[0]
+
+
+def mesh_object(name, verts, faces, materials=(), slots=None, collection=None):
+    me = bpy.data.meshes.new(name)
+    me.from_pydata([tuple(v) for v in verts], [], faces)
+    for m in materials:
+        me.materials.append(m)
+    if slots is not None:
+        me.polygons.foreach_set('material_index', slots)
+    me.validate()
+    me.update()
+    me.shade_smooth()
+    ob = bpy.data.objects.new(name, me)
+    (collection or WORK).objects.link(ob)
+    return ob
