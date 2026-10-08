@@ -1182,3 +1182,15 @@ def unwrap(ob):
     bpy.ops.uv.smart_project(angle_limit=math.radians(64), island_margin=.006, area_weight=0.0,
                              correct_aspect=True, scale_to_bounds=False, margin_method='FRACTION')
     bpy.ops.object.mode_set(mode='OBJECT')
+
+
+def bake(asset_id, low, high=None):
+    scene = bpy.context.scene
+    size = args.texture_size
+    unwrap(low)
+    if high is not None:
+        target = bpy.data.materials.new(asset_id + '_bake_target')
+        target.use_nodes = True
+        low.data.materials.clear()
+        low.data.materials.append(target)
+    targets = list(low.data.materials)
