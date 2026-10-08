@@ -234,3 +234,8 @@
   outline: 3px solid #057cad;
   outline-offset: -6px;
 }
+.canvasHost {
+  position: absolute;
+  inset: 0;
+  touch-action: none;
+}
