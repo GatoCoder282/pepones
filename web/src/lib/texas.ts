@@ -60,4 +60,11 @@ export const TEXAS_INGREDIENTS: TexasIngredient[] = [
     description:
       "Dos láminas de queso americano. En la foto se ve una sobre cada carne.",
   },
+  {
+    id: "tocino",
+    name: "Tocino",
+    color: "#a8432f",
+    description: "Tiras de tocino sobre la carne superior.",
+    estimate: "La cantidad de tiras del modelo es ilustrativa.",
+  },
 ];
