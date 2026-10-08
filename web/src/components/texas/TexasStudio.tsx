@@ -346,6 +346,9 @@ export default function TexasStudio() {
               <button type="button" aria-label="Acercar" title="Acercar" disabled={!live} onClick={() => send("zoom", 0.82)}>
                 <Plus size={17} aria-hidden="true" />
               </button>
+              <button type="button" aria-label="Alejar" title="Alejar" disabled={!live} onClick={() => send("zoom", 1.22)}>
+                <Minus size={17} aria-hidden="true" />
+              </button>
             </div>
           </div>
         </section>
