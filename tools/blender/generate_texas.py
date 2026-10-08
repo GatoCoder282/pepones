@@ -1494,4 +1494,5 @@ recipe = [
     ('queso-americano', patty_b + anchors['queso-americano'], PATTY_ROTATIONS[1]),
     ('tocino', bacon_y, 0.0),
     ('salsa-barbacoa', bacon_y + anchors['salsa-barbacoa'], 0.0),
+    ('cebolla-crispy', bacon_y + anchors['cebolla-crispy'], 0.0),
 ]
