@@ -88,4 +88,12 @@ export const TEXAS_INGREDIENTS: TexasIngredient[] = [
     description: "Salsa barbacoa sobre el tocino.",
     estimate: "Ubicación estimada a partir de la foto.",
   },
+  {
+    id: "salsa-original",
+    name: "Salsa original",
+    color: "#e6a064",
+    description: "Salsa original sobre la base y debajo de la tapa.",
+    estimate: "Ubicación estimada a partir de la foto.",
+    parts: { "salsa-original-base": "base", "salsa-original-tapa": "tapa" },
+  },
 ];
