@@ -64,3 +64,9 @@ De abajo hacia arriba: pan de papa (base), salsa original, pepinillos, carne, qu
 
 Resultado de la última importación: 12 capas con 99 812 triángulos y 2,55 MiB para la hamburguesa; 2,66 MiB con las papas (Dona Burger: 13,3 MiB). Texturas de 1024 px en pan y carne, 768 px en tocino y cebolla, y 512 px en las demás piezas. El importador imprime estas cifras en cada ejecución.
 
+## Dirección artística
+
+Para cambios reproducibles, edita en `generate_texas.py`:
+
+- Formas: `bun_bottom`, `bun_top`, `sauce_base`, `pickles`, `patty_high`, `cheese`, `bacon`, `bbq`, `onions`, `sauce_top`, `fries`.
+
