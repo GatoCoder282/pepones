@@ -295,3 +295,11 @@ class Graph:
         self.links = self.mat.node_tree.links
         self.bsdf = self.nodes['Principled BSDF']
         self._co = None
+
+    def put(self, socket, value):
+        if isinstance(value, bpy.types.NodeSocket):
+            self.links.new(value, socket)
+        elif isinstance(value, str):
+            socket.default_value = rgba(value)
+        else:
+            socket.default_value = value
