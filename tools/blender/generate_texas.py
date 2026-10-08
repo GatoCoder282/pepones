@@ -358,3 +358,6 @@ class Graph:
 
     def mul(self, a, b):
         return self.math('MULTIPLY', a, b)
+
+    def sub(self, a, b):
+        return self.math('SUBTRACT', a, b)
