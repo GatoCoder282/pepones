@@ -22,3 +22,11 @@ function readGlb(bytes, id) {
   return JSON.parse(bytes.toString("utf8", 20, 20 + bytes.readUInt32LE(12)));
 }
 
+for (const asset of manifest.assets) {
+  const file = path.join(source, "glb", `${asset.id}.glb`);
+  const bytes = await readFile(file);
+  const gltf = readGlb(bytes, asset.id);
+  await copyFile(file, path.join(models, `${asset.id}.glb`));
+  asset.modelUrl = `/models/texas/${asset.id}.glb`;
+  asset.bytes = (await stat(file)).size;
+}
