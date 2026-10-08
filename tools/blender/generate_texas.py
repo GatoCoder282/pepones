@@ -673,3 +673,13 @@ def disc_sheet(edge, top_z, bottom_z, seg=144, rings=16):
         j = (i + 1) % seg
         faces.append((top_rim[i], bottom_rim[i], bottom_rim[j], top_rim[j]))
     return verts, faces
+
+
+def drip(verts, faces, start, length, radius, rng):
+    """A drop hanging from a sauce edge: tapering tube ending in a bulb."""
+    pts = [start + Vector((0, 0, -length * i / 6)) + Vector((rng.uniform(-.004, .004), rng.uniform(-.004, .004), 0)) for i in range(7)]
+    radii = [(radius * (1 - .2 * math.sin(math.pi * i / 6)) * (1.35 if i >= 5 else 1),) * 2 for i in range(7)]
+    v, f = tube(pts, radii, ring=8)
+    base = len(verts)
+    verts.extend(v)
+    faces.extend(tuple(base + i for i in face) for face in f)
