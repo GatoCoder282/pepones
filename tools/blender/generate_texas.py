@@ -352,3 +352,6 @@ class Graph:
         self.put(n.inputs[0], a)
         self.put(n.inputs[1], b)
         return n.outputs[0]
+
+    def add(self, a, b):
+        return self.math('ADD', a, b)
