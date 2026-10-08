@@ -303,6 +303,14 @@ export default function TexasStudio() {
               </div>
             )}
           </div>
+
+          <div className={styles.viewBar}>
+            <div className={styles.segmented} role="group" aria-label="Vista de la hamburguesa">
+              <button type="button" aria-pressed={spread === 0} onClick={assemble}>
+                <Square size={15} aria-hidden="true" /> Armada
+              </button>
+            </div>
+          </div>
         </section>
       </div>
     </main>
