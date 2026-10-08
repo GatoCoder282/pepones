@@ -1348,3 +1348,8 @@ def studio():
         WORK.objects.link(ob)
         ob.location = pos
         point_at(ob, (0, 0, 1))
+    cam = bpy.data.objects.new('Review camera', bpy.data.cameras.new('Review camera'))
+    WORK.objects.link(cam)
+    cam.data.lens = 85
+    bpy.context.scene.camera = cam
+    return cam
