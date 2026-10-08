@@ -1312,3 +1312,13 @@ def export_web_asset(ob, asset_id):
             im.file_format = 'PNG'
             im.save()
             node.image = im
+    ob.data.materials[0] = web_mat
+    select([ob])
+    path = OUT / 'glb' / (asset_id + '.glb')
+    bpy.ops.export_scene.gltf(filepath=str(path), export_format='GLB', use_selection=True, export_yup=True,
+                              export_apply=True, export_animations=False, export_cameras=False, export_lights=False,
+                              export_texcoords=True, export_normals=True, export_tangents=False, export_extras=False,
+                              export_image_format='WEBP', export_image_quality=82,
+                              export_meshopt_compression_enable=True, export_meshopt_extension='EXT_meshopt_compression')
+    ob.data.materials[0] = source_mat
+    return path
