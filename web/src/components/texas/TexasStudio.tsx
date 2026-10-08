@@ -364,6 +364,7 @@ export default function TexasStudio() {
                   {pad(ingredientNumber(current.id))} · {layerText(current.id)} de {TEXAS_MODEL.layers}
                 </p>
                 <h2>{current.name}</h2>
+                {current.quantity && <p className={styles.detailQuantity}>{current.quantity}</p>}
               </>
             ) : (
               <>
