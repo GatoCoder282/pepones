@@ -788,3 +788,22 @@ def patty_high():
         # Smash patties end in a thin, torn lace: fine jitter on top of the broad outline.
         return patty_edge(a) * (1 + .018 * nz(math.cos(a) * 14, math.sin(a) * 14, 3.1, 1, 59))
     verts, faces = disc_sheet(edge, lambda x, y, t, a: top_z(x, y, t), lambda x, y, t, a: bottom_z(x, y, t), seg, rings)
+    bit = template('ico', 2)
+    for k in range(330):
+        a = rng.random() * TAU
+        if k < 220:
+            # Crisp flakes along the lacy rim.
+            rr = edge(a) * rng.uniform(.95, 1.055)
+            z = rng.uniform(.03, .14)
+            size = rng.uniform(.016, .04)
+            squash = rng.uniform(.3, .55)
+        else:
+            # Coarse ground-beef clusters on the seared top.
+            rr = math.sqrt(rng.random()) * .9 * edge(a)
+            z = top_z(rr * math.cos(a), rr * math.sin(a), rr / edge(a)) + rng.uniform(-.014, .002)
+            size = rng.uniform(.018, .036)
+            squash = rng.uniform(.5, .8)
+        m = (Matrix.Translation((rr * math.cos(a), rr * math.sin(a), z)) @ Matrix.Rotation(rng.uniform(0, TAU), 4, 'Z')
+             @ Matrix.Diagonal((size * rng.uniform(1.0, 2.0), size, size * squash, 1)))
+        lumpy = ([v * (1 + .4 * nz(v.x + k, v.y, v.z, 2.2, 58)) for v in bit[0]], bit[1])
+        append_shape(verts, faces, lumpy, m)
