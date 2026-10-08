@@ -56,3 +56,7 @@ En `material/semanal/texas/modelos/` (ignorado por Git; se regenera con el coman
 
 `models:import:texas` comprueba cada GLB (cabecera, una malla, texturas WebP incrustadas, color, ORM, normales y oclusión, meshopt), lo copia a `web/public/models/texas/`, convierte los renders y la foto de referencia a WebP en `web/public/images/texas/` y escribe `web/src/generated/texas.json`.
 
+## Capas
+
+De abajo hacia arriba: pan de papa (base), salsa original, pepinillos, carne, queso americano, carne, queso americano, tocino, salsa barbacoa, cebolla crispy, salsa original y pan de papa (tapa). La foto muestra todas las capas salvo la identidad de las salsas: la salsa color melocotón (base y tapa) se asignó a la salsa original y el brillo rojizo sobre el tocino a la barbacoa.
+
