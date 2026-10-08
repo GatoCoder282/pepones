@@ -303,3 +303,9 @@ class Graph:
             socket.default_value = rgba(value)
         else:
             socket.default_value = value
+
+    def node(self, kind, **props):
+        n = self.nodes.new(kind)
+        for key, value in props.items():
+            setattr(n, key, value)
+        return n
