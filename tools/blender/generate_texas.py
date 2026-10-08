@@ -969,3 +969,28 @@ def bacon():
     ob = join(parts, 'tocino')
     recalc_normals(ob)
     return ob
+
+
+def bbq(bacon_ob):
+    rng = rng_for('salsa-barbacoa')
+    cast = raycaster([bacon_ob])
+    verts, faces = [], []
+    blob = template('uv', 2)
+    placed = attempts = 0
+    while placed < 16 and attempts < 400:
+        attempts += 1
+        # The photo shows the glaze on the front of the bacon; the rest is spread around.
+        if placed < 5:
+            a, r = FRONT + rng.uniform(-.9, .9), rng.uniform(.55, .95)
+        else:
+            a, r = rng.uniform(0, TAU), .85 * math.sqrt(rng.random())
+        x, y = r * math.cos(a), r * math.sin(a)
+        hit = cast(x, y)
+        if hit is None:
+            continue
+        loc, normal = hit[0], hit[1]
+        rx = rng.uniform(.06, .13)
+        m = (Matrix.Translation(loc + normal * .004) @ normal.to_track_quat('Z', 'Y').to_matrix().to_4x4()
+             @ Matrix.Rotation(rng.uniform(0, TAU), 4, 'Z') @ Matrix.Diagonal((rx, rx * rng.uniform(.45, .8), rng.uniform(.011, .018), 1)))
+        append_shape(verts, faces, blob, m)
+        placed += 1
