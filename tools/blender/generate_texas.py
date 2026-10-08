@@ -465,3 +465,22 @@ def mat_pickle():
     rough = g.remap(var, .3, .7, .2, .32)
     normal = g.bump(g.add(g.mul(seed, .5), g.mul(g.noise(co, 70, 2, .5), .5)), .1, .003)
     return g.finish('pepinillos', col, rough, normal)
+
+
+def mat_patty():
+    g = Graph('Seared smash patty crust')
+    co = g.co()
+    rim = g.attr('rim')
+    cells = g.voronoi(co, 9, 'DISTANCE_TO_EDGE')
+    crev = g.remap(cells.outputs['Distance'], 0, .07, 1, 0, True)
+    n1 = g.noise(co, 19, 6, .62)
+    n2 = g.noise(co, 58, 4, .55)
+    idx = g.add(g.sub(g.mul(n1, 1.2), .05), g.add(g.mul(crev, -.22), g.mul(rim, -.1)))
+    col = g.ramp(idx, [(0, '4A2B19'), (.2, '6A4129'), (.38, '825235'), (.54, '976343'), (.7, 'AB7556'), (.85, 'BE8B70'), (1, 'CFA088')])
+    specks = g.voronoi(co, 125)
+    col = g.mix(g.remap(specks.outputs['Distance'], .02, .045, .8, 0), col, '160D08')
+    col = g.mix(g.mul(rim, .3), col, '2A170E')
+    rough = g.remap(g.add(g.mul(n2, .5), g.mul(crev, .5)), .2, .8, .34, .74)
+    height = g.add(g.mul(g.math('SUBTRACT', 1.0, crev), .55), g.mul(n2, .45))
+    normal = g.bump(height, .38, .005)
+    return g.finish('carne', col, rough, normal)
