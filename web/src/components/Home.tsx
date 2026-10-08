@@ -5,6 +5,7 @@ import { useEffect, useRef, useState } from "react";
 import {
   ArrowDown,
   ArrowUpRight,
+  Box,
   MoveUpRight,
   MapPin,
   Plus,
@@ -253,6 +254,9 @@ export function Home({ content }: { content: Content }) {
               alt=""
               loading="lazy"
             />
+            <span className="studio-teaser-badge">
+              <Box size={16} /> 3D
+            </span>
           </Link>
         </section>
         <section
