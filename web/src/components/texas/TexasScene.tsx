@@ -310,5 +310,15 @@ function CameraRig({
     };
     invalidate();
   }, [command, camera, controls, spherical, offset, invalidate]);
+  useEffect(() => {
+    const c = controls.current;
+    if (!c) return;
+    // Dragging hands the camera angle to the user; framing still follows the layers.
+    const stop = () => {
+      if (goal.current) goal.current = { ...goal.current, theta: undefined, phi: undefined };
+    };
+    c.addEventListener("start", stop);
+    return () => c.removeEventListener("start", stop);
+  }, [controls]);
   return null;
 }
