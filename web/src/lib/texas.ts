@@ -45,4 +45,11 @@ export const TEXAS_INGREDIENTS: TexasIngredient[] = [
       "Va en dos piezas: la base sostiene las capas y la tapa cierra la hamburguesa.",
     parts: { "pan-base": "base", "pan-tapa": "tapa" },
   },
+  {
+    id: "carne",
+    name: "Doble carne",
+    quantity: "×2",
+    color: "#7a4a31",
+    description: "Dos carnes, cada una representada como una capa independiente.",
+  },
 ];
