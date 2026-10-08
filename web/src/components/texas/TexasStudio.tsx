@@ -209,6 +209,10 @@ export default function TexasStudio() {
                     onClick={() => chooseFromList(ingredient.id)}
                   >
                     <span className={styles.number}>{pad(i + 1)}</span>
+                    <span className={styles.name}>
+                      {ingredient.name}
+                      <small>{layerText(ingredient.id)}</small>
+                    </span>
                   </button>
                 </li>
               ))}
