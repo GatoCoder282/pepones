@@ -5,3 +5,8 @@ PRECIO EN BS: no suministrado.
 INICIO (fecha y hora Bolivia): no suministrado.
 FIN (fecha y hora Bolivia): no suministrado.
 DISPONIBILIDAD (disponible / agotada): no suministrada.
+
+INGREDIENTES CONFIRMADOS:
+Pan de papa, doble carne, doble queso americano, tocino, cebolla crispy,
+pepinillos, salsa barbacoa y salsa original.
+Acompañamiento: papas Cajun (separado, no es una capa).
