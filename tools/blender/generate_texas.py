@@ -1483,3 +1483,4 @@ pickle_height = .05
 patty_a = BUN_BASE_HEIGHT + sauce_height + pickle_height
 cheese_lift = .022
 patty_b = patty_a + PATTY_TOP + cheese_lift
+bacon_y = patty_b + PATTY_TOP + cheese_lift + .006
