@@ -1245,3 +1245,14 @@ def bake(asset_id, low, high=None):
         im.filepath_raw = str(OUT / 'textures' / ('%s_%s.png' % (asset_id, name)))
         im.file_format = 'PNG'
         im.save()
+    source = low.copy()
+    source.data = low.data.copy()
+    SOURCE.objects.link(source)
+    source.name = 'SOURCE_' + asset_id
+    source.hide_render = True
+    source.hide_set(True)
+    if high is not None:
+        high.name = 'SOURCE_HIGH_' + asset_id
+        WORK.objects.unlink(high)
+        SOURCE.objects.link(high)
+        high.hide_set(True)
