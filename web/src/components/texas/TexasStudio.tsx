@@ -343,6 +343,9 @@ export default function TexasStudio() {
               <button type="button" aria-label="Girar a la derecha" title="Girar a la derecha" disabled={!live} onClick={() => send("rotate", 0.45)}>
                 <RotateCw size={17} aria-hidden="true" />
               </button>
+              <button type="button" aria-label="Acercar" title="Acercar" disabled={!live} onClick={() => send("zoom", 0.82)}>
+                <Plus size={17} aria-hidden="true" />
+              </button>
             </div>
           </div>
         </section>
