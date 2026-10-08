@@ -405,6 +405,16 @@ export default function TexasStudio() {
       </div>
 
       <section id="referencia" className={styles.notes} aria-labelledby="referencia-title">
+        <figure>
+          <img
+            src={TEXAS_MODEL.photo.src}
+            width={TEXAS_MODEL.photo.width}
+            height={TEXAS_MODEL.photo.height}
+            alt="Foto de referencia de Texas, vista de frente"
+            loading="lazy"
+          />
+          <figcaption>Foto de referencia usada para el modelo.</figcaption>
+        </figure>
       </section>
     </main>
   );
