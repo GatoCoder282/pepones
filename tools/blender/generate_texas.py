@@ -62,3 +62,9 @@ ASSETS = {
 
 def rng_for(tag):
     return random.Random(zlib.crc32(tag.encode()))
+
+
+def nz(x, y, z, scale=1.0, seed=0.0):
+    """Signed Perlin noise, roughly in [-1, 1]."""
+    p = Vector((x * scale + seed * 31.7, y * scale + seed * 17.3, z * scale - seed * 11.1))
+    return 1.2 * noise.noise(p, noise_basis='PERLIN_ORIGINAL')
