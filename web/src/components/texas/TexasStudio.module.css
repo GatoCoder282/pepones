@@ -737,4 +737,11 @@
     padding: 0 16px 10px;
     background: var(--cream);
   }
+  .detail {
+    grid-area: detail;
+    position: static;
+    width: auto;
+    margin: 14px 16px 0;
+    box-shadow: none;
+  }
 }
