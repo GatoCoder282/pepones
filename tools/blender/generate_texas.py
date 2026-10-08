@@ -863,3 +863,11 @@ def cheese(patty):
 
     def patty_rim(a):
         return edge_cache[int(round(a / TAU * 360)) % 360]
+    tongues = [(rng.uniform(0, TAU), rng.uniform(.12, .2), rng.uniform(.1, .18)) for _ in range(4)]
+    # The photo shows the melt hanging over the front edge of both patties.
+    tongues += [(FRONT - rot + rng.uniform(-.15, .15), rng.uniform(.2, .26), .3) for rot in PATTY_ROTATIONS]
+
+    def edge(a):
+        sq = (abs(math.cos(a)) ** 4.5 + abs(math.sin(a)) ** 4.5) ** (-1 / 4.5)
+        e = .93 * sq * (1 + .03 * nz(math.cos(a) * 2, math.sin(a) * 2, .7, 1, 61))
+        return e + sum(amp * gauss_angle(a, c, w) for c, amp, w in tongues)
