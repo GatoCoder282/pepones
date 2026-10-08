@@ -678,4 +678,11 @@
     grid-template-columns: minmax(0, 1fr);
     grid-template-areas: "view" "bar" "hint" "detail";
   }
+  .viewport {
+    grid-area: view;
+    position: relative;
+    inset: auto;
+    height: min(54svh, 560px);
+    min-height: 330px;
+  }
 }
