@@ -85,3 +85,8 @@
   line-height: 1.6;
   max-width: 34ch;
 }
+.sideNote {
+  margin-top: 10px;
+  font-size: 14px;
+  color: var(--muted);
+}
