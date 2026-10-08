@@ -240,6 +240,20 @@ export function Home({ content }: { content: Content }) {
               Abrir el estudio 3D <ArrowUpRight size={19} />
             </Link>
           </div>
+          <Link
+            href="/estudio/texas/"
+            className="studio-teaser-visual"
+            tabIndex={-1}
+            aria-hidden="true"
+          >
+            <img
+              src="/images/texas/three-quarter.webp"
+              width={1004}
+              height={897}
+              alt=""
+              loading="lazy"
+            />
+          </Link>
         </section>
         <section
           className="archive-section section-pad"
