@@ -1396,3 +1396,4 @@ scene.cycles.use_denoising = True
 scene.cycles.max_bounces = 8
 scene.view_settings.view_transform = 'Khronos PBR Neutral'
 scene.view_settings.look = 'None'
+bpy.context.preferences.filepaths.save_version = 0
