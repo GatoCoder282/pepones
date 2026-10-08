@@ -36,6 +36,10 @@ for (const asset of manifest.assets) {
     assert.ok(material.normalTexture, `${asset.id}: missing normal map`);
     assert.ok(material.occlusionTexture, `${asset.id}: missing occlusion`);
   }
+  for (const image of gltf.images) {
+    assert.ok(Number.isInteger(image.bufferView), "Texture must be embedded");
+    assert.equal(image.mimeType, "image/webp", `${asset.id}: textures must be WebP`);
+  }
   await copyFile(file, path.join(models, `${asset.id}.glb`));
   asset.modelUrl = `/models/texas/${asset.id}.glb`;
   asset.bytes = (await stat(file)).size;
