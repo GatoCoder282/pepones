@@ -292,3 +292,8 @@
   padding: 90px 28px 200px;
   text-align: center;
 }
+.fallback img {
+  max-height: 64%;
+  width: auto;
+  object-fit: contain;
+}
