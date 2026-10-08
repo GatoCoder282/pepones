@@ -478,6 +478,11 @@ export default function TexasScene(props: SceneProps) {
       document.removeEventListener("visibilitychange", change);
     };
   }, []);
+  const initial = useMemo(() => {
+    const { radius } = framing(0, false, 1.4);
+    const position = new THREE.Vector3().setFromSpherical(new THREE.Spherical(radius, DEFAULT_PHI, DEFAULT_THETA));
+    return [position.x, position.y + HEIGHT * 0.47, position.z] as [number, number, number];
+  }, []);
   const separated = props.spread > 0.55;
   return (
     <div ref={host} className={styles.canvasHost}>
