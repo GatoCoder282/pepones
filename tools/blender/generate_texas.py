@@ -1436,3 +1436,4 @@ MAT = {
 print('MODEL geometry', flush=True)
 objects = {}
 objects['pan-base'] = bun_bottom()
+objects['salsa-original-base'] = sauce_base()
