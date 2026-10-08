@@ -45,3 +45,5 @@ OBSERVACIONES:
   ocultas de cada capa son interpretación visual.
 - La foto muestra una salsa color melocotón en dos alturas. Se asignó a la salsa
   original porque es la única salsa cremosa de la lista; su ubicación es inferida.
+- Las papas Cajun no aparecen en la foto: corte, forma, cantidad y color del
+  condimento del modelo son ilustrativos.
