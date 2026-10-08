@@ -240,3 +240,17 @@ def revolve(name, profile, segments, deform, materials):
     ob = mesh_object(name, verts, faces, materials, slots)
     recalc_normals(ob)
     return ob
+
+
+def raycaster(objects):
+    depsgraph = bpy.context.evaluated_depsgraph_get()
+    trees = [BVHTree.FromObject(ob, depsgraph) for ob in objects]
+
+    def cast(x, y, top=3.0):
+        best = None
+        for tree in trees:
+            hit = tree.ray_cast(Vector((x, y, top)), Vector((0, 0, -1)), 10.0)
+            if hit[0] is not None and (best is None or hit[0].z > best[0].z):
+                best = hit
+        return best
+    return cast
