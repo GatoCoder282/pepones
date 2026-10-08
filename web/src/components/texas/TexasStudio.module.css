@@ -581,3 +581,9 @@
 .notes figure {
   margin: 0;
 }
+.notes figure img {
+  width: 100%;
+  height: auto;
+  background: white;
+  border: 1px solid var(--line);
+}
