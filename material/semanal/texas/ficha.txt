@@ -13,3 +13,4 @@ Acompañamiento: papas Cajun (separado, no es una capa).
 
 INGREDIENTES DE ABAJO HACIA ARRIBA (modelo 3D):
 1. Pan de papa · base ............ visible en la foto
+2. Salsa original ................ inferida: salsa color melocotón sobre la base
