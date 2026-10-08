@@ -2450,3 +2450,12 @@ button {
     display: none;
   }
 }
+
+/* Texas 3D studio teaser on the home page. */
+.studio-teaser {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr);
+  align-items: center;
+  gap: 5%;
+  border-top: 1px solid var(--line);
+}
