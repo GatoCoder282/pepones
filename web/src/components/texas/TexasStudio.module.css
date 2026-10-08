@@ -750,4 +750,8 @@
   .referenceThumb {
     display: none;
   }
+  .fallback {
+    gap: 12px;
+    padding: 16px 16px 76px;
+  }
 }
