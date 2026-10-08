@@ -50,6 +50,16 @@ function webglAvailable() {
 }
 
 export default function TexasStudio() {
+  const [spread, setSpread] = useState(0);
+  const [selected, setSelected] = useState<TexasIngredientId | null>(null);
+  const [showSide, setShowSide] = useState(false);
+  const [status, setStatus] = useState<Status>("checking");
+  const [resetKey, setResetKey] = useState(0);
+  const [command, setCommand] = useState<ViewCommand | null>(null);
+  const [reducedMotion, setReducedMotion] = useState(false);
+  const [compact, setCompact] = useState(false);
+  const [revision, setRevision] = useState(0);
+  const [progress, setProgress] = useState(0);
   return (
     <main id="contenido" className={styles.studio}>
       <header className={styles.header}>
