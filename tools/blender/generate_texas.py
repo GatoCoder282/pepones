@@ -318,3 +318,9 @@ class Graph:
     def attr(self, name):
         n = self.node('ShaderNodeAttribute', attribute_type='GEOMETRY', attribute_name=name)
         return n.outputs['Fac']
+
+    def uv(self, name):
+        n = self.node('ShaderNodeUVMap', uv_map=name)
+        sep = self.node('ShaderNodeSeparateXYZ')
+        self.links.new(n.outputs['UV'], sep.inputs[0])
+        return sep.outputs['X'], sep.outputs['Y']
