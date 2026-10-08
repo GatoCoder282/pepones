@@ -330,6 +330,13 @@ export default function TexasStudio() {
               />
             </label>
           </div>
+
+          <div className={styles.toolbar} role="toolbar" aria-label="Cámara">
+            <button type="button" onClick={reset} className={styles.resetButton} disabled={status === "checking"}>
+              <RefreshCcw size={16} aria-hidden="true" />
+              <span className={styles.resetLabel}>Restablecer vista</span>
+            </button>
+          </div>
         </section>
       </div>
     </main>
