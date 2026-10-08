@@ -910,3 +910,13 @@ def cheese(patty):
             a = i * (n + 1) + j
             faces.append((a, a + n + 1, a + n + 2, a + 1))
     ob = mesh_object('queso-americano', verts, faces, [MAT['cheese']])
+    apply_modifier(ob, 'WELD', merge_threshold=.0005)
+    recalc_normals(ob)
+    if sum(p.normal.z for p in ob.data.polygons) < 0:
+        apply_modifier(ob, 'SOLIDIFY', thickness=.016, offset=1.0, use_even_offset=True)
+    else:
+        apply_modifier(ob, 'SOLIDIFY', thickness=.016, offset=-1.0, use_even_offset=True)
+    recalc_normals(ob)
+    rest = patty_top_mean(patty) + .02
+    point_attr(ob, 'droop', lambda co, n: smoothstep(.0, .12, rest - co.z))
+    return ob
