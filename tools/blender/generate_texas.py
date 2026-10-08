@@ -82,3 +82,8 @@ def fbm(x, y, z, scale=1.0, octaves=4, seed=0.0):
 def smoothstep(a, b, x):
     t = min(1.0, max(0.0, (x - a) / (b - a)))
     return t * t * (3 - 2 * t)
+
+
+def gauss_angle(a, center, width):
+    d = math.atan2(math.sin(a - center), math.cos(a - center))
+    return math.exp(-(d / width) ** 2)
