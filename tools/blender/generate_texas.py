@@ -273,3 +273,13 @@ class HeightField:
         u, v = min(max(fi - i, 0), 1), min(max(fj - j, 0), 1)
         h = self.h
         return (h[i, j] * (1 - u) * (1 - v) + h[i + 1, j] * u * (1 - v) + h[i, j + 1] * (1 - u) * v + h[i + 1, j + 1] * u * v)
+
+    def stamp(self, x, y, z, radius):
+        fi, fj = self._ij(x, y)
+        cell = 2 * self.half / (self.n - 1)
+        k = int(radius / cell) + 1
+        for i in range(max(0, int(fi) - k), min(self.n, int(fi) + k + 2)):
+            for j in range(max(0, int(fj) - k), min(self.n, int(fj) + k + 2)):
+                d = math.hypot((i - fi) * cell, (j - fj) * cell)
+                if d < radius:
+                    self.h[i, j] = max(self.h[i, j], z - .35 * radius * (d / radius) ** 2)
