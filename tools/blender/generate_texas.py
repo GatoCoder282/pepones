@@ -196,3 +196,7 @@ def tube(points, radii, ring=6, up=UP, lump=None, twist=None):
             th = TAU * k / ring
             s = 1 + (lump(p, k) if lump else 0)
             verts.append(p + side * (math.cos(th) * a * s) + normal * (math.sin(th) * b * s))
+    for i in range(n - 1):
+        for k in range(ring):
+            k2 = (k + 1) % ring
+            faces.append((i * ring + k, i * ring + k2, (i + 1) * ring + k2, (i + 1) * ring + k))
