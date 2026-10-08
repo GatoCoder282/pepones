@@ -664,4 +664,8 @@
   .intro h1 {
     font-size: 76px;
   }
+  .summary {
+    margin-top: 10px;
+    font-size: 15px;
+  }
 }
