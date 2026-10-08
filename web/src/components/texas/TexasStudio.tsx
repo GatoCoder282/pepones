@@ -60,6 +60,10 @@ export default function TexasStudio() {
   const [compact, setCompact] = useState(false);
   const [revision, setRevision] = useState(0);
   const [progress, setProgress] = useState(0);
+  const items = useRef<(HTMLButtonElement | null)[]>([]);
+  const stage = useRef<HTMLElement>(null);
+  const layered = spread >= 0.5;
+  const current = selected ? ingredientById(selected) : null;
   return (
     <main id="contenido" className={styles.studio}>
       <header className={styles.header}>
