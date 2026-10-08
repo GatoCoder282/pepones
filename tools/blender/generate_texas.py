@@ -1425,4 +1425,5 @@ MAT = {
     'sauce_base': mat_sauce_original('salsa-original-base'),
     'sauce_top': mat_sauce_original('salsa-original-tapa'),
     'pickle': mat_pickle(),
+    'patty': mat_patty(),
 }
