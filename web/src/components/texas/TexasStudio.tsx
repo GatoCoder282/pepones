@@ -163,6 +163,10 @@ export default function TexasStudio() {
     event.preventDefault();
     items.current[(keys[event.key] + IDS.length) % IDS.length]?.focus();
   };
+
+  const live = status === "loading" || status === "ready";
+  const percent = Math.round(spread * 100);
+
   return (
     <main id="contenido" className={styles.studio}>
       <header className={styles.header}>
