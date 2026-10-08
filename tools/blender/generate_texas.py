@@ -1416,3 +1416,5 @@ for device_type in ('METAL', 'OPTIX', 'CUDA', 'HIP', 'ONEAPI'):
 
 WORK = bpy.data.collections.new('Texas build')
 scene.collection.children.link(WORK)
+SOURCE = bpy.data.collections.new('Procedural originals - hidden during render')
+scene.collection.children.link(SOURCE)
