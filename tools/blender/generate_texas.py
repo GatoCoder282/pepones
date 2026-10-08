@@ -1391,3 +1391,6 @@ for ob in list(bpy.data.objects):
     bpy.data.objects.remove(ob, do_unlink=True)
 scene = bpy.context.scene
 scene.render.engine = 'CYCLES'
+scene.cycles.samples = 16
+scene.cycles.use_denoising = True
+scene.cycles.max_bounces = 8
