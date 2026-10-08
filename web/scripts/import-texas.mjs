@@ -29,6 +29,13 @@ for (const asset of manifest.assets) {
   assert.equal(gltf.meshes.length, 1, `${asset.id}: one mesh per ingredient`);
   for (const ext of ["EXT_meshopt_compression", "EXT_texture_webp"])
     assert.ok(gltf.extensionsUsed?.includes(ext), `${asset.id}: missing ${ext}`);
+  for (const material of gltf.materials) {
+    const pbr = material.pbrMetallicRoughness;
+    assert.ok(pbr.baseColorTexture, `${asset.id}: missing baked color`);
+    assert.ok(pbr.metallicRoughnessTexture, `${asset.id}: missing roughness`);
+    assert.ok(material.normalTexture, `${asset.id}: missing normal map`);
+    assert.ok(material.occlusionTexture, `${asset.id}: missing occlusion`);
+  }
   await copyFile(file, path.join(models, `${asset.id}.glb`));
   asset.modelUrl = `/models/texas/${asset.id}.glb`;
   asset.bytes = (await stat(file)).size;
