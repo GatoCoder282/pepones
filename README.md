@@ -47,6 +47,7 @@ Abrir `http://127.0.0.1:3000/estudio/texas/`, o usar «Texas en 3D» en la naveg
 - papas Cajun como acompañamiento opcional;
 - controles de cámara con teclado y botones;
 - enlaces directos como `?ingrediente=pepinillos`;
+- foto y renders como alternativa si WebGL no está disponible.
 
 El modelo y sus estimaciones se documentan en [tools/blender/TEXAS.md](tools/blender/TEXAS.md) y [material/semanal/texas/ficha.txt](material/semanal/texas/ficha.txt). Para regenerarlo, desde `web/`: `npm run models:build:texas` y `npm run models:import:texas`.
 
