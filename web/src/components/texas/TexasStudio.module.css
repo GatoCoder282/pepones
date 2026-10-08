@@ -182,3 +182,7 @@
   background: var(--cream-deep);
   border: 1px solid var(--line);
 }
+.sideCard h2 {
+  font-size: 30px;
+  color: var(--red);
+}
