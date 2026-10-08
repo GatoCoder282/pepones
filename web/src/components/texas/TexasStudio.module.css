@@ -400,3 +400,7 @@
 .resetButton:hover {
   background: var(--red-dark);
 }
+.iconRow {
+  display: flex;
+  gap: 6px;
+}
