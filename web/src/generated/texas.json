@@ -1,0 +1,263 @@
+{
+  "name": "Texas",
+  "version": 1,
+  "blender": "5.2.2 LTS",
+  "referenceFiles": [
+    "photos/texas_burguer_pepones.jpeg"
+  ],
+  "interpretation": "Procedural reconstruction from one front photo; hidden faces, quantities of strips, slices and strands, and physical scale are interpreted.",
+  "units": "Bun radius about 1. Y is up in glTF; each asset rests on its own origin.",
+  "assets": [
+    {
+      "id": "pan-base",
+      "ingredientId": "pan-de-papa",
+      "triangles": 7680,
+      "bytes": 138092,
+      "textureSize": 1024,
+      "modelUrl": "/models/texas/pan-base.glb"
+    },
+    {
+      "id": "salsa-original-base",
+      "ingredientId": "salsa-original",
+      "triangles": 4560,
+      "bytes": 70100,
+      "textureSize": 512,
+      "modelUrl": "/models/texas/salsa-original-base.glb"
+    },
+    {
+      "id": "pepinillos",
+      "ingredientId": "pepinillos",
+      "triangles": 4480,
+      "bytes": 96792,
+      "textureSize": 512,
+      "modelUrl": "/models/texas/pepinillos.glb"
+    },
+    {
+      "id": "carne",
+      "ingredientId": "carne",
+      "triangles": 10998,
+      "bytes": 748856,
+      "textureSize": 1024,
+      "modelUrl": "/models/texas/carne.glb"
+    },
+    {
+      "id": "queso-americano",
+      "ingredientId": "queso-americano",
+      "triangles": 6720,
+      "bytes": 92732,
+      "textureSize": 512,
+      "modelUrl": "/models/texas/queso-americano.glb"
+    },
+    {
+      "id": "tocino",
+      "ingredientId": "tocino",
+      "triangles": 10760,
+      "bytes": 376596,
+      "textureSize": 768,
+      "modelUrl": "/models/texas/tocino.glb"
+    },
+    {
+      "id": "salsa-barbacoa",
+      "ingredientId": "salsa-barbacoa",
+      "triangles": 2144,
+      "bytes": 90168,
+      "textureSize": 512,
+      "modelUrl": "/models/texas/salsa-barbacoa.glb"
+    },
+    {
+      "id": "cebolla-crispy",
+      "ingredientId": "cebolla-crispy",
+      "triangles": 19440,
+      "bytes": 797736,
+      "textureSize": 768,
+      "modelUrl": "/models/texas/cebolla-crispy.glb"
+    },
+    {
+      "id": "salsa-original-tapa",
+      "ingredientId": "salsa-original",
+      "triangles": 4560,
+      "bytes": 80744,
+      "textureSize": 512,
+      "modelUrl": "/models/texas/salsa-original-tapa.glb"
+    },
+    {
+      "id": "pan-tapa",
+      "ingredientId": "pan-de-papa",
+      "triangles": 10752,
+      "bytes": 180640,
+      "textureSize": 1024,
+      "modelUrl": "/models/texas/pan-tapa.glb"
+    },
+    {
+      "id": "papas-cajun",
+      "ingredientId": "papas-cajun",
+      "triangles": 3696,
+      "bytes": 113292,
+      "textureSize": 512,
+      "modelUrl": "/models/texas/papas-cajun.glb"
+    }
+  ],
+  "sourceTextureSize": 2048,
+  "recipe": [
+    {
+      "assetId": "pan-base",
+      "ingredientId": "pan-de-papa",
+      "y": 0,
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "assetId": "salsa-original-base",
+      "ingredientId": "salsa-original",
+      "y": 0.42,
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "assetId": "pepinillos",
+      "ingredientId": "pepinillos",
+      "y": 0.432,
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "assetId": "carne",
+      "ingredientId": "carne",
+      "y": 0.494,
+      "rotation": [
+        0,
+        0.35,
+        0
+      ]
+    },
+    {
+      "assetId": "queso-americano",
+      "ingredientId": "queso-americano",
+      "y": 0.6846,
+      "rotation": [
+        0,
+        0.35,
+        0
+      ]
+    },
+    {
+      "assetId": "carne",
+      "ingredientId": "carne",
+      "y": 0.7153,
+      "rotation": [
+        0,
+        2.6,
+        0
+      ]
+    },
+    {
+      "assetId": "queso-americano",
+      "ingredientId": "queso-americano",
+      "y": 0.9058,
+      "rotation": [
+        0,
+        2.6,
+        0
+      ]
+    },
+    {
+      "assetId": "tocino",
+      "ingredientId": "tocino",
+      "y": 0.9425,
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "assetId": "salsa-barbacoa",
+      "ingredientId": "salsa-barbacoa",
+      "y": 0.9242,
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "assetId": "cebolla-crispy",
+      "ingredientId": "cebolla-crispy",
+      "y": 0.7901,
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "assetId": "salsa-original-tapa",
+      "ingredientId": "salsa-original",
+      "y": 1.3459,
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "assetId": "pan-tapa",
+      "ingredientId": "pan-de-papa",
+      "y": 1.367,
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    }
+  ],
+  "side": {
+    "assetId": "papas-cajun",
+    "ingredientId": "papas-cajun",
+    "position": [
+      2.35,
+      0,
+      -0.85
+    ],
+    "rotation": [
+      0,
+      0.5,
+      0
+    ]
+  },
+  "height": 2.3069,
+  "totalUniqueBytes": 2785748,
+  "assembledTriangles": 99812,
+  "burgerBytes": 2672456,
+  "renders": {
+    "front": {
+      "src": "/images/texas/front.webp",
+      "width": 1048,
+      "height": 935
+    },
+    "three-quarter": {
+      "src": "/images/texas/three-quarter.webp",
+      "width": 1004,
+      "height": 910
+    },
+    "exploded": {
+      "src": "/images/texas/exploded.webp",
+      "width": 550,
+      "height": 1200
+    }
+  },
+  "photo": {
+    "src": "/images/texas/foto-referencia.webp",
+    "width": 900,
+    "height": 900
+  }
+}
