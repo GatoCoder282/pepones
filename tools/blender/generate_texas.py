@@ -1572,3 +1572,4 @@ if args.mode == 'build':
         if im.filepath and im.has_data:
             im.pack()
     bpy.ops.wm.save_as_mainfile(filepath=str(OUT / 'texas.blend'), compress=True)
+print('DONE', str(OUT), 'height', round(height, 3), flush=True)
