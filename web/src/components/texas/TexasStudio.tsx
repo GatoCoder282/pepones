@@ -33,3 +33,5 @@ import {
 } from "@/lib/texas";
 import type { ViewCommand } from "./TexasScene";
 import styles from "./TexasStudio.module.css";
+
+const Scene = dynamic(() => import("./TexasScene"), { ssr: false });
