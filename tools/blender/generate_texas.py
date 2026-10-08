@@ -1418,3 +1418,6 @@ WORK = bpy.data.collections.new('Texas build')
 scene.collection.children.link(WORK)
 SOURCE = bpy.data.collections.new('Procedural originals - hidden during render')
 scene.collection.children.link(SOURCE)
+MAT = {
+    'bun_base': mat_bun_crust('pan-base', 'Potato bun heel crust'),
+}
