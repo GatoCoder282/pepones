@@ -389,3 +389,14 @@
     color 0.2s,
     border-color 0.2s;
 }
+.resetButton {
+  padding: 0 16px;
+  font-size: 14px;
+  font-weight: 600;
+  background: var(--red);
+  border-color: var(--red);
+  color: var(--cream);
+}
+.resetButton:hover {
+  background: var(--red-dark);
+}
