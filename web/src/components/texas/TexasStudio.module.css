@@ -255,3 +255,11 @@
   color: var(--green);
   pointer-events: none;
 }
+.spinner {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: 3px solid #31584933;
+  border-top-color: var(--green);
+  animation: spin 0.9s linear infinite;
+}
