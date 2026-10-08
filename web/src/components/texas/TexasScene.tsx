@@ -423,6 +423,11 @@ function SceneContents(
             }}
           />
         ))}
+        {sideRequested && (
+          <Suspense fallback={null}>
+            <Side visible={showSide} reducedMotion={props.reducedMotion} />
+          </Suspense>
+        )}
       </group>
     </>
   );
