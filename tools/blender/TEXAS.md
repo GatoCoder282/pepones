@@ -51,4 +51,5 @@ En `material/semanal/texas/modelos/` (ignorado por Git; se regenera con el coman
 - `texas.blend`: escena ensamblada con imágenes empaquetadas, luces y cámara. Los materiales procedurales originales quedan en la colección oculta «Procedural originals».
 - `glb/`: un GLB por pieza y `texas-assembled.glb` con las 12 capas en su sitio.
 - `textures/`: mapas de 2048 px; `textures/web/`: los tamaños de la web.
+- `renders/front.png`, `three-quarter.png`, `exploded.png` y, en modo vista previa, `preview-*.png`.
 
