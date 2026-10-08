@@ -541,3 +541,17 @@ def mat_onion():
     height = g.add(g.mul(batter.outputs['Distance'], .6), g.mul(g.noise(co, 150, 2, .5), .4))
     normal = g.bump(height, .3, .004)
     return g.finish('cebolla-crispy', col, rough, normal)
+
+
+def mat_fries():
+    g = Graph('Cajun seasoned fries')
+    co = g.co()
+    base = g.ramp(g.noise(co, 4.5, 3, .5), [(0, 'D99231'), (.5, 'E4A644'), (1, 'EDBA5C')])
+    base = g.mix(g.mul(g.attr('fry_end'), .55), base, 'B87428')
+    specks = g.voronoi(co, 55)
+    density = g.remap(g.noise(co, 9, 2, .5), .3, .6, .45, 1)
+    speck = g.mul(g.remap(specks.outputs['Distance'], .09, .2, 1, 0, True), density)
+    seasoning = g.ramp(specks.outputs['Color'], [(0, '8E2A12'), (.5, 'B53E1A'), (1, 'D2662A')])
+    col = g.mix(g.mul(speck, .85), base, seasoning)
+    normal = g.bump(g.add(g.mul(speck, .4), g.mul(g.noise(co, 70, 3, .5), .6)), .14, .003)
+    return g.finish('papas-cajun', col, .5, normal)
