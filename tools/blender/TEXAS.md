@@ -70,4 +70,5 @@ Para cambios reproducibles, edita en `generate_texas.py`:
 
 - Formas: `bun_bottom`, `bun_top`, `sauce_base`, `pickles`, `patty_high`, `cheese`, `bacon`, `bbq`, `onions`, `sauce_top`, `fries`.
 - Materiales: funciones `mat_*` (colores en hexadecimal y ruido procedural).
+- Acabado web y tamaño de textura por pieza: diccionario `ASSETS`.
 
