@@ -2465,3 +2465,9 @@ button {
   color: var(--red);
   margin-bottom: 26px;
 }
+.studio-teaser-copy > p:not(.eyebrow) {
+  font-size: 16px;
+  line-height: 1.7;
+  max-width: 46ch;
+  margin-bottom: 32px;
+}
