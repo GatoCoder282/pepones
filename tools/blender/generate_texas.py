@@ -1429,4 +1429,5 @@ MAT = {
     'cheese': mat_cheese(),
     'bacon': mat_bacon(),
     'bbq': mat_bbq(),
+    'onion': mat_onion(),
 }
