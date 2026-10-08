@@ -1220,3 +1220,7 @@ def bake(asset_id, low, high=None):
         bpy.ops.object.bake(type=kind, use_selected_to_active=from_high, cage_extrusion=.03, max_ray_distance=.08,
                             margin=16, margin_type='EXTEND', use_clear=True, normal_space='TANGENT')
         images[name] = im
+    for ob in others:
+        ob.hide_render = False
+    if high is not None:
+        high.hide_render = True
