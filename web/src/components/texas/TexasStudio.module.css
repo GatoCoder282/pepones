@@ -66,3 +66,10 @@
   min-height: 600px;
   scroll-margin-top: 8px;
 }
+
+/* ---------------------------------------------------------------- intro */
+
+.eyebrow {
+  color: var(--green);
+  margin-bottom: 14px;
+}
