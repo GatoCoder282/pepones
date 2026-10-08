@@ -302,3 +302,6 @@
   font-size: 15px;
   line-height: 1.6;
 }
+.fallback .secondary {
+  align-self: center;
+}
