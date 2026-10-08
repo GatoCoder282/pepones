@@ -1072,3 +1072,14 @@ def onions(below):
         attr = ob.data.attributes.new(name, 'FLOAT', 'POINT')
         attr.data.foreach_set('value', values)
     return ob
+
+
+def sauce_top(onion_ob):
+    rng = rng_for('salsa-original-tapa')
+    cast = raycaster([onion_ob])
+
+    def pile(x, y):
+        hit = cast(x, y)
+        return hit[0].z if hit is not None else -.1
+    samples = sorted(pile(r * math.cos(a), r * math.sin(a)) for r in (.0, .12, .24, .36) for a in np.linspace(0, TAU, 16))
+    z_rim = samples[int(len(samples) * .7)] + .006 - BUN_TOP_HOLLOW
