@@ -398,6 +398,8 @@ function SceneContents(
         shadow-camera-near={1}
         shadow-camera-far={22}
       />
+      <directionalLight position={[4.5, 2.5, 2]} intensity={0.6} color="#fff1e0" />
+      <directionalLight position={[1.5, 4.5, -5]} intensity={1.1} color="#ffd9a8" />
     </>
   );
 }
