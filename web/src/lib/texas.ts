@@ -67,4 +67,11 @@ export const TEXAS_INGREDIENTS: TexasIngredient[] = [
     description: "Tiras de tocino sobre la carne superior.",
     estimate: "La cantidad de tiras del modelo es ilustrativa.",
   },
+  {
+    id: "cebolla-crispy",
+    name: "Cebolla crispy",
+    color: "#dcb36e",
+    description: "Cebolla crispy sobre el tocino, debajo de la tapa.",
+    estimate: "La cantidad del modelo es ilustrativa.",
+  },
 ];
