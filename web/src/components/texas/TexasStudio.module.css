@@ -697,4 +697,9 @@
     border-bottom: 1px solid var(--line);
     backdrop-filter: none;
   }
+  .segmented button {
+    flex: 1;
+    justify-content: center;
+    border: 1px solid var(--green);
+  }
 }
