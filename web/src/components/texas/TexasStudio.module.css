@@ -230,3 +230,7 @@
   background:
     radial-gradient(115% 80% at 50% 42%, var(--stage-glow) 0%, #f7ebd3 52%, var(--stage-edge) 100%);
 }
+.viewport:focus-visible {
+  outline: 3px solid #057cad;
+  outline-offset: -6px;
+}
