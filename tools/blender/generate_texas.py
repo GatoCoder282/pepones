@@ -1256,3 +1256,9 @@ def bake(asset_id, low, high=None):
         WORK.objects.unlink(high)
         SOURCE.objects.link(high)
         high.hide_set(True)
+    low.data.materials.clear()
+    low.data.materials.append(web_material(asset_id, images))
+    low.data.polygons.foreach_set('material_index', [0] * len(low.data.polygons))
+    for layer in list(low.data.uv_layers):
+        if layer.name != 'WebAtlas':
+            low.data.uv_layers.remove(layer)
