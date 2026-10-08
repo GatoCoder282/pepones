@@ -10,3 +10,8 @@ const defaults = {
   darwin: "/Applications/Blender.app/Contents/MacOS/Blender",
   win32: "C:\\Program Files\\Blender Foundation\\Blender 5.2\\blender.exe",
 };
+const blender = process.env.BLENDER ?? defaults[process.platform] ?? "blender";
+if (blender !== "blender" && !existsSync(blender)) {
+  console.error(`No se encontró Blender en ${blender}. Define BLENDER con la ruta del ejecutable.`);
+  process.exit(1);
+}
