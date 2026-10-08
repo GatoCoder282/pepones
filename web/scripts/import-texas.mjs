@@ -67,3 +67,11 @@ manifest.burgerBytes = manifest.assets
   .reduce((n, a) => n + a.bytes, 0);
 manifest.renders = renders;
 manifest.photo = { src: "/images/texas/foto-referencia.webp", width: photo.width, height: photo.height };
+await writeFile(
+  path.join(models, "manifest.json"),
+  JSON.stringify(manifest, null, 2) + "\n",
+);
+await writeFile(
+  path.join(web, "src/generated/texas.json"),
+  JSON.stringify(manifest, null, 2) + "\n",
+);
