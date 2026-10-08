@@ -509,6 +509,32 @@ export default function TexasScene(props: SceneProps) {
           </Suspense>
         </Canvas>
       </SceneBoundary>
+      {/* Pointer shortcut only: the ingredient list is the accessible control. */}
+      <div className={styles.labels} aria-hidden="true">
+        {TEXAS_LAYERS.map((layer) => {
+          const ingredient = ingredientById(layer.ingredientId);
+          const chosen = props.selected === layer.ingredientId;
+          const shown = chosen || (!props.compact && (separated || hovered === layer.ingredientId));
+          return (
+            <button
+              key={`${layer.assetId}-${layer.index}`}
+              ref={(el) => {
+                labels.current[layer.index] = el;
+              }}
+              type="button"
+              tabIndex={-1}
+              className={`${styles.tag} ${chosen ? styles.tagActive : ""}`}
+              style={{ visibility: shown ? "visible" : "hidden" }}
+              onClick={() => props.onSelect(layer.ingredientId)}
+              onPointerEnter={() => setHovered(layer.ingredientId)}
+              onPointerLeave={() => setHovered(null)}
+            >
+              <span>{String(ingredientNumber(layer.ingredientId)).padStart(2, "0")}</span>
+              {!props.compact && (layer.label === ingredient.name ? ingredient.name : layer.label)}
+            </button>
+          );
+        })}
+      </div>
     </div>
   );
 }
