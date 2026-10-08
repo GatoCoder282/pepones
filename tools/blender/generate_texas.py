@@ -633,3 +633,6 @@ def bun_top(z_rim):
         return .1 + smoothstep(.04, .5, zn) * .34 + smoothstep(.45, 1.0, zn) * .18 + .05 * nz(co.x * 2, co.y * 2, co.z * 2, 1, 17)
     point_attr(ob, 'brown', brown)
     point_attr(ob, 'toast', lambda co, n: smoothstep(.8, .95, math.hypot(co.x, co.y)) if crumb(co, n) else 0.0)
+    for v in ob.data.vertices:
+        v.co.z += z_rim
+    return ob
