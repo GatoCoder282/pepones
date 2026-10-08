@@ -659,3 +659,12 @@ def disc_sheet(edge, top_z, bottom_z, seg=144, rings=16):
                 verts.append(Vector((x, y, surface(x, y, t, a))))
             rows.append(row)
         grids.append((center, rows))
+    for g, (center, rows) in enumerate(grids):
+        flip = g == 1
+        for i in range(seg):
+            j = (i + 1) % seg
+            f = (center, rows[0][i], rows[0][j])
+            faces.append(tuple(reversed(f)) if flip else f)
+            for k in range(rings - 1):
+                f = (rows[k][i], rows[k + 1][i], rows[k + 1][j], rows[k][j])
+                faces.append(tuple(reversed(f)) if flip else f)
