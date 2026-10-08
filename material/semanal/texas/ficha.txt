@@ -22,3 +22,4 @@ INGREDIENTES DE ABAJO HACIA ARRIBA (modelo 3D):
 8. Tocino ........................ visible en la foto
 9. Salsa barbacoa ................ inferida: brillo rojizo oscuro sobre el tocino
 10. Cebolla crispy ............... visible en la foto
+11. Salsa original ............... inferida: salsa color melocotón bajo la tapa
