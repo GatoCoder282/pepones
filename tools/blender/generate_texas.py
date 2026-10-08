@@ -1427,4 +1427,5 @@ MAT = {
     'pickle': mat_pickle(),
     'patty': mat_patty(),
     'cheese': mat_cheese(),
+    'bacon': mat_bacon(),
 }
