@@ -266,3 +266,10 @@ class HeightField:
 
     def _ij(self, x, y):
         return ((x + self.half) / (2 * self.half) * (self.n - 1), (y + self.half) / (2 * self.half) * (self.n - 1))
+
+    def sample(self, x, y):
+        fi, fj = self._ij(x, y)
+        i, j = int(min(max(fi, 0), self.n - 2)), int(min(max(fj, 0), self.n - 2))
+        u, v = min(max(fi - i, 0), 1), min(max(fj - j, 0), 1)
+        h = self.h
+        return (h[i, j] * (1 - u) * (1 - v) + h[i + 1, j] * u * (1 - v) + h[i, j + 1] * (1 - u) * v + h[i + 1, j + 1] * u * v)
