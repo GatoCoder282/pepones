@@ -1399,3 +1399,17 @@ scene.view_settings.look = 'None'
 bpy.context.preferences.filepaths.save_version = 0
 scene.world = bpy.data.worlds.new('World')
 scene.world.light_settings.distance = .18
+for device_type in ('METAL', 'OPTIX', 'CUDA', 'HIP', 'ONEAPI'):
+    try:
+        prefs = bpy.context.preferences.addons['cycles'].preferences
+        prefs.compute_device_type = device_type
+        prefs.get_devices()
+        gpus = [d for d in prefs.devices if d.type == device_type]
+        for d in prefs.devices:
+            d.use = d.type == device_type
+        if gpus:
+            scene.cycles.device = 'GPU'
+            print('Cycles device', device_type, [d.name for d in gpus], flush=True)
+            break
+    except Exception as exc:
+        print('GPU %s unavailable: %s' % (device_type, exc), flush=True)
