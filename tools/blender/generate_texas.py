@@ -586,3 +586,12 @@ def bun_bottom():
         return Vector((x, y, z))
 
     ob = revolve('pan-base', prof, 96, deform, [MAT['bun_base'], MAT['crumb']])
+
+    def brown(co, n):
+        if co.z > H - .01 and n.z > .6:
+            return 0.0
+        zn = co.z / H
+        return (.56 if co.z < .02 else .34 - .1 * zn) + .05 * nz(co.x * 2, co.y * 2, co.z * 2, 1, 5)
+    point_attr(ob, 'brown', brown)
+    point_attr(ob, 'toast', lambda co, n: smoothstep(.8, .99, math.hypot(co.x, co.y)) if co.z > H - .01 else 0.0)
+    return ob
