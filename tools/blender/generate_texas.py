@@ -1486,4 +1486,5 @@ patty_b = patty_a + PATTY_TOP + cheese_lift
 bacon_y = patty_b + PATTY_TOP + cheese_lift + .006
 recipe = [
     ('pan-base', 0.0, 0.0),
+    ('salsa-original-base', BUN_BASE_HEIGHT, 0.0),
 ]
