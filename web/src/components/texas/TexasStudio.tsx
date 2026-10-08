@@ -254,6 +254,22 @@ export default function TexasStudio() {
             aria-busy={status === "loading" || status === "checking"}
             onKeyDown={onViewportKey}
           >
+            {live ? (
+              <Scene
+                key={revision}
+                spread={spread}
+                selected={selected}
+                showSide={showSide}
+                resetKey={resetKey}
+                command={command}
+                reducedMotion={reducedMotion}
+                compact={compact}
+                onSelect={choose}
+                onReady={handleReady}
+                onFailure={handleFailure}
+                onProgress={setProgress}
+              />
+            ) : null}
           </div>
         </section>
       </div>
