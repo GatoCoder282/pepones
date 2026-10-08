@@ -473,3 +473,15 @@
   gap: 6px;
   margin-top: 16px;
 }
+.detailActions .whole {
+  padding: 0 14px;
+  font-size: 14px;
+  font-weight: 600;
+  margin-left: auto;
+  color: var(--green);
+  border-color: var(--green);
+}
+.detailActions .whole:hover {
+  background: var(--green);
+  color: var(--cream);
+}
