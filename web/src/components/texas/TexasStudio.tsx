@@ -48,3 +48,16 @@ function webglAvailable() {
     return false;
   }
 }
+
+export default function TexasStudio() {
+  return (
+    <main id="contenido" className={styles.studio}>
+      <header className={styles.header}>
+        <Link href="/" className={styles.back}>
+          <ArrowLeft size={18} aria-hidden="true" /> Volver a Pepones
+        </Link>
+        <span className={styles.headerLabel}>ESTUDIO 3D · TEXAS</span>
+      </header>
+    </main>
+  );
+}
