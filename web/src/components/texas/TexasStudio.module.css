@@ -747,4 +747,7 @@
   .detail h2 {
     font-size: 30px;
   }
+  .referenceThumb {
+    display: none;
+  }
 }
