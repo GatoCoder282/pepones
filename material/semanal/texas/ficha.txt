@@ -20,3 +20,4 @@ INGREDIENTES DE ABAJO HACIA ARRIBA (modelo 3D):
 6. Carne ......................... visible en la foto
 7. Queso americano ............... visible en la foto, sobre la carne superior
 8. Tocino ........................ visible en la foto
+9. Salsa barbacoa ................ inferida: brillo rojizo oscuro sobre el tocino
