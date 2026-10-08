@@ -42,4 +42,5 @@ Parámetros: `--texture-size 2048` (horneado), `--resolution 1600` y `--samples 
 - La carne se modela en alta resolución (remallado por vóxeles) y se hornea sobre una malla reducida. El resto se hornea sobre sí mismo.
 - Hornea color, rugosidad, normales y oclusión ambiental con Cycles: usa GPU (Metal, OptiX, CUDA, HIP u oneAPI) si existe y, si no, la CPU.
 - Exporta un GLB por pieza con texturas WebP, oclusión, rugosidad y metal en una sola imagen (ORM), compresión `EXT_meshopt_compression` y `KHR_materials_clearcoat`. Three.js los decodifica sin descargas externas.
+- Genera tres renders de revisión, una escena ensamblada de intercambio y el archivo editable `texas.blend`.
 
