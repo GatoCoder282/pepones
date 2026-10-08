@@ -81,4 +81,11 @@ export const TEXAS_INGREDIENTS: TexasIngredient[] = [
     description: "Pepinillos entre la base y la primera carne.",
     estimate: "La cantidad de rodajas del modelo es ilustrativa.",
   },
+  {
+    id: "salsa-barbacoa",
+    name: "Salsa barbacoa",
+    color: "#7e2d1e",
+    description: "Salsa barbacoa sobre el tocino.",
+    estimate: "Ubicación estimada a partir de la foto.",
+  },
 ];
