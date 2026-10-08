@@ -214,3 +214,9 @@
   background: var(--green);
   color: var(--cream);
 }
+.secondary:disabled {
+  opacity: 0.5;
+  cursor: default;
+  background: transparent;
+  color: var(--green);
+}
