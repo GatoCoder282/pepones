@@ -112,3 +112,17 @@ const byId = new Map(TEXAS_INGREDIENTS.map((i) => [i.id, i]));
 export const ingredientById = (id: TexasIngredientId) => byId.get(id)!;
 export const ingredientNumber = (id: TexasIngredientId) =>
   TEXAS_INGREDIENTS.findIndex((i) => i.id === id) + 1;
+
+export const TEXAS_LAYERS: TexasLayer[] = manifest.recipe.map((layer, index) => {
+  const ingredient = ingredientById(layer.ingredientId as TexasIngredientId);
+  const part = ingredient.parts?.[layer.assetId];
+  return {
+    index,
+    assetId: layer.assetId,
+    ingredientId: ingredient.id,
+    y: layer.y,
+    rotation: layer.rotation as [number, number, number],
+    url: manifest.assets.find((a) => a.id === layer.assetId)!.modelUrl,
+    label: part ? `${ingredient.name} · ${part}` : ingredient.name,
+  };
+});
