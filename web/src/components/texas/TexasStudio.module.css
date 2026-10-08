@@ -138,3 +138,6 @@
   line-height: 1;
   color: var(--red);
 }
+.list button[aria-pressed="true"] .number {
+  color: var(--cream);
+}
