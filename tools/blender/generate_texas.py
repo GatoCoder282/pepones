@@ -408,3 +408,21 @@ class Graph:
             self.put(b.inputs['Emission Color'], color)
             b.inputs['Emission Strength'].default_value = spec['emission']
         return self.mat
+
+
+def mat_bun_crust(asset_id, name):
+    g = Graph(name)
+    co = g.co()
+    brown = g.attr('brown')
+    low = g.noise(co, 1.7, 3, .55)
+    mid = g.noise(co, 7, 5, .6)
+    idx = g.add(g.mul(brown, .8), g.add(g.mul(g.sub(low, .5), .7), g.mul(g.sub(mid, .5), .22)))
+    col = g.ramp(idx, [(0, 'F2CB86'), (.2, 'ECB760'), (.42, 'E4A245'), (.62, 'D88D2F'), (.8, 'C27524'), (1, 'A05C19')])
+    pores = g.voronoi(co, 110)
+    col = g.mix(g.remap(pores.outputs['Distance'], .03, .1, .3, 0), col, '8E5A22')
+    col = g.mix(g.remap(g.noise(co, 380, 1, .5), .6, .7, 0, .28), col, 'FBE6BF')
+    rough = g.add(g.remap(brown, 0, 1, .54, .3), g.mul(g.sub(mid, .5), .14))
+    height = g.add(g.mul(pores.outputs['Distance'], .5), g.mul(g.noise(co, 95, 3, .5), .5))
+    normal = g.bump(height, .14, .003)
+    normal = g.bump(g.noise(co, 4.5, 2, .5), .05, .02, normal)
+    return g.finish(asset_id, col, rough, normal)
