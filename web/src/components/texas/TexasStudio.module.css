@@ -465,3 +465,6 @@
   font-size: 13px;
   color: var(--muted);
 }
+.estimate svg {
+  margin-top: 3px;
+}
