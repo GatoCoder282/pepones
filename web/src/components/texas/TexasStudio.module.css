@@ -770,4 +770,8 @@
     padding: 48px 16px 72px;
     margin-top: 40px;
   }
+  .renders {
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 8px;
+  }
 }
