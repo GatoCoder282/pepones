@@ -600,3 +600,9 @@
 .notes h2 em {
   display: block;
 }
+.notes h2 + p {
+  margin-top: 20px;
+  font-size: 16px;
+  line-height: 1.7;
+  max-width: 62ch;
+}
