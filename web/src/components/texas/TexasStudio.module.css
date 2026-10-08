@@ -498,3 +498,10 @@
   color: var(--muted);
   z-index: 5;
 }
+.referenceThumb img {
+  width: 88px;
+  height: 88px;
+  object-fit: cover;
+  background: white;
+  border: 1px solid var(--line);
+}
