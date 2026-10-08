@@ -772,3 +772,19 @@ def patty_edge(a):
     return PATTY_R * (1 + .036 * nz(math.cos(a) * 1.1, math.sin(a) * 1.1, .4, 1, 51)
                       + .024 * nz(math.cos(a) * 2.8, math.sin(a) * 2.8, 1.3, 1, 52)
                       + .015 * nz(math.cos(a) * 6.5, math.sin(a) * 6.5, 2.2, 1, 53))
+
+
+def patty_high():
+    rng = rng_for('carne')
+    seg, rings = 240, 32
+
+    def top_z(x, y, t):
+        return .2 * (1 - .3 * t ** 3) + .016 * fbm(x, y, 0, 1.5, 3, 54)
+
+    def bottom_z(x, y, t):
+        return .02 * t ** 4 + .003 * nz(x * 8, y * 8, 0, 1, 55)
+
+    def edge(a):
+        # Smash patties end in a thin, torn lace: fine jitter on top of the broad outline.
+        return patty_edge(a) * (1 + .018 * nz(math.cos(a) * 14, math.sin(a) * 14, 3.1, 1, 59))
+    verts, faces = disc_sheet(edge, lambda x, y, t, a: top_z(x, y, t), lambda x, y, t, a: bottom_z(x, y, t), seg, rings)
