@@ -269,6 +269,19 @@ export default function TexasStudio() {
                 onFailure={handleFailure}
                 onProgress={setProgress}
               />
+            ) : status !== "checking" ? (
+              <div className={styles.fallback} role="status">
+                <img
+                  src={layered ? TEXAS_MODEL.renders.exploded.src : TEXAS_MODEL.photo.src}
+                  width={layered ? TEXAS_MODEL.renders.exploded.width : TEXAS_MODEL.photo.width}
+                  height={layered ? TEXAS_MODEL.renders.exploded.height : TEXAS_MODEL.photo.height}
+                  alt={
+                    layered
+                      ? "Render de las capas de Texas, de la base a la tapa"
+                      : "Foto de Texas"
+                  }
+                />
+              </div>
             ) : null}
           </div>
         </section>
