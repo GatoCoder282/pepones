@@ -698,3 +698,9 @@ def sauce_base():
 
     def thick(a, t):
         return (.024 + .007 * nz(math.cos(a) * 3, math.sin(a) * 3, 1.3, 1, 32)) * max(0.0, 1 - t ** 6) ** .4 + .004
+
+    verts, faces = disc_sheet(
+        edge,
+        lambda x, y, t, a: floor(math.hypot(x, y)) + thick(a, t) + .002 * nz(x * 12, y * 12, 0, 1, 33),
+        lambda x, y, t, a: floor(math.hypot(x, y)) - .001,
+        96, 10)
