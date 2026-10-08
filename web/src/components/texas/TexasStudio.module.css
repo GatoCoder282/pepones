@@ -6,3 +6,15 @@
   min-height: 100svh;
   background: var(--cream);
 }
+
+/* ---------------------------------------------------------------- header */
+
+.header {
+  height: var(--header-height);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 0 clamp(16px, 3vw, 44px);
+  border-bottom: 1px solid var(--line);
+}
