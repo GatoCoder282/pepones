@@ -378,3 +378,10 @@ class Graph:
             els.new(pos).color = rgba(col)
         self.put(n.inputs['Fac'], fac)
         return n.outputs['Color']
+
+    def mix(self, fac, a, b, blend='MIX'):
+        n = self.node('ShaderNodeMix', data_type='RGBA', blend_type=blend, clamp_factor=True)
+        self.put(n.inputs[0], fac)
+        self.put(n.inputs[6], a)
+        self.put(n.inputs[7], b)
+        return n.outputs[2]
