@@ -1469,3 +1469,11 @@ anchors = {
     'pan-tapa': TOP_RIM,
     'papas-cajun': 0.0,
 }
+for asset_id, z in anchors.items():
+    if z:
+        for v in objects[asset_id].data.vertices:
+            v.co.z -= z
+        objects[asset_id].data.update()
+        if asset_id == 'carne':
+            for v in patty_hi.data.vertices:
+                v.co.z -= z
