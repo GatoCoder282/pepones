@@ -382,6 +382,22 @@ function SceneContents(
   }, [gl, hovered]);
   return (
     <>
+      <hemisphereLight args={["#fff3dc", "#6b4a2c", 0.55]} />
+      <directionalLight
+        position={[-3.2, 7.5, 5]}
+        intensity={2.3}
+        color="#fff1dc"
+        castShadow
+        shadow-mapSize={[2048, 2048]}
+        shadow-bias={-0.0004}
+        shadow-normalBias={0.025}
+        shadow-camera-left={-4.5}
+        shadow-camera-right={4.5}
+        shadow-camera-top={6.5}
+        shadow-camera-bottom={-2}
+        shadow-camera-near={1}
+        shadow-camera-far={22}
+      />
     </>
   );
 }
