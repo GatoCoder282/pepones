@@ -61,3 +61,6 @@ interface Pointing {
 const GAP = 0.27;
 const HEIGHT = TEXAS_MODEL.height;
 const LAST = TEXAS_LAYERS.length - 1;
+const DEFAULT_THETA = 0.18;
+const DEFAULT_PHI = 1.38;
+const FOV = 30;
