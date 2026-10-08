@@ -1066,3 +1066,9 @@ def onions(below):
             for i in range(len(v)):
                 tips.append(1 - math.sin(math.pi * min(i // ring, n - 1) / (n - 1)))
                 inner.append(depth)
+    ob = mesh_object('cebolla-crispy', verts, faces, [MAT['onion']])
+    recalc_normals(ob)
+    for name, values in [('tip', tips), ('core', inner)]:
+        attr = ob.data.attributes.new(name, 'FLOAT', 'POINT')
+        attr.data.foreach_set('value', values)
+    return ob
