@@ -126,3 +126,7 @@ export const TEXAS_LAYERS: TexasLayer[] = manifest.recipe.map((layer, index) => 
     label: part ? `${ingredient.name} · ${part}` : ingredient.name,
   };
 });
+
+/** 1-based layer positions, counted from the bottom bun. */
+export const layersOf = (id: TexasIngredientId) =>
+  TEXAS_LAYERS.filter((l) => l.ingredientId === id).map((l) => l.index + 1);
