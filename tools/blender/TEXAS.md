@@ -22,3 +22,8 @@ Ejecución directa desde la raíz del repositorio:
   --python-exit-code 1 --python tools/blender/generate_texas.py -- --mode build
 ```
 
+```powershell
+& "C:\Program Files\Blender Foundation\Blender 5.2\blender.exe" --background --factory-startup `
+  --python-exit-code 1 --python tools/blender/generate_texas.py -- --mode build
+```
+
