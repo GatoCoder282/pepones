@@ -371,6 +371,14 @@ export default function TexasStudio() {
                     <Info size={14} aria-hidden="true" /> {current.estimate}
                   </p>
                 )}
+                <div className={styles.detailActions}>
+                  <button type="button" aria-label="Ingrediente anterior" title="Ingrediente anterior" onClick={() => step(-1)}>
+                    <ChevronLeft size={18} aria-hidden="true" />
+                  </button>
+                  <button type="button" aria-label="Ingrediente siguiente" title="Ingrediente siguiente" onClick={() => step(1)}>
+                    <ChevronRight size={18} aria-hidden="true" />
+                  </button>
+                </div>
               </>
             ) : (
               <>
