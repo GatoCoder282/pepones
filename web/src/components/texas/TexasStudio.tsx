@@ -440,6 +440,26 @@ export default function TexasStudio() {
               ilustrativa.
             </li>
           </ul>
+          <div className={styles.renders}>
+            {(
+              [
+                ["front", "De frente"],
+                ["three-quarter", "Tres cuartos"],
+                ["exploded", "Por capas"],
+              ] as const
+            ).map(([view, label]) => (
+              <a key={view} href={TEXAS_MODEL.renders[view].src} target="_blank" rel="noopener noreferrer">
+                <img
+                  src={TEXAS_MODEL.renders[view].src}
+                  width={TEXAS_MODEL.renders[view].width}
+                  height={TEXAS_MODEL.renders[view].height}
+                  alt={`Render de Texas: ${label.toLowerCase()}`}
+                  loading="lazy"
+                />
+                <span>{label}</span>
+              </a>
+            ))}
+          </div>
         </div>
       </section>
     </main>
