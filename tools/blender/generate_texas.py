@@ -1018,3 +1018,14 @@ def onions(below):
         return hit[0].z if hit is not None else -.15
     field = HeightField(base_height)
     verts, faces, tips, inner = [], [], [], []
+    # count, points, section, arc radius, sweep, half width, half thickness, spread, inner pile
+    base = field.h.copy()
+    groups = [(75, 6, 6, (.12, .24), (.5, 1.0), (.03, .043), (.01, .014), .75, 1.0),
+              (130, 9, 6, (.2, .5), (.5, 1.2), (.035, .05), (.011, .015), 1.02, 0.0)]
+
+    def envelope(x, y):
+        # The mound the photo suggests: about a quarter unit high, lower at the rim.
+        r = math.hypot(x, y)
+        i, j = field._ij(x, y)
+        i, j = int(min(max(round(i), 0), field.n - 1)), int(min(max(round(j), 0), field.n - 1))
+        return base[i, j] + .03 + .22 * max(0.0, 1 - (r / 1.05) ** 2) ** .6
