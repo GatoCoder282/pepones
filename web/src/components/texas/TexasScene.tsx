@@ -90,3 +90,27 @@ class SceneBoundary extends Component<
 function approach(current: number, target: number, rate: number, delta: number) {
   return current + (target - current) * (1 - Math.exp(-rate * delta));
 }
+
+function useAsset(url: string) {
+  const { scene } = useGLTF(url, false, true);
+  return useMemo(() => {
+    const clone = scene.clone(true);
+    const materials: THREE.MeshStandardMaterial[] = [];
+    clone.traverse((child) => {
+      const mesh = child as THREE.Mesh;
+      if (!mesh.isMesh) return;
+      mesh.castShadow = true;
+      mesh.receiveShadow = true;
+      // Each layer owns its materials so it can be dimmed on its own.
+      const material = (mesh.material as THREE.MeshStandardMaterial).clone();
+      material.userData.baseColor = material.color.clone();
+      material.userData.dim = 1;
+      material.envMapIntensity = 0.9;
+      mesh.material = material;
+      materials.push(material);
+    });
+    // Labels sit at the visual middle of each layer, not at its resting plane.
+    const box = new THREE.Box3().setFromObject(clone);
+    return { object: clone, materials, middle: (box.min.y + box.max.y) / 2 };
+  }, [scene]);
+}
