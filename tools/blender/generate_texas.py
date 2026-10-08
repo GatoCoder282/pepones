@@ -77,3 +77,8 @@ def fbm(x, y, z, scale=1.0, octaves=4, seed=0.0):
         norm += amp
         amp *= .5
     return total / norm
+
+
+def smoothstep(a, b, x):
+    t = min(1.0, max(0.0, (x - a) / (b - a)))
+    return t * t * (3 - 2 * t)
