@@ -994,3 +994,11 @@ def bbq(bacon_ob):
              @ Matrix.Rotation(rng.uniform(0, TAU), 4, 'Z') @ Matrix.Diagonal((rx, rx * rng.uniform(.45, .8), rng.uniform(.011, .018), 1)))
         append_shape(verts, faces, blob, m)
         placed += 1
+    for x in (-.12, .22):
+        y = -1.3
+        hit = None
+        while y < 0 and hit is None:
+            hit = cast(x, y)
+            y += .01
+        if hit is not None:
+            drip(verts, faces, hit[0] + Vector((0, .01, -.004)), rng.uniform(.09, .13), .022, rng)
