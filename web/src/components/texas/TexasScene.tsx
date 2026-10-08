@@ -364,6 +364,11 @@ function SceneContents(
   useEffect(() => {
     if (showSide) setSideRequested(true);
   }, [showSide]);
+  useEffect(() => {
+    controls.current?.target.set(0, HEIGHT * 0.47, 0);
+    controls.current?.update();
+    onReady();
+  }, [onReady]);
   return (
     <>
     </>
