@@ -765,4 +765,9 @@
     order: 3;
     margin: 24px 16px 0;
   }
+  .notes {
+    grid-template-columns: 1fr;
+    padding: 48px 16px 72px;
+    margin-top: 40px;
+  }
 }
