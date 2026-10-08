@@ -355,3 +355,6 @@ class Graph:
 
     def add(self, a, b):
         return self.math('ADD', a, b)
+
+    def mul(self, a, b):
+        return self.math('MULTIPLY', a, b)
