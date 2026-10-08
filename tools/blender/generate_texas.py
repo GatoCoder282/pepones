@@ -24,3 +24,6 @@ import bpy
 import numpy as np
 from mathutils import Matrix, Vector, noise
 from mathutils.bvhtree import BVHTree
+
+ROOT = Path(__file__).resolve().parents[2]
+REFERENCE = 'photos/texas_burguer_pepones.jpeg'
