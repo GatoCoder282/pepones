@@ -346,3 +346,9 @@ class Graph:
         n.inputs['Scale'].default_value = scale
         n.inputs['Randomness'].default_value = randomness
         return n
+
+    def math(self, op, a, b=0.0, clamp=False):
+        n = self.node('ShaderNodeMath', operation=op, use_clamp=clamp)
+        self.put(n.inputs[0], a)
+        self.put(n.inputs[1], b)
+        return n.outputs[0]
