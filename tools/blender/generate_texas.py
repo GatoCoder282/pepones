@@ -765,3 +765,4 @@ def pickles():
 PATTY_R = 1.115
 # Stack rotation of the lower and upper patty; their cheese slices share it so the drape fits.
 PATTY_ROTATIONS = (.35, 2.6)
+FRONT = -math.pi / 2
