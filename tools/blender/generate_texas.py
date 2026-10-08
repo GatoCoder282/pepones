@@ -1290,3 +1290,9 @@ def web_material(asset_id, images):
     normal.uv_map = 'WebAtlas'
     links.new(tex['normal'].outputs['Color'], normal.inputs['Color'])
     links.new(normal.outputs['Normal'], bs.inputs['Normal'])
+    bs.inputs['Coat Weight'].default_value = spec.get('coat', 0.0)
+    bs.inputs['Coat Roughness'].default_value = spec.get('coat_rough', .2)
+    if spec.get('emission'):
+        links.new(tex['color'].outputs['Color'], bs.inputs['Emission Color'])
+        bs.inputs['Emission Strength'].default_value = spec['emission']
+    return mat
