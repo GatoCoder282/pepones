@@ -11,3 +11,10 @@ Geometry and materials are procedural, interpreted from photos/texas_burguer_pep
 Every ingredient is a separate, named object. Base and top bun, both patties and both cheese
 slices are independent layers. Hidden faces and physical sizes are artistic decisions.
 """
+import argparse
+import json
+import math
+import random
+import sys
+import zlib
+from pathlib import Path
