@@ -668,3 +668,8 @@ def disc_sheet(edge, top_z, bottom_z, seg=144, rings=16):
             for k in range(rings - 1):
                 f = (rows[k][i], rows[k + 1][i], rows[k + 1][j], rows[k][j])
                 faces.append(tuple(reversed(f)) if flip else f)
+    top_rim, bottom_rim = grids[0][1][-1], grids[1][1][-1]
+    for i in range(seg):
+        j = (i + 1) % seg
+        faces.append((top_rim[i], bottom_rim[i], bottom_rim[j], top_rim[j]))
+    return verts, faces
