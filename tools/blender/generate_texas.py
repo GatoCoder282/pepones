@@ -807,3 +807,7 @@ def patty_high():
              @ Matrix.Diagonal((size * rng.uniform(1.0, 2.0), size, size * squash, 1)))
         lumpy = ([v * (1 + .4 * nz(v.x + k, v.y, v.z, 2.2, 58)) for v in bit[0]], bit[1])
         append_shape(verts, faces, lumpy, m)
+    ob = mesh_object('carne high', verts, faces, [MAT['patty']])
+    recalc_normals(ob)
+    apply_modifier(ob, 'REMESH', mode='VOXEL', voxel_size=.0095, use_smooth_shade=True)
+    apply_modifier(ob, 'SMOOTH', factor=.45, iterations=2)
