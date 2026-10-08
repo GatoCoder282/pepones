@@ -1278,3 +1278,4 @@ def web_material(asset_id, images):
         t.image = images[name]
         links.new(uv.outputs['UV'], t.inputs['Vector'])
         tex[name] = t
+    links.new(tex['color'].outputs['Color'], bs.inputs['Base Color'])
