@@ -57,3 +57,12 @@
   border-right: 1px solid var(--line);
   min-width: 0;
 }
+.stage {
+  container-type: inline-size;
+  position: sticky;
+  top: 0;
+  align-self: start;
+  height: calc(100svh - var(--header-height));
+  min-height: 600px;
+  scroll-margin-top: 8px;
+}
