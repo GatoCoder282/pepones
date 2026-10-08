@@ -541,3 +541,8 @@
   line-height: 1;
   color: var(--red);
 }
+.tagActive {
+  background: var(--red);
+  border-color: var(--red);
+  color: var(--cream);
+}
