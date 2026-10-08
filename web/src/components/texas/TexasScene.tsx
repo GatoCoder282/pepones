@@ -64,3 +64,5 @@ const LAST = TEXAS_LAYERS.length - 1;
 const DEFAULT_THETA = 0.18;
 const DEFAULT_PHI = 1.38;
 const FOV = 30;
+const BURGER_WIDTH = 2.7;
+const SIDE_SHIFT = 1.15;
