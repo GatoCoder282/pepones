@@ -69,4 +69,5 @@ Resultado de la última importación: 12 capas con 99 812 triángulos y 2,55 MiB
 Para cambios reproducibles, edita en `generate_texas.py`:
 
 - Formas: `bun_bottom`, `bun_top`, `sauce_base`, `pickles`, `patty_high`, `cheese`, `bacon`, `bbq`, `onions`, `sauce_top`, `fries`.
+- Materiales: funciones `mat_*` (colores en hexadecimal y ruido procedural).
 
