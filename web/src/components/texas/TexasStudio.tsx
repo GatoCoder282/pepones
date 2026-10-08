@@ -222,6 +222,16 @@ export default function TexasStudio() {
               ))}
             </ol>
           </div>
+
+          <div className={styles.sideCard}>
+            <div>
+              <p className={styles.eyebrow}>ACOMPAÑAMIENTO</p>
+              <h2>{TEXAS_SIDE.name}</h2>
+              <p>
+                {TEXAS_SIDE.description} {TEXAS_SIDE.estimate}
+              </p>
+            </div>
+          </div>
         </section>
       </div>
     </main>
