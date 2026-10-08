@@ -454,6 +454,7 @@ function SceneContents(
         reducedMotion={props.reducedMotion}
         compact={props.compact}
       />
+      <LabelProjector anchors={anchors} labels={props.labels} />
     </>
   );
 }
