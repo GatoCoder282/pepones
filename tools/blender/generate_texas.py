@@ -920,3 +920,12 @@ def cheese(patty):
     rest = patty_top_mean(patty) + .02
     point_attr(ob, 'droop', lambda co, n: smoothstep(.0, .12, rest - co.z))
     return ob
+
+
+# ---------------------------------------------------------------- geometry: bacon, barbecue, onions
+
+def bacon():
+    rng = rng_for('tocino')
+    specs = [(-.5, .12, 2.5, .37, .0), (-.16, -.1, 2.62, .39, .032), (.2, .2, 2.48, .36, .058),
+             (.54, -.15, 2.32, .34, .074), (-.02, .66, 2.3, .35, .1)]
+    parts = []
