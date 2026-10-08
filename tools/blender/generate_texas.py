@@ -1262,3 +1262,19 @@ def bake(asset_id, low, high=None):
     for layer in list(low.data.uv_layers):
         if layer.name != 'WebAtlas':
             low.data.uv_layers.remove(layer)
+
+
+def web_material(asset_id, images):
+    spec = ASSETS[asset_id]
+    mat = bpy.data.materials.new(asset_id)
+    mat.use_nodes = True
+    nodes, links = mat.node_tree.nodes, mat.node_tree.links
+    bs = nodes['Principled BSDF']
+    uv = nodes.new('ShaderNodeUVMap')
+    uv.uv_map = 'WebAtlas'
+    tex = {}
+    for name in ['color', 'orm', 'normal']:
+        t = nodes.new('ShaderNodeTexImage')
+        t.image = images[name]
+        links.new(uv.outputs['UV'], t.inputs['Vector'])
+        tex[name] = t
