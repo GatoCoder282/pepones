@@ -1517,3 +1517,18 @@ elif patty_hi.name in WORK.objects:
     objects['carne'].hide_render = True
     objects['carne'], patty_hi = patty_hi, objects['carne']
     objects['carne'].hide_render = False
+
+assembly = []
+used = set()
+for i, (asset_id, y, rot) in enumerate(recipe):
+    original = objects[asset_id]
+    ob = original if asset_id not in used else original.copy()
+    if asset_id in used:
+        WORK.objects.link(ob)
+    used.add(asset_id)
+    ob.name = '%02d_%s' % (i + 1, asset_id)
+    ob.location = (0, 0, y)
+    ob.rotation_euler = (0, 0, rot)
+    ob['ingredient_id'] = ASSETS[asset_id]['ingredient']
+    ob['layer_index'] = i
+    assembly.append((ob, y))
