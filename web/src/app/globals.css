@@ -2459,3 +2459,9 @@ button {
   gap: 5%;
   border-top: 1px solid var(--line);
 }
+.studio-teaser h2 {
+  font-size: clamp(52px, 6vw, 96px);
+  line-height: 0.95;
+  color: var(--red);
+  margin-bottom: 26px;
+}
