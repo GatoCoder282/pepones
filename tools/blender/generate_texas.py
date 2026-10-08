@@ -1394,3 +1394,5 @@ scene.render.engine = 'CYCLES'
 scene.cycles.samples = 16
 scene.cycles.use_denoising = True
 scene.cycles.max_bounces = 8
+scene.view_settings.view_transform = 'Khronos PBR Neutral'
+scene.view_settings.look = 'None'
