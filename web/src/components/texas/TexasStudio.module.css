@@ -468,3 +468,8 @@
 .estimate svg {
   margin-top: 3px;
 }
+.detailActions {
+  display: flex;
+  gap: 6px;
+  margin-top: 16px;
+}
