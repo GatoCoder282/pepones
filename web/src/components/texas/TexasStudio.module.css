@@ -195,3 +195,17 @@
 .sideCard .eyebrow {
   margin-bottom: 6px;
 }
+.secondary {
+  align-self: flex-start;
+  min-height: 44px;
+  padding: 10px 18px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--green);
+  background: transparent;
+  border: 1px solid var(--green);
+  border-radius: 2px;
+  transition:
+    background 0.2s,
+    color 0.2s;
+}
