@@ -213,6 +213,9 @@ export default function TexasStudio() {
                       {ingredient.name}
                       <small>{layerText(ingredient.id)}</small>
                     </span>
+                    {ingredient.quantity && (
+                      <span className={styles.quantity}>{ingredient.quantity}</span>
+                    )}
                   </button>
                 </li>
               ))}
