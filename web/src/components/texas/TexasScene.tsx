@@ -295,5 +295,20 @@ function CameraRig({
     invalidate();
     // Only a reset restores the default angle; aspect changes keep the user's view.
   }, [resetKey]);
+  useEffect(() => {
+    const c = controls.current;
+    if (!command || !c) return;
+    spherical.setFromVector3(offset.copy(camera.position).sub(c.target));
+    goal.current = {
+      target: (goal.current?.target ?? c.target).clone(),
+      radius:
+        command.kind === "zoom"
+          ? THREE.MathUtils.clamp(spherical.radius * command.amount, c.minDistance, c.maxDistance)
+          : (goal.current?.radius ?? spherical.radius),
+      theta: command.kind === "rotate" ? spherical.theta + command.amount : undefined,
+      phi: spherical.phi,
+    };
+    invalidate();
+  }, [command, camera, controls, spherical, offset, invalidate]);
   return null;
 }
