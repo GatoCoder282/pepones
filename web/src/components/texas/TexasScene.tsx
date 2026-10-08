@@ -69,3 +69,19 @@ const SIDE_SHIFT = 1.15;
 
 // The side dish downloads only when someone asks to see it.
 for (const url of new Set(TEXAS_LAYERS.map((l) => l.url))) useGLTF.preload(url, false, true);
+
+class SceneBoundary extends Component<
+  { onFailure: () => void; children: ReactNode },
+  { failed: boolean }
+> {
+  state = { failed: false };
+  static getDerivedStateFromError() {
+    return { failed: true };
+  }
+  componentDidCatch() {
+    this.props.onFailure();
+  }
+  render() {
+    return this.state.failed ? null : this.props.children;
+  }
+}
