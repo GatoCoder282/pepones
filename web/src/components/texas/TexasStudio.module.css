@@ -371,3 +371,21 @@
   gap: 8px;
   z-index: 5;
 }
+.resetButton,
+.iconRow button,
+.detailActions button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-width: 44px;
+  min-height: 44px;
+  background: #fff8ebe6;
+  border: 1px solid var(--line);
+  color: var(--ink);
+  border-radius: 2px;
+  transition:
+    background 0.2s,
+    color 0.2s,
+    border-color 0.2s;
+}
