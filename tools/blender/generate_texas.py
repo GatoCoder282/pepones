@@ -1100,3 +1100,12 @@ def sauce_top(onion_ob):
         z = top(x, y)
         return min(z - .008, max(pile(x, y) - .004, z - sag) + .002 * nz(x * 9, y * 9, 0, 1, 92))
     verts, faces = disc_sheet(edge, lambda x, y, t, a: top(x, y), bottom, 96, 10)
+    bead = template('uv', 2)
+    for _ in range(6):
+        a = FRONT + rng.uniform(-.8, .8)
+        rr = edge(a) - .05
+        x, y = rr * math.cos(a), rr * math.sin(a)
+        size = rng.uniform(.022, .034)
+        m = (Matrix.Translation((x, y, top(x, y) - size * .9)) @ Matrix.Rotation(a, 4, 'Z')
+             @ Matrix.Diagonal((size * 1.4, size * 1.6, size, 1)))
+        append_shape(verts, faces, bead, m)
