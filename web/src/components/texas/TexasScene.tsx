@@ -369,6 +369,14 @@ function SceneContents(
     controls.current?.update();
     onReady();
   }, [onReady]);
+  useEffect(() => {
+    const fail = (event: Event) => {
+      event.preventDefault();
+      onFailure();
+    };
+    gl.domElement.addEventListener("webglcontextlost", fail);
+    return () => gl.domElement.removeEventListener("webglcontextlost", fail);
+  }, [gl, onFailure]);
   return (
     <>
     </>
