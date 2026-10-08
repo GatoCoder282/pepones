@@ -718,3 +718,19 @@ def sauce_base():
     recalc_normals(ob)
     point_attr(ob, 'thick', lambda co, n: smoothstep(-.01, .028, co.z - floor(math.hypot(co.x, co.y))))
     return ob
+
+
+def pickle_slice(rng, R, t, lam, amp, phi):
+    seg, rings = 32, 5
+
+    def edge(a):
+        return R * (1 + .025 * nz(math.cos(a) * 2, math.sin(a) * 2, R * 7 + phi, 1, 41) + .01 * math.sin(7 * a + phi))
+
+    def corr(x, y):
+        return amp * math.sin(TAU * (x * math.cos(phi) + y * math.sin(phi)) / lam)
+    verts, faces = disc_sheet(
+        edge,
+        lambda x, y, tt, a: t / 2 + corr(x, y) + .0015 * nz(x * 20, y * 20, phi, 1, 42),
+        lambda x, y, tt, a: -t / 2 + corr(x, y),
+        seg, rings)
+    return verts, faces
