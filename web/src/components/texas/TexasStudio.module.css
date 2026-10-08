@@ -774,4 +774,8 @@
     grid-template-columns: 1fr 1fr 1fr;
     gap: 8px;
   }
+  .renders img {
+    height: 130px;
+    padding: 6px;
+  }
 }
