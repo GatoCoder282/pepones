@@ -200,3 +200,12 @@ def tube(points, radii, ring=6, up=UP, lump=None, twist=None):
         for k in range(ring):
             k2 = (k + 1) % ring
             faces.append((i * ring + k, i * ring + k2, (i + 1) * ring + k2, (i + 1) * ring + k))
+    start = len(verts)
+    verts.append(points[0] - (points[1] - points[0]).normalized() * radii[0][1] * .7)
+    verts.append(points[-1] + (points[-1] - points[-2]).normalized() * radii[-1][1] * .7)
+    last = (n - 1) * ring
+    for k in range(ring):
+        k2 = (k + 1) % ring
+        faces.append((start, k2, k))
+        faces.append((start + 1, last + k, last + k2))
+    return verts, faces
