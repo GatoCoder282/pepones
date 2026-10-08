@@ -516,3 +516,13 @@ def mat_bacon():
     rough = g.remap(fiber, .3, .7, .36, .56)
     normal = g.bump(fiber, .22, .003)
     return g.finish('tocino', col, rough, normal)
+
+
+def mat_bbq():
+    g = Graph('Glossy barbecue sauce')
+    co = g.co()
+    var = g.noise(co, 8, 3, .5)
+    col = g.ramp(var, [(0, '4A1007'), (.5, '68190B'), (1, '842413')])
+    col = g.mix(g.mul(g.attr('thin'), .6), col, 'A23A18')
+    normal = g.bump(g.noise(co, 30, 2, .5), .02, .005)
+    return g.finish('salsa-barbacoa', col, .09, normal)
