@@ -546,3 +546,6 @@
   border-color: var(--red);
   color: var(--cream);
 }
+.tagActive span {
+  color: var(--cream);
+}
