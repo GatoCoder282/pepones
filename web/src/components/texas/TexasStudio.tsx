@@ -106,6 +106,12 @@ export default function TexasStudio() {
     // A layer is easier to read with the stack apart; keep any separation already chosen.
     setSpread((value) => (value < 0.35 ? 1 : value));
   }, []);
+  const chooseFromList = (id: TexasIngredientId) => {
+    choose(id);
+    // On phones the list sits below the model: bring the highlighted layer into view.
+    if (compact)
+      stage.current?.scrollIntoView({ behavior: reducedMotion ? "auto" : "smooth", block: "start" });
+  };
   return (
     <main id="contenido" className={styles.studio}>
       <header className={styles.header}>
