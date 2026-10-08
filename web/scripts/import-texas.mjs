@@ -11,3 +11,7 @@ const models = path.join(web, "public/models/texas");
 const images = path.join(web, "public/images/texas");
 await mkdir(models, { recursive: true });
 await mkdir(images, { recursive: true });
+const manifest = JSON.parse(
+  await readFile(path.join(source, "manifest.json"), "utf8"),
+);
+
