@@ -42,3 +42,9 @@ for sub in ['', 'textures', 'textures/web', 'renders', 'glb']:
 ONLY = {s for s in args.only.split(',') if s}
 TAU = math.tau
 UP = Vector((0, 0, 1))
+
+# Web texture size and glTF finish per exported asset. Emission fakes the translucency of
+# cheese, sauces and pickles, which glTF viewers cannot scatter.
+ASSETS = {
+    'pan-base': dict(ingredient='pan-de-papa', web=1024, coat=.06, coat_rough=.35, ao=.16),
+}
