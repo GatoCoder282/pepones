@@ -309,3 +309,8 @@ class Graph:
         for key, value in props.items():
             setattr(n, key, value)
         return n
+
+    def co(self):
+        if self._co is None:
+            self._co = self.node('ShaderNodeTexCoord').outputs['Object']
+        return self._co
