@@ -361,6 +361,9 @@ function SceneContents(
   const controls = useRef<OrbitControlsImpl>(null);
   const [sideRequested, setSideRequested] = useState(false);
   const { onReady, onFailure, hovered, anchors, showSide } = props;
+  useEffect(() => {
+    if (showSide) setSideRequested(true);
+  }, [showSide]);
   return (
     <>
     </>
