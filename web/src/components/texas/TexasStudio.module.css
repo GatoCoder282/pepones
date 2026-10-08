@@ -754,4 +754,7 @@
     gap: 12px;
     padding: 16px 16px 76px;
   }
+  .fallback img {
+    max-height: 72%;
+  }
 }
