@@ -616,3 +616,9 @@
 .notes li + li {
   margin-top: 6px;
 }
+.renders {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  margin-top: 32px;
+}
