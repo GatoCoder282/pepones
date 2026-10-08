@@ -1160,3 +1160,13 @@ def fries():
     attr = ob.data.attributes.new('fry_end', 'FLOAT', 'POINT')
     attr.data.foreach_set('value', ends)
     return ob
+
+
+# ---------------------------------------------------------------- baking and export
+
+def ensure_gltf_group():
+    group = bpy.data.node_groups.get('glTF Material Output')
+    if group is None:
+        group = bpy.data.node_groups.new('glTF Material Output', 'ShaderNodeTree')
+        group.interface.new_socket('Occlusion', in_out='INPUT', socket_type='NodeSocketFloat')
+    return group
