@@ -244,6 +244,17 @@ export default function TexasStudio() {
         </section>
 
         <section ref={stage} className={styles.stage} aria-label="Visor 3D de Texas">
+          <div
+            className={styles.viewport}
+            tabIndex={0}
+            role="group"
+            aria-roledescription="visor 3D"
+            aria-label="Modelo 3D de Texas"
+            aria-describedby="texas-ayuda"
+            aria-busy={status === "loading" || status === "checking"}
+            onKeyDown={onViewportKey}
+          >
+          </div>
         </section>
       </div>
     </main>
