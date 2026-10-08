@@ -1234,3 +1234,9 @@ def bake(asset_id, low, high=None):
     # A gentle cavity term in the albedo; the full occlusion travels in the ORM texture.
     color[:, :3] *= (1 - .18 * (1 - ao))[:, None]
     images['color'].pixels.foreach_set(color.ravel())
+    orm = np.zeros((size * size, 4), dtype=np.float32)
+    # Lifted occlusion: contact shading without crushing thin, packed pieces to black.
+    orm[:, 0], orm[:, 1], orm[:, 3] = .3 + .7 * ao, rough, 1
+    images['orm'] = bpy.data.images.new(asset_id + '_orm', size, size)
+    images['orm'].colorspace_settings.name = 'Non-Color'
+    images['orm'].pixels.foreach_set(orm.ravel())
