@@ -90,3 +90,15 @@
   font-size: 14px;
   color: var(--muted);
 }
+
+/* ---------------------------------------------------------------- ingredient list */
+
+.listTitle {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  font-size: 30px;
+  color: var(--green);
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--ink);
+}
