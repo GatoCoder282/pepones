@@ -132,3 +132,9 @@
   background: var(--green);
   color: var(--cream);
 }
+.number {
+  font-family: var(--display);
+  font-size: 22px;
+  line-height: 1;
+  color: var(--red);
+}
