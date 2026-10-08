@@ -1413,3 +1413,6 @@ for device_type in ('METAL', 'OPTIX', 'CUDA', 'HIP', 'ONEAPI'):
             break
     except Exception as exc:
         print('GPU %s unavailable: %s' % (device_type, exc), flush=True)
+
+WORK = bpy.data.collections.new('Texas build')
+scene.collection.children.link(WORK)
