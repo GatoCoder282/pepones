@@ -192,3 +192,6 @@
   line-height: 1.6;
   color: var(--muted);
 }
+.sideCard .eyebrow {
+  margin-bottom: 6px;
+}
