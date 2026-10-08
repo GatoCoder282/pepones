@@ -9,3 +9,16 @@ import {
   useState,
   type KeyboardEvent,
 } from "react";
+import {
+  ArrowLeft,
+  ChevronLeft,
+  ChevronRight,
+  Info,
+  Layers,
+  Minus,
+  Plus,
+  RefreshCcw,
+  RotateCcw,
+  RotateCw,
+  Square,
+} from "lucide-react";
