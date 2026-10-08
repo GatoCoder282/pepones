@@ -396,6 +396,11 @@ export default function TexasStudio() {
               </>
             )}
           </div>
+
+          <a className={styles.referenceThumb} href="#referencia">
+            <img src={TEXAS_MODEL.photo.src} width={88} height={88} alt="" />
+            <span>Foto de referencia</span>
+          </a>
         </section>
       </div>
     </main>
