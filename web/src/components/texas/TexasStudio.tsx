@@ -112,6 +112,12 @@ export default function TexasStudio() {
     if (compact)
       stage.current?.scrollIntoView({ behavior: reducedMotion ? "auto" : "smooth", block: "start" });
   };
+  const step = (direction: number) => {
+    const index = selected ? IDS.indexOf(selected) : -1;
+    const next = IDS[(index + direction + IDS.length) % IDS.length];
+    setSelected(next);
+    setSpread((value) => (value < 0.35 ? 1 : value));
+  };
   return (
     <main id="contenido" className={styles.studio}>
       <header className={styles.header}>
