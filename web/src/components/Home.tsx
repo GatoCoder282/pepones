@@ -231,6 +231,11 @@ export function Home({ content }: { content: Content }) {
               <br />
               <em>capa por capa.</em>
             </h2>
+            <p>
+              Gira el modelo, separa las capas y conoce cada ingrediente: pan de
+              papa, doble carne, doble queso americano, tocino, cebolla crispy,
+              pepinillos, salsa barbacoa y salsa original.
+            </p>
           </div>
         </section>
         <section
