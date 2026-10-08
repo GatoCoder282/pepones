@@ -41,6 +41,8 @@ Abrir `http://127.0.0.1:3000/estudio/dona/` con el servidor local encendido. Inc
 
 ## Estudio 3D de Texas
 
+Abrir `http://127.0.0.1:3000/estudio/texas/`, o usar «Texas en 3D» en la navegación y el bloque «Texas, capa por capa» de la portada. El estudio muestra la hamburguesa armada o por capas con un control gradual. Incluye:
+
 El modelo y sus estimaciones se documentan en [tools/blender/TEXAS.md](tools/blender/TEXAS.md) y [material/semanal/texas/ficha.txt](material/semanal/texas/ficha.txt). Para regenerarlo, desde `web/`: `npm run models:build:texas` y `npm run models:import:texas`.
 
 ## Arquitectura
