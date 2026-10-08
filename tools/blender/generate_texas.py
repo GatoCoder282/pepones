@@ -562,3 +562,14 @@ def mat_fries():
 BUN_BASE_HEIGHT = .42
 BUN_TOP_HEIGHT = .92
 BUN_TOP_HOLLOW = .1
+
+
+def bun_bottom():
+    H = BUN_BASE_HEIGHT
+    prof = [(.78 * i / 9, 0.0, 0) for i in range(10)]
+    for i in range(1, 11):
+        th = -math.pi / 2 + (math.pi / 2) * i / 10
+        prof.append((.78 + .19 * math.cos(th), .19 + .19 * math.sin(th), 0))
+    prof += [(.995, .24, 0), (1.02, .29, 0), (1.042, .335, 0), (1.058, .37, 0), (1.062, .395, 0),
+             (1.05, .41, 0), (1.03, .417, 0), (1.005, H, 1)]
+    prof += [(.99 * (i / 14) ** .85, H, 1) for i in range(13, -1, -1)]
