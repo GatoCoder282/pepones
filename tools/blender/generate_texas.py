@@ -438,3 +438,14 @@ def mat_crumb():
     col = g.mix(g.mul(g.attr('toast'), .7), col, 'E0A552')
     normal = g.bump(g.math('SUBTRACT', 1.0, holes), .5, .006)
     return g.finish('', col, .86, normal)
+
+
+def mat_sauce_original(asset_id):
+    g = Graph('Salsa original peach sauce ' + asset_id)
+    co = g.co()
+    var = g.noise(co, 5, 3, .5)
+    idx = g.add(g.mul(g.attr('thick'), .6), g.mul(g.sub(var, .5), .5))
+    col = g.ramp(idx, [(0, 'D9803F'), (.4, 'E59656'), (.75, 'EDAD70'), (1, 'F2BF88')])
+    rough = g.remap(var, .3, .7, .2, .3)
+    normal = g.bump(g.noise(co, 13, 2, .5), .05, .01)
+    return g.finish(asset_id, col, rough, normal)
