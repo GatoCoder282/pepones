@@ -59,3 +59,5 @@ interface Pointing {
 
 // Extra height between consecutive layers when fully separated.
 const GAP = 0.27;
+const HEIGHT = TEXAS_MODEL.height;
+const LAST = TEXAS_LAYERS.length - 1;
