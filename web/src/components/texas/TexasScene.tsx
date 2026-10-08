@@ -320,5 +320,32 @@ function CameraRig({
     c.addEventListener("start", stop);
     return () => c.removeEventListener("start", stop);
   }, [controls]);
+  useFrame((state, delta) => {
+    const c = controls.current;
+    const g = goal.current;
+    if (!c || !g) return;
+    const rate = reducedMotion ? 60 : 4.5;
+    c.target.set(
+      approach(c.target.x, g.target.x, rate, delta),
+      approach(c.target.y, g.target.y, rate, delta),
+      approach(c.target.z, g.target.z, rate, delta),
+    );
+    spherical.setFromVector3(offset.copy(camera.position).sub(c.target));
+    spherical.radius = approach(spherical.radius, g.radius, rate, delta);
+    if (g.theta !== undefined) {
+      const d = Math.atan2(Math.sin(g.theta - spherical.theta), Math.cos(g.theta - spherical.theta));
+      spherical.theta = approach(spherical.theta, spherical.theta + d, rate, delta);
+    }
+    if (g.phi !== undefined) spherical.phi = approach(spherical.phi, g.phi, rate, delta);
+    camera.position.copy(c.target).add(offset.setFromSpherical(spherical));
+    c.update();
+    const settled =
+      c.target.distanceTo(g.target) < 1e-3 &&
+      Math.abs(spherical.radius - g.radius) < 1e-3 &&
+      (g.theta === undefined || Math.abs(Math.sin(g.theta - spherical.theta)) < 1e-3) &&
+      (g.phi === undefined || Math.abs(g.phi - spherical.phi) < 1e-3);
+    if (settled) goal.current = null;
+    else state.invalidate();
+  });
   return null;
 }
