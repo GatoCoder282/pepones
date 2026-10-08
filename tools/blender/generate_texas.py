@@ -1477,3 +1477,6 @@ for asset_id, z in anchors.items():
         if asset_id == 'carne':
             for v in patty_hi.data.vertices:
                 v.co.z -= z
+
+sauce_height = .024
+pickle_height = .05
