@@ -175,6 +175,11 @@ export default function TexasStudio() {
         </Link>
         <span className={styles.headerLabel}>ESTUDIO 3D · TEXAS</span>
       </header>
+
+      <div className={styles.workspace}>
+        <section className={styles.panel} aria-labelledby="texas-title">
+        </section>
+      </div>
     </main>
   );
 }
