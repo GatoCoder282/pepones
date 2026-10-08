@@ -73,3 +73,9 @@
   color: var(--green);
   margin-bottom: 14px;
 }
+.intro h1 {
+  font-size: clamp(88px, 8.4vw, 136px);
+  line-height: 0.86;
+  color: var(--red);
+  letter-spacing: 1px;
+}
