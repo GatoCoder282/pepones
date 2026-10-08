@@ -39,3 +39,7 @@ MODELOS DISPONIBLES:
 - Salida local regenerable: material/semanal/texas/modelos/ (ignorada por Git).
 - Web: web/public/models/texas/ y web/public/images/texas/.
 - Vista web: /estudio/texas/
+
+OBSERVACIONES:
+- Solo hay una foto frontal: la parte trasera, el interior del pan y las caras
+  ocultas de cada capa son interpretación visual.
