@@ -1421,4 +1421,5 @@ scene.collection.children.link(SOURCE)
 MAT = {
     'bun_base': mat_bun_crust('pan-base', 'Potato bun heel crust'),
     'bun_top': mat_bun_crust('pan-tapa', 'Glossy potato bun crown'),
+    'crumb': mat_crumb(),
 }
