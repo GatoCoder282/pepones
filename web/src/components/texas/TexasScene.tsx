@@ -465,6 +465,9 @@ export default function TexasScene(props: SceneProps) {
   const [hovered, setHovered] = useState<TexasIngredientId | null>(null);
   const anchors = useRef<(THREE.Object3D | null)[]>([]);
   const labels = useRef<(HTMLElement | null)[]>([]);
+  const { progress } = useProgress();
+  const { onProgress } = props;
+  useEffect(() => onProgress(progress), [progress, onProgress]);
   const separated = props.spread > 0.55;
   return (
     <div ref={host} className={styles.canvasHost}>
