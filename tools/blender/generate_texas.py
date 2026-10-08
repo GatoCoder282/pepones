@@ -595,3 +595,16 @@ def bun_bottom():
     point_attr(ob, 'brown', brown)
     point_attr(ob, 'toast', lambda co, n: smoothstep(.8, .99, math.hypot(co.x, co.y)) if co.z > H - .01 else 0.0)
     return ob
+
+
+def bun_top(z_rim):
+    # The crown is hollow underneath: the onion pile and sauce push up into the crumb, so the
+    # rim sits lower than the centre, as the front photo shows.
+    H, hollow = BUN_TOP_HEIGHT, BUN_TOP_HOLLOW
+    prof = [(.95 * (i / 14) ** .85, hollow * (1 - (i / 14) ** 1.7), 1) for i in range(15)]
+    prof += [(.975, -.004, 0), (.996, .004, 0), (1.011, .022, 0)]
+    p = 2.25
+    for i in range(1, 41):
+        phi = (math.pi / 2) * i / 40
+        r = 0.0 if i == 40 else 1.022 * math.cos(phi) ** (2 / p)
+        prof.append((r, .045 + (H - .045) * math.sin(phi) ** (2 / p), 0))
