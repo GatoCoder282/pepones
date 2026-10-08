@@ -15,3 +15,10 @@ const manifest = JSON.parse(
   await readFile(path.join(source, "manifest.json"), "utf8"),
 );
 
+function readGlb(bytes, id) {
+  assert.equal(bytes.toString("ascii", 0, 4), "glTF", `Invalid GLB: ${id}`);
+  assert.equal(bytes.readUInt32LE(4), 2, "Expected glTF 2.0");
+  assert.equal(bytes.readUInt32LE(8), bytes.length, "Incomplete GLB");
+  return JSON.parse(bytes.toString("utf8", 20, 20 + bytes.readUInt32LE(12)));
+}
+
