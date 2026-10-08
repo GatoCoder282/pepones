@@ -613,3 +613,6 @@
   line-height: 1.7;
   max-width: 62ch;
 }
+.notes li + li {
+  margin-top: 6px;
+}
