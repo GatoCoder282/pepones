@@ -131,6 +131,9 @@ export default function TexasStudio() {
       setRevision((v) => v + 1);
     }
   };
+  const send = (kind: ViewCommand["kind"], amount: number) =>
+    setCommand((previous) => ({ kind, amount, id: (previous?.id ?? 0) + 1 }));
+
   return (
     <main id="contenido" className={styles.studio}>
       <header className={styles.header}>
