@@ -366,6 +366,11 @@ export default function TexasStudio() {
                 <h2>{current.name}</h2>
                 {current.quantity && <p className={styles.detailQuantity}>{current.quantity}</p>}
                 <p>{current.description}</p>
+                {current.estimate && (
+                  <p className={styles.estimate}>
+                    <Info size={14} aria-hidden="true" /> {current.estimate}
+                  </p>
+                )}
               </>
             ) : (
               <>
