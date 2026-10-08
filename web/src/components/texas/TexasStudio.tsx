@@ -242,6 +242,9 @@ export default function TexasStudio() {
             </button>
           </div>
         </section>
+
+        <section ref={stage} className={styles.stage} aria-label="Visor 3D de Texas">
+        </section>
       </div>
     </main>
   );
