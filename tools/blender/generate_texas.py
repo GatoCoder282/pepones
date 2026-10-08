@@ -449,3 +449,19 @@ def mat_sauce_original(asset_id):
     rough = g.remap(var, .3, .7, .2, .3)
     normal = g.bump(g.noise(co, 13, 2, .5), .05, .01)
     return g.finish(asset_id, col, rough, normal)
+
+
+def mat_pickle():
+    g = Graph('Crinkle cut pickle')
+    co = g.co()
+    r = g.attr('pickle_r')
+    col = g.ramp(r, [(0, 'BDB168'), (.3, 'ACA24F'), (.62, '958D3B'), (.84, '7A762E'), (.94, '5A5E24'), (1, '464C1C')])
+    seeds = g.voronoi(co, 44)
+    ring = g.mul(g.remap(r, .3, .42, 0, 1, True), g.remap(r, .6, .72, 1, 0, True))
+    seed = g.mul(g.remap(seeds.outputs['Distance'], .05, .13, 1, 0, True), ring)
+    col = g.mix(g.mul(seed, .7), col, 'D8D2A0')
+    col = g.mix(g.attr('pickle_side'), col, '5C6428')
+    var = g.noise(co, 9, 3, .5)
+    rough = g.remap(var, .3, .7, .2, .32)
+    normal = g.bump(g.add(g.mul(seed, .5), g.mul(g.noise(co, 70, 2, .5), .5)), .1, .003)
+    return g.finish('pepinillos', col, rough, normal)
