@@ -2505,3 +2505,8 @@ button {
     gap: 36px;
   }
 }
+@media (prefers-reduced-motion: reduce) {
+  .studio-teaser-visual img {
+    transition: none;
+  }
+}
