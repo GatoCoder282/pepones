@@ -426,3 +426,15 @@ def mat_bun_crust(asset_id, name):
     normal = g.bump(height, .14, .003)
     normal = g.bump(g.noise(co, 4.5, 2, .5), .05, .02, normal)
     return g.finish(asset_id, col, rough, normal)
+
+
+def mat_crumb():
+    g = Graph('Soft potato bun crumb')
+    co = g.co()
+    big = g.voronoi(co, 38)
+    small = g.voronoi(co, 105)
+    holes = g.add(g.remap(big.outputs['Distance'], 0, .2, .9, 0, True), g.remap(small.outputs['Distance'], 0, .14, .5, 0, True))
+    col = g.ramp(holes, [(0, 'F4E2BA'), (.45, 'EAD19C'), (1, 'CBA66A')])
+    col = g.mix(g.mul(g.attr('toast'), .7), col, 'E0A552')
+    normal = g.bump(g.math('SUBTRACT', 1.0, holes), .5, .006)
+    return g.finish('', col, .86, normal)
