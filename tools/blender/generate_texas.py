@@ -209,3 +209,19 @@ def tube(points, radii, ring=6, up=UP, lump=None, twist=None):
         faces.append((start, k2, k))
         faces.append((start + 1, last + k, last + k2))
     return verts, faces
+
+
+def revolve(name, profile, segments, deform, materials):
+    """Profile points (r, z, material slot) from the bottom pole to the top pole."""
+    verts, faces, slots, rings = [], [], [], []
+    for k, (r, z, _) in enumerate(profile):
+        if r <= 1e-9:
+            verts.append(deform(0.0, 0.0, z, 0.0))
+            rings.append([len(verts) - 1])
+            continue
+        ring = []
+        for i in range(segments):
+            a = TAU * i / segments
+            ring.append(len(verts))
+            verts.append(deform(r * math.cos(a), r * math.sin(a), z, a))
+        rings.append(ring)
