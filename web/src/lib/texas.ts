@@ -32,3 +32,17 @@ export interface TexasLayer {
   url: string;
   label: string;
 }
+
+// Order and names follow the confirmed ingredient list; descriptions only restate it
+// and what the reference photo shows.
+export const TEXAS_INGREDIENTS: TexasIngredient[] = [
+  {
+    id: "pan-de-papa",
+    name: "Pan de papa",
+    quantity: "Base y tapa",
+    color: "#dd962d",
+    description:
+      "Va en dos piezas: la base sostiene las capas y la tapa cierra la hamburguesa.",
+    parts: { "pan-base": "base", "pan-tapa": "tapa" },
+  },
+];
