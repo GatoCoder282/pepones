@@ -871,3 +871,24 @@ def cheese(patty):
         sq = (abs(math.cos(a)) ** 4.5 + abs(math.sin(a)) ** 4.5) ** (-1 / 4.5)
         e = .93 * sq * (1 + .03 * nz(math.cos(a) * 2, math.sin(a) * 2, .7, 1, 61))
         return e + sum(amp * gauss_angle(a, c, w) for c, amp, w in tongues)
+    n = 40
+    grid, droop = {}, {}
+    for i in range(n + 1):
+        for j in range(n + 1):
+            u, v = 2 * i / n - 1, 2 * j / n - 1
+            rho = max(abs(u), abs(v))
+            a = math.atan2(v, u) if rho > 0 else 0.0
+            r = rho * edge(a)
+            x, y = r * math.cos(a), r * math.sin(a)
+            hit = cast(x, y)
+            if hit is not None:
+                around = [cast(x + dx, y + dy) for dx, dy in ((.025, 0), (-.025, 0), (0, .025), (0, -.025))]
+                z, d = max([hit[0].z] + [h[0].z for h in around if h is not None]) + .018, 0.0
+            else:
+                rim_r, rim_z = patty_rim(a)
+                d = max(0.0, r - rim_r)
+                z = rim_z + .02 - (.45 * d + 1.8 * d * d)
+                r = rim_r + .02 + d * .75
+                x, y = r * math.cos(a), r * math.sin(a)
+            grid[i, j] = Vector((x, y, z))
+            droop[i, j] = d
