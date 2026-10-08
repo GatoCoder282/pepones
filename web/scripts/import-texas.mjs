@@ -55,3 +55,9 @@ for (const view of ["front", "three-quarter", "exploded"]) {
     .toFile(target);
   renders[view] = { src: `/images/texas/${view}.webp`, width: info.width, height: info.height };
 }
+// The reference photo is shown next to the model and replaces it if WebGL fails.
+const photo = await sharp(path.join(root, manifest.referenceFiles[0]))
+  .resize({ width: 900, withoutEnlargement: true })
+  .webp({ quality: 84 })
+  .toFile(path.join(images, "foto-referencia.webp"));
+
