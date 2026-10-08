@@ -58,3 +58,7 @@ ASSETS = {
     'pan-tapa': dict(ingredient='pan-de-papa', web=1024, coat=.18, coat_rough=.22, ao=.16),
     'papas-cajun': dict(ingredient='papas-cajun', web=512, coat=.08, coat_rough=.3, ao=.08),
 }
+
+
+def rng_for(tag):
+    return random.Random(zlib.crc32(tag.encode()))
