@@ -40,3 +40,5 @@ OUT = args.output.resolve()
 for sub in ['', 'textures', 'textures/web', 'renders', 'glb']:
     (OUT / sub).mkdir(parents=True, exist_ok=True)
 ONLY = {s for s in args.only.split(',') if s}
+TAU = math.tau
+UP = Vector((0, 0, 1))
