@@ -839,3 +839,8 @@ def decimated(high, name, target):
     low.data.validate()
     low.data.update()
     return low
+
+
+def patty_top_mean(patty):
+    zs = [v.co.z for v in patty.data.vertices if v.normal.z > .7 and math.hypot(v.co.x, v.co.y) < .8]
+    return sum(zs) / len(zs)
