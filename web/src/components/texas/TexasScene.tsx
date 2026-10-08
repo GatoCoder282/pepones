@@ -9,3 +9,13 @@ import {
   useGLTF,
   useProgress,
 } from "@react-three/drei";
+import {
+  Component,
+  Suspense,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+  type ReactNode,
+  type RefObject,
+} from "react";
