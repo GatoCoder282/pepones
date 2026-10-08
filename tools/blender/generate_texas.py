@@ -27,3 +27,5 @@ from mathutils.bvhtree import BVHTree
 
 ROOT = Path(__file__).resolve().parents[2]
 REFERENCE = 'photos/texas_burguer_pepones.jpeg'
+parser = argparse.ArgumentParser()
+parser.add_argument('--mode', choices=['preview', 'build'], default='build')
