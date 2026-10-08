@@ -1488,4 +1488,5 @@ recipe = [
     ('pan-base', 0.0, 0.0),
     ('salsa-original-base', BUN_BASE_HEIGHT, 0.0),
     ('pepinillos', BUN_BASE_HEIGHT + sauce_height - .012, 0.0),
+    ('carne', patty_a, PATTY_ROTATIONS[0]),
 ]
