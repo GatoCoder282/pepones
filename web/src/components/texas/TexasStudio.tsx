@@ -297,6 +297,9 @@ export default function TexasStudio() {
               <div className={styles.loading} role="status">
                 <span className={styles.spinner} aria-hidden="true" />
                 <span>Preparando el modelo 3D… {Math.round(progress)} %</span>
+                <span className={styles.progress} aria-hidden="true">
+                  <span style={{ transform: `scaleX(${progress / 100})` }} />
+                </span>
               </div>
             )}
           </div>
