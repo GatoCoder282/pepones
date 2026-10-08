@@ -107,3 +107,8 @@ export const TEXAS_SIDE = {
   position: manifest.side.position as [number, number, number],
   rotation: manifest.side.rotation as [number, number, number],
 };
+
+const byId = new Map(TEXAS_INGREDIENTS.map((i) => [i.id, i]));
+export const ingredientById = (id: TexasIngredientId) => byId.get(id)!;
+export const ingredientNumber = (id: TexasIngredientId) =>
+  TEXAS_INGREDIENTS.findIndex((i) => i.id === id) + 1;
