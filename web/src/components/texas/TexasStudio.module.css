@@ -516,3 +516,22 @@
   overflow: hidden;
   pointer-events: none;
 }
+.tag {
+  position: absolute;
+  left: 0;
+  top: 0;
+  transform: translate3d(-200px, -200px, 0);
+  pointer-events: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 9px;
+  font-size: 12px;
+  font-weight: 600;
+  white-space: nowrap;
+  background: #fff8ebf0;
+  border: 1px solid var(--line);
+  color: var(--ink);
+  border-radius: 2px;
+  will-change: transform;
+}
