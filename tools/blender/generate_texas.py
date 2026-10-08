@@ -51,4 +51,5 @@ ASSETS = {
     'pepinillos': dict(ingredient='pepinillos', web=512, coat=.5, coat_rough=.12, emission=.04),
     'carne': dict(ingredient='carne', web=1024, coat=.16, coat_rough=.32, ao=.06),
     'queso-americano': dict(ingredient='queso-americano', web=512, coat=.4, coat_rough=.14, emission=.07),
+    'tocino': dict(ingredient='tocino', web=768, coat=.14, coat_rough=.25, emission=.015, ao=.06),
 }
