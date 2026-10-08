@@ -92,3 +92,12 @@ def gauss_angle(a, center, width):
 def rgba(hex_color):
     vals = [int(hex_color[i:i + 2], 16) / 255 for i in (0, 2, 4)]
     return tuple(v / 12.92 if v <= .04045 else ((v + .055) / 1.055) ** 2.4 for v in vals) + (1,)
+
+
+# ---------------------------------------------------------------- scene helpers
+
+def select(objects, active=None):
+    bpy.ops.object.select_all(action='DESELECT')
+    for ob in objects:
+        ob.select_set(True)
+    bpy.context.view_layer.objects.active = active or objects[0]
