@@ -1563,3 +1563,6 @@ if args.mode == 'build':
         'assembledTriangles': sum(tri.get(a, 0) for a, _, _ in recipe),
     }
     manifest_path.write_text(json.dumps(manifest, indent=2) + '\n', encoding='utf-8')
+
+cam = studio()
+bpy.ops.wm.save_as_mainfile(filepath=str(OUT / ('texas.blend' if args.mode == 'build' else 'preview-source.blend')), compress=True)
