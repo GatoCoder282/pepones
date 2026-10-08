@@ -356,6 +356,9 @@ export default function TexasStudio() {
             Arrastra para girar y usa la rueda o dos dedos para acercarte. Con
             el teclado: flechas para girar, + y − para el zoom.
           </p>
+
+          <div id="texas-detalle" className={styles.detail} aria-live="polite">
+          </div>
         </section>
       </div>
     </main>
