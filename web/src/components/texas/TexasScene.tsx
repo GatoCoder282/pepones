@@ -199,3 +199,25 @@ function Layer({
     </group>
   );
 }
+
+/** Moves the DOM labels to their projected anchors after every rendered frame. */
+function LabelProjector({
+  anchors,
+  labels,
+}: {
+  anchors: RefObject<(THREE.Object3D | null)[]>;
+  labels: RefObject<(HTMLElement | null)[]>;
+}) {
+  const point = useMemo(() => new THREE.Vector3(), []);
+  useFrame(({ camera, size }) => {
+    anchors.current.forEach((anchor, i) => {
+      const label = labels.current[i];
+      if (!anchor || !label) return;
+      anchor.getWorldPosition(point).project(camera);
+      const x = (point.x * 0.5 + 0.5) * size.width;
+      const y = (-point.y * 0.5 + 0.5) * size.height;
+      label.style.transform = `translate3d(${x.toFixed(1)}px, ${y.toFixed(1)}px, 0) translateY(-50%)`;
+    });
+  });
+  return null;
+}
