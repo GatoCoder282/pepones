@@ -1435,3 +1435,4 @@ MAT = {
 
 print('MODEL geometry', flush=True)
 objects = {}
+objects['pan-base'] = bun_bottom()
