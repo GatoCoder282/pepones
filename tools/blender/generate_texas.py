@@ -484,3 +484,14 @@ def mat_patty():
     height = g.add(g.mul(g.math('SUBTRACT', 1.0, crev), .55), g.mul(n2, .45))
     normal = g.bump(height, .38, .005)
     return g.finish('carne', col, rough, normal)
+
+
+def mat_cheese():
+    g = Graph('Melted American cheese')
+    co = g.co()
+    var = g.noise(co, 3.2, 2, .45)
+    idx = g.add(g.mul(var, .55), g.mul(g.attr('droop'), .45))
+    col = g.ramp(idx, [(0, 'FFC52E'), (.45, 'F7B51C'), (.75, 'EFA612'), (1, 'E3950C')])
+    rough = g.remap(var, .3, .7, .22, .3)
+    normal = g.bump(g.noise(co, 22, 2, .5), .03, .01)
+    return g.finish('queso-americano', col, rough, normal)
