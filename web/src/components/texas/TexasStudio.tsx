@@ -208,6 +208,7 @@ export default function TexasStudio() {
                     aria-controls="texas-detalle"
                     onClick={() => chooseFromList(ingredient.id)}
                   >
+                    <span className={styles.number}>{pad(i + 1)}</span>
                   </button>
                 </li>
               ))}
