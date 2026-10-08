@@ -622,3 +622,14 @@ def bun_top(z_rim):
         return Vector((x, y, z + dz))
 
     ob = revolve('pan-tapa', prof, 96, deform, [MAT['bun_top'], MAT['crumb']])
+
+    def crumb(co, n):
+        return n.z < -.3 and math.hypot(co.x, co.y) < .955
+
+    def brown(co, n):
+        if crumb(co, n):
+            return 0.0
+        zn = co.z / H
+        return .1 + smoothstep(.04, .5, zn) * .34 + smoothstep(.45, 1.0, zn) * .18 + .05 * nz(co.x * 2, co.y * 2, co.z * 2, 1, 17)
+    point_attr(ob, 'brown', brown)
+    point_attr(ob, 'toast', lambda co, n: smoothstep(.8, .95, math.hypot(co.x, co.y)) if crumb(co, n) else 0.0)
