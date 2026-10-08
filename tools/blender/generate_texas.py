@@ -1423,4 +1423,5 @@ MAT = {
     'bun_top': mat_bun_crust('pan-tapa', 'Glossy potato bun crown'),
     'crumb': mat_crumb(),
     'sauce_base': mat_sauce_original('salsa-original-base'),
+    'sauce_top': mat_sauce_original('salsa-original-tapa'),
 }
