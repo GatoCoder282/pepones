@@ -377,6 +377,9 @@ function SceneContents(
     gl.domElement.addEventListener("webglcontextlost", fail);
     return () => gl.domElement.removeEventListener("webglcontextlost", fail);
   }, [gl, onFailure]);
+  useEffect(() => {
+    gl.domElement.style.cursor = hovered ? "pointer" : "";
+  }, [gl, hovered]);
   return (
     <>
     </>
