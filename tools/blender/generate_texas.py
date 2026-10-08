@@ -929,3 +929,40 @@ def bacon():
     specs = [(-.5, .12, 2.5, .37, .0), (-.16, -.1, 2.62, .39, .032), (.2, .2, 2.48, .36, .058),
              (.54, -.15, 2.32, .34, .074), (-.02, .66, 2.3, .35, .1)]
     parts = []
+    for k, (offset, rot, L, W, z0) in enumerate(specs):
+        nx, ny = 76, 6
+        phase, lam, amp = rng.uniform(0, TAU), rng.uniform(.26, .4), rng.uniform(.045, .06)
+        verts, faces, uvs, crisp = [], [], [], []
+        c, s = math.cos(rot), math.sin(rot)
+        for j in range(ny + 1):
+            for i in range(nx + 1):
+                u, v = i / nx, j / ny
+                x = (u - .5) * L
+                w = W * (1 + .12 * math.sin(u * 23 + k) + .06 * math.sin(u * 61 + 2 * k))
+                y = (v - .5) * w + .035 * math.sin(u * 7 + k * 1.3)
+                wave = math.sin(TAU * x / lam + phase + .9 * math.sin(x * 1.3 + k))
+                z = amp * wave * (.55 + .45 * (fbm(x, k, 0, .9, 2, 71) + 1) * .5)
+                z += .014 * math.sin(TAU * x / (lam * .43) + 2 * phase) + .028 * fbm(x, k, 1, 1.6, 3, 72)
+                z += .022 * (2 * v - 1) ** 2 * math.sin(TAU * x / (lam * .5) + phase * 1.7)
+                z += (v - .5) * w * .22 * math.sin(x * 2.1 + k)
+                z += .008 * nz(x * 4, y * 4, k, 1, 70)
+                xw, yw = x * c - y * s, x * s + y * c + offset
+                rw = math.hypot(xw, yw)
+                z += z0 + amp - .55 * max(0.0, rw - 1.0) ** 1.5
+                verts.append(Vector((xw, yw, z)))
+                uvs.append((u, v))
+                crisp.append(min(1.0, (2 * v - 1) ** 6 * .8 + smoothstep(.6, 1, abs(math.sin(TAU * x / lam + phase))) * .3 + smoothstep(.42, .5, abs(u - .5)) * .6))
+        for j in range(ny):
+            for i in range(nx):
+                a = j * (nx + 1) + i
+                faces.append((a, a + 1, a + nx + 2, a + nx + 1))
+        ob = mesh_object('bacon strip %d' % k, verts, faces, [MAT['bacon']])
+        layer = ob.data.uv_layers.new(name='BaconSurface')
+        for poly in ob.data.polygons:
+            for li in poly.loop_indices:
+                layer.data[li].uv = uvs[ob.data.loops[li].vertex_index]
+        for name, values in [('strip', [k / len(specs)] * len(verts)), ('crisp', crisp)]:
+            attr = ob.data.attributes.new(name, 'FLOAT', 'POINT')
+            attr.data.foreach_set('value', values)
+        apply_modifier(ob, 'SOLIDIFY', thickness=.022, offset=0.0, use_even_offset=True)
+        parts.append(ob)
