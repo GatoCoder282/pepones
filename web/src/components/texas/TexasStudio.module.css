@@ -445,3 +445,8 @@
   line-height: 1;
   color: var(--green);
 }
+.detail p:not(.detailMeta) {
+  margin-top: 8px;
+  font-size: 15px;
+  line-height: 1.55;
+}
