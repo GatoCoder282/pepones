@@ -1490,4 +1490,5 @@ recipe = [
     ('pepinillos', BUN_BASE_HEIGHT + sauce_height - .012, 0.0),
     ('carne', patty_a, PATTY_ROTATIONS[0]),
     ('queso-americano', patty_a + anchors['queso-americano'], PATTY_ROTATIONS[0]),
+    ('carne', patty_b, PATTY_ROTATIONS[1]),
 ]
