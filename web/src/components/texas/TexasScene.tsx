@@ -114,3 +114,56 @@ function useAsset(url: string) {
     return { object: clone, materials, middle: (box.min.y + box.max.y) / 2 };
   }, [scene]);
 }
+
+function Layer({
+  layer,
+  spread,
+  selected,
+  hovered,
+  setHovered,
+  onSelect,
+  reducedMotion,
+  compact,
+  anchor,
+}: Pointing & {
+  layer: TexasLayer;
+  spread: number;
+  selected: TexasIngredientId | null;
+  onSelect: (id: TexasIngredientId) => void;
+  reducedMotion: boolean;
+  compact: boolean;
+  anchor: (group: THREE.Group | null) => void;
+}) {
+  const { object, materials, middle } = useAsset(layer.url);
+  const group = useRef<THREE.Group>(null);
+  const tag = useRef<THREE.Group>(null);
+  const chosen = selected === layer.ingredientId;
+  const pointed = hovered === layer.ingredientId;
+  const toViewer = useMemo(() => new THREE.Vector3(), []);
+  const right = useMemo(() => new THREE.Vector3(), []);
+  return (
+    <group
+      ref={group}
+      position={[0, layer.y, 0]}
+      onClick={(e) => {
+        e.stopPropagation();
+        onSelect(layer.ingredientId);
+      }}
+      onPointerOver={(e) => {
+        e.stopPropagation();
+        setHovered(layer.ingredientId);
+      }}
+      onPointerOut={() => setHovered(null)}
+    >
+      <group rotation={layer.rotation}>
+        <primitive object={object} />
+      </group>
+      <group
+        ref={(g) => {
+          tag.current = g;
+          anchor(g);
+        }}
+      />
+    </group>
+  );
+}
