@@ -1240,3 +1240,8 @@ def bake(asset_id, low, high=None):
     images['orm'] = bpy.data.images.new(asset_id + '_orm', size, size)
     images['orm'].colorspace_settings.name = 'Non-Color'
     images['orm'].pixels.foreach_set(orm.ravel())
+    for name in ['color', 'orm', 'normal']:
+        im = images[name]
+        im.filepath_raw = str(OUT / 'textures' / ('%s_%s.png' % (asset_id, name)))
+        im.file_format = 'PNG'
+        im.save()
