@@ -1328,3 +1328,11 @@ def export_web_asset(ob, asset_id):
 
 def point_at(ob, target):
     ob.rotation_euler = (Vector(target) - ob.location).to_track_quat('-Z', 'Y').to_euler()
+
+
+def studio():
+    world = bpy.context.scene.world or bpy.data.worlds.new('World')
+    bpy.context.scene.world = world
+    world.use_nodes = True
+    world.node_tree.nodes['Background'].inputs[0].default_value = (.62, .6, .58, 1)
+    world.node_tree.nodes['Background'].inputs[1].default_value = .22
