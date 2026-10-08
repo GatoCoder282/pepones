@@ -56,3 +56,6 @@ interface Pointing {
   hovered: TexasIngredientId | null;
   setHovered: (id: TexasIngredientId | null) => void;
 }
+
+// Extra height between consecutive layers when fully separated.
+const GAP = 0.27;
