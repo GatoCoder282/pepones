@@ -349,3 +349,20 @@ function CameraRig({
   });
   return null;
 }
+
+function SceneContents(
+  props: SceneProps &
+    Pointing & {
+      anchors: RefObject<(THREE.Object3D | null)[]>;
+      labels: RefObject<(HTMLElement | null)[]>;
+    },
+) {
+  const { gl } = useThree();
+  const controls = useRef<OrbitControlsImpl>(null);
+  const [sideRequested, setSideRequested] = useState(false);
+  const { onReady, onFailure, hovered, anchors, showSide } = props;
+  return (
+    <>
+    </>
+  );
+}
