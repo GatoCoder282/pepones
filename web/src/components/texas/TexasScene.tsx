@@ -253,3 +253,29 @@ function framing(spread: number, showSide: boolean, aspect: number) {
     radius: Math.min(Math.max(distance, 5.2), 17),
   };
 }
+
+function CameraRig({
+  controls,
+  spread,
+  showSide,
+  resetKey,
+  command,
+  reducedMotion,
+  compact,
+}: {
+  controls: RefObject<OrbitControlsImpl | null>;
+  spread: number;
+  showSide: boolean;
+  resetKey: number;
+  command: ViewCommand | null;
+  reducedMotion: boolean;
+  compact: boolean;
+}) {
+  const { camera, size, invalidate } = useThree();
+  const goal = useRef<{ target: THREE.Vector3; radius: number; theta?: number; phi?: number } | null>(null);
+  const spherical = useMemo(() => new THREE.Spherical(), []);
+  const offset = useMemo(() => new THREE.Vector3(), []);
+  const aspect = size.width / Math.max(size.height, 1);
+
+  return null;
+}
