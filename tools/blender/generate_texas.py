@@ -1495,4 +1495,5 @@ recipe = [
     ('tocino', bacon_y, 0.0),
     ('salsa-barbacoa', bacon_y + anchors['salsa-barbacoa'], 0.0),
     ('cebolla-crispy', bacon_y + anchors['cebolla-crispy'], 0.0),
+    ('salsa-original-tapa', bacon_y + anchors['salsa-original-tapa'], 0.0),
 ]
